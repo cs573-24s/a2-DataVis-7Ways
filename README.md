@@ -1,5 +1,13 @@
 # 02-DataVis-7ways
 
+Excel
+R + ggplot
+Python + altair
+d3.js
+Tableau
+6?
+7?
+
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
