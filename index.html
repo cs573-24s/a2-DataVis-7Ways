@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+  <body>
+    <div>
+      <svg></svg>
+      <svg id="legend" height="200" width="150" style="padding-bottom: 150" />
+    </div>
+    <div id="tooltips">Species:</div>
+    <div id="tooltipfl">Flipper Length:</div>
+    <div id="tooltipbm">Body Mass:</div>
+    <div id="tooltipbl">Bill Length:</div>
+  </body>
+
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script type="module">
+    //code modified from https://d3-graph-gallery.com/graph/scatter_basic.html
+    //https://stackoverflow.com/questions/11189284/d3-axis-labeling
+    //https://d3-graph-gallery.com/graph/custom_legend.html
+    //https://medium.com/@kj_schmidt/show-data-on-mouse-over-with-d3-js-3bf598ff8fc2
+    let margin = { top: 10, right: 30, bottom: 80, left: 60 };
+    let width = 460 - margin.left - margin.right;
+    let height = 400 - margin.top - margin.bottom;
+
+    let tooltips = d3.select("#tooltips");
+    let tooltipfl = d3.select("#tooltipfl");
+    let tooltipbm = d3.select("#tooltipbm");
+    let tooltipbl = d3.select("#tooltipbl");
+    // setting up size of svg, and g element groups svg shapes together
+    let legend = d3.select("#legend");
+    let svg = d3
+      .select("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // shifts over for spacing
+
+    //read in penglings
+    d3.csv(
+      "https://raw.githubusercontent.com/bhnord/a2-DataVis-7Ways/main/penglings.csv",
+    ).then(function (data) {
+      //create linear scale from x to width -- x axis ticks
+      let x = d3.scaleLinear().domain([170, 235]).range([0, width]);
+
+      svg
+        .append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+      let y = d3.scaleLinear().domain([2500, 6500]).range([height, 0]);
+      svg.append("g").call(d3.axisLeft(y));
+
+      svg
+        .append("g")
+        .selectAll("dot")
+        .data(data)
+        .join("circle")
+        .attr("cx", function (d) {
+          return x(d.flipper_length_mm);
+        })
+        .attr("cy", function (d) {
+          return y(d.body_mass_g);
+        })
+        //TODO: fixme
+        .attr("r", function (d) {
+          return (d.bill_length_mm / 10) ** 1.25;
+        })
+        .attr("opacity", "0.7")
+        .style("fill", function (d) {
+          if (d.species === "Gentoo") {
+            return "#479f9f";
+          } else if (d.species === "Chinstrap") {
+            return "purple";
+          } else {
+            return "orange";
+          }
+        })
+        .on("mouseover", function (d, i) {
+          tooltips.html(`Species: ${i.species}`);
+          tooltipfl.html(`Flipper Length: ${i.flipper_length_mm}`);
+          tooltipbm.html(`Body Mass: ${i.body_mass_g}`);
+          tooltipbl.html(`Bill Length: ${i.bill_length_mm}`);
+          d3.select(this).style("stroke", "red");
+        })
+        .on("mouseout", function (d) {
+          tooltips.html(`Species:`);
+          tooltipfl.html(`Flipper Length:`);
+          tooltipbm.html(`Body Mass:`);
+          tooltipbl.html(`Bill Length:`);
+          d3.select(this).style("stroke", "none");
+        });
+
+      //axis labels
+      svg
+        .append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", width - 130)
+        .attr("y", height + 40)
+        .text("Flipper Length (mm)");
+      svg
+        .append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("y", -55)
+        .attr("x", -85)
+        .attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .text("Body Mass (g)");
+    });
+
+    //bill_length_legend
+    legend.append("text").attr("x", 40).attr("y", 130).text("bill_length_mm");
+    legend
+      .append("circle")
+      .attr("cx", 50)
+      .attr("cy", 150)
+      .attr("r", (40 / 10) ** 1.25)
+      .style("fill", "grey");
+    legend
+      .append("circle")
+      .attr("cx", 50)
+      .attr("cy", 170)
+      .attr("r", (50 / 10) ** 1.25)
+      .style("fill", "grey");
+    legend
+      .append("text")
+      .attr("x", 70)
+      .attr("y", 150)
+      .text("40")
+      .style("font-size", "15px")
+      .attr("alignment-baseline", "middle");
+    legend
+      .append("text")
+      .attr("x", 70)
+      .attr("y", 170)
+      .text("50")
+      .style("font-size", "15px")
+      .attr("alignment-baseline", "middle");
+
+    //species legend
+    legend.append("text").attr("x", 40).attr("y", 30).text("species");
+    legend
+      .append("circle")
+      .attr("cx", 50)
+      .attr("cy", 50)
+      .attr("r", 6)
+      .style("fill", "#479f9f");
+    legend
+      .append("circle")
+      .attr("cx", 50)
+      .attr("cy", 70)
+      .attr("r", 6)
+      .style("fill", "purple");
+    legend
+      .append("circle")
+      .attr("cx", 50)
+      .attr("cy", 90)
+      .attr("r", 6)
+      .style("fill", "orange");
+    legend
+      .append("text")
+      .attr("x", 70)
+      .attr("y", 50)
+      .text("Gentoo")
+      .style("font-size", "15px")
+      .attr("alignment-baseline", "middle");
+    legend
+      .append("text")
+      .attr("x", 70)
+      .attr("y", 70)
+      .text("Chinstrap")
+      .style("font-size", "15px")
+      .attr("alignment-baseline", "middle");
+    legend
+      .append("text")
+      .attr("x", 70)
+      .attr("y", 90)
+      .text("Adelie")
+      .style("font-size", "15px")
+      .attr("alignment-baseline", "middle");
+  </script>
+</html>
