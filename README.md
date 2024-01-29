@@ -10,6 +10,30 @@ Since every element had to be created manually, the effort involved with this vi
 ![d3_no_hover](./img/d3_1.png)
 ![d3_hover](./img/d3_2.png)
 
+#### Sources:
+
+[1](https://d3-graph-gallery.com/graph/scatter_basic.html)
+[2](https://stackoverflow.com/questions/11189284/d3-axis-labeling)
+[3](https://d3-graph-gallery.com/graph/custom_legend.html)
+[4](https://medium.com/@kj_schmidt/show-data-on-mouse-over-with-d3-js-3bf598ff8fc2)
+
+## Python + Seaborn + Pandas + Matplotlib
+
+This visualization tool was extremely easy to use.
+It takes almost no effort (one line) to create a very nice looking graph and legend from the data.
+To visualize the data, all you have to do is pass load the csv with pandas,
+then use seaborn and matplotlib tools to plot this data.
+When you make differentiate things by color, or size (ex. species and bill_depth_mm)
+the program automatically creates a legend for you.
+The program also offers a good amount of customizability, allowing the user to choose things in depth,
+while also offering many different themes that work out of the box.
+
+![seaborn_plot](./img/seaborn.png)
+
+#### Sources
+
+[1](https://stackoverflow.com/questions/14885895/color-a-scatter-plot-by-column-values)
+
 ### Design Achievements
 
 Some of the design achievements that I attempted to achieve is clearly showing the visualization to the user.
