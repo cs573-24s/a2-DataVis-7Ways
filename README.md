@@ -21,12 +21,14 @@ Since every element had to be created manually, the effort involved with this vi
 
 This visualization tool was extremely easy to use.
 It takes almost no effort (one line) to create a very nice looking graph and legend from the data.
+These tools are used a lot to preprocess and explore data when viewing data for AI / ML
 To visualize the data, all you have to do is pass load the csv with pandas,
 then use seaborn and matplotlib tools to plot this data.
 When you make differentiate things by color, or size (ex. species and bill_depth_mm)
 the program automatically creates a legend for you.
 The program also offers a good amount of customizability, allowing the user to choose things in depth,
 while also offering many different themes that work out of the box.
+To get the chart to closer mimic the example plot, I had to change a few of the pre-set stylings, such as the color.
 
 ![seaborn_plot](./img/seaborn.png)
 
@@ -34,18 +36,33 @@ while also offering many different themes that work out of the box.
 
 [1](https://stackoverflow.com/questions/14885895/color-a-scatter-plot-by-column-values)
 
-### Design Achievements
-
-Some of the design achievements that I attempted to achieve is clearly showing the visualization to the user.
-I also clearly allowed the user to see which element they were hovering on in the main visualization by
-having a red circle (as can be seen in photo 2).
-This, linked with the detailed numbers shown on the bottom depending on which element is hovered on provides
-a good experience for the user.
-
 ### Technical Achievements
 
-Some of the technical achievements I achieved, was showing an element's detailed information on hover in D3.
+#### Showing an Element's Detailed information on Hover in D3
+
 I did this by adding "mousehover" and "mouseoff" elements to each circle when it was drawn.
 When the user hovers over the element, the bottom updates with the information relevant to that element,
-as well as adds a red outline to show which element is being hovered over.
+
+#### Showing a Red Circle Around Hovered Item in D3
+
+I did this by also using the "mousehover" and "mouseoff" elements.
+When the user hovers over an element, I add a red outline to the selected element so the user knows which element is selected
 When the user stops hovering, this red outline goes away, and the information on the bottom disappears.
+
+### Design Achievements
+
+#### Clear Legend on All Charts
+
+For every chart, I included a legend showing which species corresponded with which color,
+as well as an example circle size for the bill_length_mm value
+
+#### Consistent Color Choice
+
+For every chart, I used the same colors, matching the hex colors used in the example plot.
+
+#### Allow User to See Which Element is Being Hovered
+
+I clearly allowed the user to see which element they were hovering on in the main visualization by
+having a red circle (as can be seen in photo 2 in the D3 section).
+This, linked with the detailed numbers shown on the bottom depending on which element is hovered on provides
+a good experience for the user.

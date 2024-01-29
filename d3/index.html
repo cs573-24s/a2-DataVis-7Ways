@@ -68,9 +68,9 @@
           if (d.species === "Gentoo") {
             return "#479f9f";
           } else if (d.species === "Chinstrap") {
-            return "purple";
+            return "#9933cb";
           } else {
-            return "orange";
+            return "#fba044";
           }
         })
         .on("mouseover", function (d, i) {
@@ -149,13 +149,13 @@
       .attr("cx", 50)
       .attr("cy", 70)
       .attr("r", 6)
-      .style("fill", "purple");
+      .style("fill", "#9933cb");
     legend
       .append("circle")
       .attr("cx", 50)
       .attr("cy", 90)
       .attr("r", 6)
-      .style("fill", "orange");
+      .style("fill", "#fba044");
     legend
       .append("text")
       .attr("x", 70)
