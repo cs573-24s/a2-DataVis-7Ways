@@ -134,6 +134,7 @@ While it takes time to find the correct documentation, these functions made the 
 
 # d3...
 
+![Alt text](image-1.png)
 (And so on...)
 
 
