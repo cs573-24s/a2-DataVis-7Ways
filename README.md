@@ -152,3 +152,6 @@ While it takes time to find the correct documentation, these functions made the 
 # vega-lite
 
 ![Alt text](image-2.png)
+
+# altair
+![Alt text](image-3.png)
