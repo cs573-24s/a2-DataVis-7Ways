@@ -1,0 +1,22 @@
+{ 
+    "width": 800,
+    "height": 600,
+    "data": {"url": "penglings.csv"},
+    "mark": {"type":"point","opacity":0.8},
+    "encoding": {
+      "x": {
+        "field": "flipper_length_mm",
+        "type": "quantitative",
+        "scale": {"domain": [170,240]}
+      },
+      "y": {
+        "field": "body_mass_g",
+        "type": "quantitative",
+        "scale": {"domain": [2500,6400]}
+      },
+      "fill": {"field": "species", "type": "nominal","scale": {"domain": ["Adelie", "Chinstrap", "Gentoo"],"range": ["#DC4D01", "#9932CC", "#008B8B"]}},
+      "color": {"field": "species", "type": "nominal","scale": {"domain": ["Adelie", "Chinstrap", "Gentoo"],"range": ["#DC4D01", "#9932CC", "#008B8B"]}},
+      "size": {"field": "bill_length_mm", "type": "quantitative"}
+    }
+  }
+  
