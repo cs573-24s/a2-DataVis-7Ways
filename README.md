@@ -148,3 +148,7 @@ While it takes time to find the correct documentation, these functions made the 
 # powerbi 
 
 ![Alt text](image.png)
+
+# vega-lite
+
+![Alt text](image-2.png)
