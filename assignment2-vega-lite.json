@@ -7,12 +7,14 @@
       "x": {
         "field": "flipper_length_mm",
         "type": "quantitative",
-        "scale": {"domain": [170,240]}
+        "scale": {"domain": [170,240]},
+        "axis": {"title":"Flipper length (mm)"}
       },
       "y": {
         "field": "body_mass_g",
         "type": "quantitative",
-        "scale": {"domain": [2500,6400]}
+        "scale": {"domain": [2500,6400]},
+        "axis": {"title":"Body mass (g)"}
       },
       "fill": {"field": "species", "type": "nominal","scale": {"domain": ["Adelie", "Chinstrap", "Gentoo"],"range": ["#DC4D01", "#9932CC", "#008B8B"]}},
       "color": {"field": "species", "type": "nominal","scale": {"domain": ["Adelie", "Chinstrap", "Gentoo"],"range": ["#DC4D01", "#9932CC", "#008B8B"]}},

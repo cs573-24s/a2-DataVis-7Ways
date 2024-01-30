@@ -154,8 +154,7 @@ While it takes time to find the correct documentation, these functions made the 
 ![Alt text](image-2.png)
 
 # altair
-![Alt text](image-5.png)
-
+![Alt text](<visualization (1).png>)
 # flourish
 
 ![Alt text](image-4.png)
