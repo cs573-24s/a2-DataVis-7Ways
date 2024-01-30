@@ -10,7 +10,7 @@ Since every element had to be created manually, the effort involved with this vi
 ![d3_no_hover](./img/d3_1.png)
 ![d3_hover](./img/d3_2.png)
 
-#### Sources:
+#### Sources
 
 [1](https://d3-graph-gallery.com/graph/scatter_basic.html)
 [2](https://stackoverflow.com/questions/11189284/d3-axis-labeling)
@@ -35,6 +35,24 @@ To get the chart to closer mimic the example plot, I had to change a few of the 
 #### Sources
 
 [1](https://stackoverflow.com/questions/14885895/color-a-scatter-plot-by-column-values)
+
+## Python + Altair + Pandas
+
+This visualization tool was also extremely easy to use.
+It took almost no effort to create a very nice looking graph and legend from the data.
+The syntax was very nice and easy to pick up and allowed me to quickly create a graph with
+relevant visuals and customize it how I liked.
+I think compared to the other tool I used in Python (Seaborn), Seaborn has a little bit nicer default settings
+which makes it easy to quickly visualize something, but Altair makes it a lot easier to customize the visualization and
+get it exactly how you like it. I think between the two I would prefer Altair better, as you can display things very easily
+and the library feels a bit more Pythonic and simple.
+
+![altair_chart](./img/altair.png)
+
+#### Sources
+
+[1](https://altair-viz.github.io/user_guide/customization.html#customizing-colors)
+[2](https://altair-viz.github.io/gallery/scatter_tooltips.html)
 
 ### Technical Achievements
 
