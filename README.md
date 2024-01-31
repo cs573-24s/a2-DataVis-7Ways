@@ -134,7 +134,7 @@ While it takes time to find the correct documentation, these functions made the 
 
 # d3...
 
-![Alt text](d3.png)
+![Alt text](img/d3.png)
 (And so on...)
 
 
@@ -150,11 +150,11 @@ While it takes time to find the correct documentation, these functions made the 
 ![Alt text](image.png)
 
 # vega-lite
-![Alt text](vega-lite.png)
+![Alt text](img/vega-lite.png)
 
 # altair
-![Alt text](<altair.png>)
+![Alt text](img/altair.png)
 
 # flourish
 
-![Alt text](flourish.png)
+![Alt text](img/flourish.png)
