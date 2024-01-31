@@ -133,9 +133,51 @@ While it takes time to find the correct documentation, these functions made the 
 ![ggplot2](img/ggplot2.png)
 
 # d3...
-
 ![Alt text](img/d3.png)
-(And so on...)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * flexible
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+# Flourish
+![Alt text](img/flourish.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free edition for try
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
 
 
 ## Technical Achievements
@@ -146,15 +188,144 @@ While it takes time to find the correct documentation, these functions made the 
 - **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
 
 # powerbi 
-
 ![Alt text](image.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free desktop edition
+      * data manipulation capabilities
+      * plenty of examples and communities
+           
+Disadvantage: 
+      * not flexible enough like ggplot
+            * for example: only 1 legend is available
+
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+# Flourish
+![Alt text](img/flourish.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free edition for try
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+
 
 # vega-lite
 ![Alt text](img/vega-lite.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
 
-# altair
-![Alt text](img/altair.png)
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free edition for try
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
 
-# flourish
-
+# Flourish
 ![Alt text](img/flourish.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free edition for try
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+
+# Altair
+![Alt text](img/altair.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free edition for try
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+# Flourish
+![Alt text](img/flourish.png)
+Tool: flourish 
+Link: https://app.flourish.studio/projects
+
+What steps are done: 
+      * create login
+      * upload data
+      * draw report
+Advantage: 
+      * easy to work
+      * free edition for try
+      * plenty of examples and templates
+           
+Disadvantage: 
+      * not flexible
+            * for example: only 1 legend is available
+      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+Where do I see this in future:
+      * if it improves the data manipulation ection it has potential to grow
+Hacks: 
+      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
