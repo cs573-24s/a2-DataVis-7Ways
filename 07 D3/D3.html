@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penglings Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="penglings"></div>
+    <script>
+        const margin = {top: 20, right: 60, bottom: 50, left: 60};
+        const width = 800 - margin.left - margin.right;
+        const height = 400 - margin.top - margin.bottom;
+
+        const svg = d3.select("#penglings").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const x = d3.scaleLinear().domain([166, 250]).range([0, width]);
+        const y = d3.scaleLinear().domain([2500, 6500]).range([height, 0]);
+        const colorScale = d3.scaleOrdinal().domain(["Adelie", "Gentoo", "Chinstrap"]).range(["darkorange", "darkgreen", "purple"]);
+
+        const tooltip = d3.select("body").append("div").attr("class", "tooltip");
+
+        svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(x));
+        svg.append("g").call(d3.axisLeft(y));
+
+        // Axis Labels  
+        svg.append("text").attr("transform", `translate(${width/2},${height + margin.top + 20})`).style("text-anchor", "middle").text("Flipper Length (mm)");
+        svg.append("text").attr("transform", "rotate(-90)").attr("y", 0 - margin.left).attr("x",0 - (height / 2)).attr("dy", "1em").style("text-anchor", "middle").text("Body Mass (g)");
+
+        d3.csv("penglings.csv").then(data => {
+            const rScale = d3.scaleLinear()
+                .domain([d3.min(data, d => +d.bill_length_mm), d3.max(data, d => +d.bill_length_mm)])
+                .range([4, 9]);
+
+            svg.selectAll("circle")
+                .data(data)
+                .enter().append("circle")
+                .attr("cx", d => x(+d.flipper_length_mm))
+                .attr("cy", d => y(+d.body_mass_g))
+                .attr("r", d => rScale(+d.bill_length_mm))
+                .style("fill", d => colorScale(d.species))
+                .style("opacity", 0.8)
+                .style("stroke", d => d3.rgb(colorScale(d.species)).darker())
+
+                // Tooltip setup for mouseover for each circle  
+                .on("mouseover", (event, d) => {
+                    tooltip.html(`Species: ${d.species}<br/>Flipper Length: ${d.flipper_length_mm} mm<br/>Bill Length: ${d.bill_length_mm} mm<br/>Body Mass: ${d.body_mass_g} g`)
+                           .style("left", `${event.pageX}px`)     
+                           .style("top", `${event.pageY - 28}px`)
+                           .transition().duration(200).style("opacity", .9); 
+                })
+                .on("mouseout", () => tooltip.transition().duration(500).style("opacity", 0))
+                
+                                
+                // Legend setup
+                const legendData = colorScale.domain();
+                const legend = svg.selectAll(".legend")
+                    .data(legendData)
+                    .enter().append("g")
+                    .attr("class", "legend")
+                    .attr("transform", (d, i) => `translate(0,${i * 20})`);
+
+                // Drawing legend colored circles
+                legend.append("circle")
+                    .attr("cx", width - 30)
+                    .attr("cy", 9)
+                    .attr("r", 6)
+                    .style("fill", colorScale);
+
+                // Drawing legend text
+                legend.append("text")
+                    .attr("x", width - 10)
+                    .attr("y", 9)
+                    .attr("dy", ".35em")
+                    .style("text-anchor", "start")
+                    .text(d => d);
+
+        });
+    </script>
+</body>
+</html>
