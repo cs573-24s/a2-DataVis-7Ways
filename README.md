@@ -5,7 +5,7 @@ R + ggplot
 Python + altair
 d3.js
 Tableau
-6?
+Flourish
 7?
 
 Assignment 2 - Data Visualization, 7 Ways  
