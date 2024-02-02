@@ -5,7 +5,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 # D3 + JavaScript Visualization
 
-- **D3:** Offers high flexibility, allowing developers to create custom and intricate visualizations tailored to specific needs.**JavaScript:** Being a general-purpose language, JavaScript provides flexibility and versatility in handling various aspects of web development and visualization.
+- **D3:** Offers high flexibility, allowing developers to create custom and intricate visualizations tailored to specific needs. **JavaScript:** Being a general-purpose language, JavaScript provides flexibility and versatility in handling various aspects of web development and visualization.
 
 - In this visualization, I used D3, a powerful JavaScript library for creating dynamic and interactive data visualizations. The goal was to replicate a scatterplot.
 
@@ -18,6 +18,7 @@ Assignment 2 - Data Visualization, 7 Ways
 - This D3 + JavaScript visualization closely achieves the functionality, allowing for interactive exploration of the penguins dataset.
 
 ![alt text](<01 JS + D3/D3.jpg>)
+
 
 # d3...
 
