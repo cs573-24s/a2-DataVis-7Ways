@@ -16,9 +16,7 @@ I utilized D3's data binding and enter-update-exit pattern to create circles rep
 I added x and y axes to provide context to the scatterplot. Axis labels for "Flipper Length (mm)" and "Body Mass (g)" were included to guide the viewer.
 
 This D3 + JavaScript visualization closely achieves the functionality, allowing for interactive exploration of the penguins dataset.
-
-![D3](01 JS + D3/D3.jpg)
-
+![Alt text](01 JS + D3/D3.jpg)
 
 # d3...
 
