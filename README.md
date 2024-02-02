@@ -3,7 +3,7 @@
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
-# D3 + JavaScript Visualization
+# D3 + JavaScript 
 
 - **D3:** Offers high flexibility, allowing developers to create custom and intricate visualizations tailored to specific needs. **JavaScript:** Being a general-purpose language, JavaScript provides flexibility and versatility in handling various aspects of web development and visualization.
 
@@ -20,7 +20,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ![alt text](<01 JS + D3/D3.jpg>)
 
 
-# Python + Plotly Visualization
+# Python + Plotly 
 
 - **Python + Plotly** is a powerful combination for interactive and visually appealing data visualization. Plotly is a Python graphing library that enables the creation of various types of plots, charts, and dashboards. It provides a high-level interface for creating complex visualizations with ease. 
 
@@ -29,7 +29,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ![alt text](<02 Python + Plotly/Plotly.png>)
 
 
-# Python + Altair Visualization
+# Python + Altair 
 
 - **Python + Altair** 
 - 
