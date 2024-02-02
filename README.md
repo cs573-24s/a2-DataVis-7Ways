@@ -20,9 +20,20 @@ Assignment 2 - Data Visualization, 7 Ways
 ![alt text](<01 JS + D3/D3.jpg>)
 
 
-# d3...
+# Python + Plotly Visualization
 
-(And so on...)
+- **Python + Plotly** is a powerful combination for interactive and visually appealing data visualization. Plotly is a Python graphing library that enables the creation of various types of plots, charts, and dashboards. It provides a high-level interface for creating complex visualizations with ease. 
+
+- Plotly allows the creation of interactive plots, which can be explored and manipulated by end-users. Zoom, pan, hover, and click functionalities enhance the interactivity.
+ 
+ [text](<02 Python + Plotly/Plotly.py>)
+
+
+# Python + Altair Visualization
+
+- **Python + Altair** 
+- 
+
 
 
 ## Technical Achievements
@@ -33,15 +44,18 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Scales and Axes**: Scales (e.g., xScale and yScale) and axes (e.g., d3.axisBottom and d3.axisLeft) are implemented to properly position and scale the data on the scatterplot.
 - **Dynamic Tooltip Interaction**: The inclusion of a dynamic tooltip (const tooltip = d3.select("#scatterplot").append("div").attr("class", "tooltip");) enhances user interaction by providing detailed information on mouseover events.
 
-### Python + 
+### Python + Plotly
+- **Feature Normalization**: Applied normalization to the bill_length_mm column, ensuring that data falls within a consistent range. Used the min-max normalization technique to standardize the values.
+- **Scaled Sizes Calculation**: ntroduced a scaled_sizes column based on the normalized bill_length_mm, allowing for more meaningful size representations. Adjusted the scaling factor to enhance the visual impact of the scatter plot.
+
+### Python + Altair 
 - **SVG**: 
 - **SVG**: 
 - **SVG**: 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
+
+
+
+
 
 ### Design Achievements
 ### JS + D3
@@ -51,12 +65,11 @@ Assignment 2 - Data Visualization, 7 Ways
 - **User Interaction**: The inclusion of mouseover and mouseout events for circles provides a user-friendly interaction by displaying additional information when hovering over data points.
 
 
-### Python + 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
+### Python + Plotly
+- **Labels and Axes**: learly labeled the x-axis and y-axis as "Flipper Length (mm)" and "Body Mass (g)," respectively, enhancing the interpretability of the scatter plot. Ensured proper titling for axes and legend for a more informative visualization.
+- **Margin and Layout**: Adjusted margin settings (left, right, top, bottom) to optimize the layout and spacing of the plot Achieved a balanced and aesthetically pleasing design.
+
+### Python + Altair 
 - **SVG**: 
 - **SVG**: 
 - **SVG**: 
