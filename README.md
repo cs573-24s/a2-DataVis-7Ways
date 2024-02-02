@@ -31,8 +31,15 @@ Assignment 2 - Data Visualization, 7 Ways
 
 # Python + Altair 
 
-- **Python + Altair** 
-- 
+- **Python + Altair**Python + Altair refers to using the Python programming language in conjunction with the Altair library for data visualization. 
+- **Python**: Python is a versatile and widely used programming language. In the context of data visualization, Python is often chosen for its readability, ease of use, and a rich ecosystem of libraries. **Altair**: Altair is a Python library for declarative data visualization. It allows you to express visualizations in a concise and intuitive manner using a grammar of graphics approach. Altair generates Vega-Lite specifications under the hood, which are then rendered into interactive visualizations.
+- Both Plotly and Altair can add title for the chart though I did not.
+
+ ![alt text](<03 Python + Altair/Altair.png>)
+
+
+# Datawrapper
+
 
 
 
@@ -49,11 +56,14 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Scaled Sizes Calculation**: ntroduced a scaled_sizes column based on the normalized bill_length_mm, allowing for more meaningful size representations. Adjusted the scaling factor to enhance the visual impact of the scatter plot.
 
 ### Python + Altair 
-- **SVG**: 
-- **SVG**: 
-- **SVG**: 
+- **Grammar of Graphics**: Altair is based on the Grammar of Graphics, providing a consistent and principled approach to data visualization. This allows for a high level of customization and flexibility in creating a wide range of visualizations.
+- **Data Transformation**: Altair simplifies data transformation tasks, such as normalization and scaling, making it easy to prepare data for visualization without extensive preprocessing steps.
+- **Compatibility with Pandas**: Altair seamlessly integrates with Pandas DataFrames, a popular data manipulation library in Python. This integration simplifies the process of loading, cleaning, and visualizing data.
 
 
+### Datawrapper
+- **SVG**: 
+- **SVG**: 
 
 
 
@@ -70,6 +80,9 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Margin and Layout**: Adjusted margin settings (left, right, top, bottom) to optimize the layout and spacing of the plot Achieved a balanced and aesthetically pleasing design.
 
 ### Python + Altair 
-- **SVG**: 
+- **User-Friendly API**: Altair's API is designed to be user-friendly and intuitive. The consistent and clear syntax contributes to a smooth user experience, allowing users to focus on the visualization logic rather than dealing with complex configurations.
+
+
+### Datawrapper
 - **SVG**: 
 - **SVG**: 
