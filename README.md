@@ -26,7 +26,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 - Plotly allows the creation of interactive plots, which can be explored and manipulated by end-users. Zoom, pan, hover, and click functionalities enhance the interactivity.
  
- ![alt text](<02 Python + Plotly/Plotly.py>)
+![alt text](<02 Python + Plotly/Plotly.png>)
 
 
 # Python + Altair Visualization
