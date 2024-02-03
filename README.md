@@ -62,7 +62,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 # R_ggplot2
 
-- **Sggplot2** is a powerful data visualization package in the R programming language. It is part of the tidyverse ecosystem and provides a flexible and layered grammar for creating a wide variety of static and interactive plots.
+- **ggplot2** is a powerful data visualization package in the R programming language. It is part of the tidyverse ecosystem and provides a flexible and layered grammar for creating a wide variety of static and interactive plots.
 - Transitioning to plotnine in Python will be smoother. The syntax and concepts are very similar, allowing us to leverage our existing knowledge. 
 
 ![alt text](<07 R_ggplot2/ggplot.png>)
@@ -91,7 +91,7 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Integration with Pandas**: The code seamlessly integrates with pandas DataFrames, a common data manipulation tool in Python, making it easy to work with structured data.
 
 
-### Design Achievements
+## Design Achievements
 
 ### JS_D3
 - **Responsive Design**: The layout of the scatterplot and legend is designed to be responsive (display: flex; flex-direction: row;) and adaptable to different screen sizes.
