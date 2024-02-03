@@ -3,143 +3,108 @@
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+# D3_JS
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+- **D3:** Offers high flexibility, allowing developers to create custom and intricate visualizations tailored to specific needs. **JavaScript:** Being a general-purpose language, JavaScript provides flexibility and versatility in handling various aspects of web development and visualization.
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+- In this visualization, I used D3, a powerful JavaScript library for creating dynamic and interactive data visualizations. The goal was to replicate a scatterplot.
 
-Your goal is to use 7 different tools to make the following chart:
+- I started by loading the penguins dataset and defining the necessary scales for the x-axis (Flipper Length) and y-axis (Body Mass). Additionally, we employed a color scale for mapping penguin species and a size scale for the circle radius based on Bill Length.
 
-![](img/ggplot2.png)
+- I utilized D3's data binding and enter-update-exit pattern to create circles representing each penguin observation. The positions on the x and y axes were determined by Flipper Length and Body Mass, respectively. Circle colors were mapped to penguin species, and the circle sizes were determined by Bill Length
 
-These features should be preserved as much as possible in your replication:
+- I added x and y axes to provide context to the scatterplot. Axis labels for "Flipper Length (mm)" and "Body Mass (g)" were included to guide the viewer.
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+![alt text](<01 JS _D3/D3.jpg>)
 
-Other features are not required. This includes:
 
-- The background grid.
-- The legends.
+# Python_Plotly 
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
+- **Python + Plotly** is a powerful combination for interactive and visually appealing data visualization. Plotly is a Python graphing library that enables the creation of various types of plots, charts, and dashboards. It provides a high-level interface for creating complex visualizations with ease. 
 
-Improvements are also welcome as part of Technical and Design achievements.
+- Plotly allows the creation of interactive plots, which can be explored and manipulated by end-users. Zoom, pan, hover, and click functionalities enhance the interactivity.
+ 
+![alt text](<02 Python_Plotly/Plotly.png>)
 
-Libraries, Tools, Languages
----
 
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
+# Python_Altair 
 
-Otherwise, you should seek tools and libraries to fill out your 7.
+- **Python + Altair** refers to using the Python programming language in conjunction with the Altair library for data visualization. 
+- **Python**: Python is a versatile and widely used programming language. In the context of data visualization, Python is often chosen for its readability, ease of use, and a rich ecosystem of libraries. **Altair**: Altair is a Python library for declarative data visualization. It allows you to express visualizations in a concise and intuitive manner using a grammar of graphics approach. Altair generates Vega-Lite specifications under the hood, which are then rendered into interactive visualizations.
+- Both Plotly and Altair can add title for the chart though I did not.
 
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
+![alt text](<03 Python_Altair/Altair.png>)
 
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
 
-I have marked a few that are strongly suggested.
+ # Python_Matplotlib
 
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
+ - **Matplotlib** is a comprehensive 2D plotting library for creating static, animated, and interactive visualizations in Python. It provides a versatile and flexible platform for generating high-quality plots and charts and integrates well with Jupyter Notebooks, providing an interactive environment for data exploration and visualization.
+ - Matplotlib, Altair and Plotly are kind of similar. Mastering one of them, you'll know how others work.
 
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
+ 
+![alt text](<04 Python_Matplotlib/Matplotlib.png>)
 
-Tips
----
+# Datawrapper
 
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
+- **Datawrapper** Enrich your stories with charts, maps, and tables as it's slogan says, it's free and no sign-up is required. You can not image how easy it it to graph the designs based on your dataset. It is the most easiest way to get the scatterplot  for me by now. Just follow the process step by step and you will get your dreamed chart or maps. Really worthy trying.
 
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
+![alt text](<05 Datawrapper/Datawrapper.png>)
 
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
 
-Readme Requirements
----
+# Flourish
 
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
+- **Flourishr** is an online platforms designed for creating visualizations from data mostly like Datawrapper. **Flourish and Datawrapper** both prioritize user-friendly interfaces, catering to users without extensive coding or design experience. 
+- From it's website, we could see flourish offeres more a range of templates and customization options than datawrapper and provides users with a variety of templates and themes, allowing for quick creation of **professional-looking** visualizations.
 
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
+![alt text](<06 Flourish/Flourish.png>)
 
-Other Requirements
----
+# R_ggplot2
 
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
+- **ggplot2** is a powerful data visualization package in the R programming language. It is part of the tidyverse ecosystem and provides a flexible and layered grammar for creating a wide variety of static and interactive plots.
+- Transitioning to plotnine in Python will be smoother. The syntax and concepts are very similar, allowing us to leverage our existing knowledge. 
+  ![alt text](<07 R_ggplot2/ggplot.png>)
 
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
 
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+### JS_D3
+- **D3.js Integration**: The combination of D3 and JavaScript library are powerful for data visualization. D3.js allows for dynamic and interactive data-driven visualizations.
+- **SVG**: The use of SVG elements for creating the scatterplot provides a scalable and resolution-independent graphical representation.
+- **Data Binding and Data Visualization**: The code efficiently binds data from the provided CSV file (d3.csv("penglings.csv").then(data => {...}) and maps it to visual elements like circles, axes, and legends, enabling effective data visualization.
+- **Scales and Axes**: Scales (e.g., xScale and yScale) and axes (e.g., d3.axisBottom and d3.axisLeft) are implemented to properly position and scale the data on the scatterplot.
+- **Dynamic Tooltip Interaction**: The inclusion of a dynamic tooltip (const tooltip = d3.select("#scatterplot").append("div").attr("class", "tooltip");) enhances user interaction by providing detailed information on mouseover events.
+
+### Python_Plotly
+- **Feature Normalization**: Applied normalization to the bill_length_mm column, ensuring that data falls within a consistent range. Used the min-max normalization technique to standardize the values.
+- **Scaled Sizes Calculation**: ntroduced a scaled_sizes column based on the normalized bill_length_mm, allowing for more meaningful size representations. Adjusted the scaling factor to enhance the visual impact of the scatter plot.
+
+### Python_Altair & Matplotlib
+- **Grammar of Graphics**: Altair is based on the Grammar of Graphics, providing a consistent and principled approach to data visualization. This allows for a high level of customization and flexibility in creating a wide range of visualizations.
+- **Data Transformation**: Altair simplifies data transformation tasks, such as normalization and scaling, making it easy to prepare data for visualization without extensive preprocessing steps.
+- **Compatibility with Pandas**: Altair seamlessly integrates with Pandas DataFrames, a popular data manipulation library in Python. This integration simplifies the process of loading, cleaning, and visualizing data.
+
+
+### R_ggplot2
+- **Grammar of Graphics in Python**: **plotnine** brings the Grammar of Graphics framework to Python, providing a consistent and expressive way to create complex visualizations.
+- **Integration with Pandas**: The code seamlessly integrates with pandas DataFrames, a common data manipulation tool in Python, making it easy to work with structured data.
+
+
+## Design Achievements
+
+### JS_D3
+- **Responsive Design**: The layout of the scatterplot and legend is designed to be responsive (display: flex; flex-direction: row;) and adaptable to different screen sizes.
+- **Color Mapping and Legend**: Species information is visually encoded through color mapping, and a legend is provided to enhance the interpretability of the chart.
+- **Clear Typography**: Clear and readable typography is employed for axis labels, legend items, and tooltip content, contributing to the overall clarity of the visualization.
+- **User Interaction**: The inclusion of mouseover and mouseout events for circles provides a user-friendly interaction by displaying additional information when hovering over data points.
+
+
+### Python_Plotly
+- **Labels and Axes**: learly labeled the x-axis and y-axis as "Flipper Length (mm)" and "Body Mass (g)," respectively, enhancing the interpretability of the scatter plot. Ensured proper titling for axes and legend for a more informative visualization.
+- **Margin and Layout**: Adjusted margin settings (left, right, top, bottom) to optimize the layout and spacing of the plot Achieved a balanced and aesthetically pleasing design.
+
+### Python_Altair & Matplotlib
+- **User-Friendly API**: Altair's API is designed to be user-friendly and intuitive. The consistent and clear syntax contributes to a smooth user experience, allowing users to focus on the visualization logic rather than dealing with complex configurations.
+
+
+###  R_ggplot2
+- **Theme Customization**: The code showcases the ability to customize the theme of the plot, allowing users to control the appearance of various elements, such as background color and grid lines.
