@@ -60,8 +60,15 @@ Assignment 2 - Data Visualization, 7 Ways
 
 ![alt text](<06 Flourish/Flourish.png>)
 
+# R_ggplot2
+
+- **Sggplot2** is a powerful data visualization package in the R programming language. It is part of the tidyverse ecosystem and provides a flexible and layered grammar for creating a wide variety of static and interactive plots.
+- Transitioning to plotnine in Python will be smoother. The syntax and concepts are very similar, allowing us to leverage our existing knowledge. 
+
+![alt text](<07 R_ggplot2/ggplot.png>)
 
 ## Technical Achievements
+
 ### JS_D3
 - **D3.js Integration**: The combination of D3 and JavaScript library are powerful for data visualization. D3.js allows for dynamic and interactive data-driven visualizations.
 - **SVG**: The use of SVG elements for creating the scatterplot provides a scalable and resolution-independent graphical representation.
@@ -79,13 +86,13 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Compatibility with Pandas**: Altair seamlessly integrates with Pandas DataFrames, a popular data manipulation library in Python. This integration simplifies the process of loading, cleaning, and visualizing data.
 
 
-###  Matplotlib
-- **SVG**: 
-- **SVG**: 
-
+### R_ggplot2
+- **Grammar of Graphics in Python**: **plotnine** brings the Grammar of Graphics framework to Python, providing a consistent and expressive way to create complex visualizations.
+- **Integration with Pandas**: The code seamlessly integrates with pandas DataFrames, a common data manipulation tool in Python, making it easy to work with structured data.
 
 
 ### Design Achievements
+
 ### JS_D3
 - **Responsive Design**: The layout of the scatterplot and legend is designed to be responsive (display: flex; flex-direction: row;) and adaptable to different screen sizes.
 - **Color Mapping and Legend**: Species information is visually encoded through color mapping, and a legend is provided to enhance the interpretability of the chart.
@@ -101,6 +108,5 @@ Assignment 2 - Data Visualization, 7 Ways
 - **User-Friendly API**: Altair's API is designed to be user-friendly and intuitive. The consistent and clear syntax contributes to a smooth user experience, allowing users to focus on the visualization logic rather than dealing with complex configurations.
 
 
-### Matplotlib
-- **SVG**: 
-- **SVG**: 
+###  R_ggplot2
+- **Theme Customization**: The code showcases the ability to customize the theme of the plot, allowing users to control the appearance of various elements, such as background color and grid lines.
