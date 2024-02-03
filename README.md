@@ -17,7 +17,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 - This D3 + JavaScript visualization closely achieves the functionality, allowing for interactive exploration of the penguins dataset.
 
-![alt text](<01 JS + D3/D3.jpg>)
+![alt text](<01 JS _D3/D3.jpg>)
 
 
 # Python_Plotly 
@@ -26,7 +26,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 - Plotly allows the creation of interactive plots, which can be explored and manipulated by end-users. Zoom, pan, hover, and click functionalities enhance the interactivity.
  
-![alt text](<02 Python + Plotly/Plotly.png>)
+![alt text](<02 Python_Plotly/Plotly.png>)
 
 
 # Python_Altair 
@@ -35,7 +35,7 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Python**: Python is a versatile and widely used programming language. In the context of data visualization, Python is often chosen for its readability, ease of use, and a rich ecosystem of libraries. **Altair**: Altair is a Python library for declarative data visualization. It allows you to express visualizations in a concise and intuitive manner using a grammar of graphics approach. Altair generates Vega-Lite specifications under the hood, which are then rendered into interactive visualizations.
 - Both Plotly and Altair can add title for the chart though I did not.
 
- ![alt text](<03 Python + Altair/Altair.png>)
+![alt text](<03 Python_Altair/Altair.png>)
 
 
  # Python_Matplotlib
@@ -50,7 +50,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 - **Datawrapper** Enrich your stories with charts, maps, and tables as it's slogan says, it's free and no sign-up is required. You can not image how easy it it to graph the designs based on your dataset. It is the most easiest way to get the scatterplot  for me by now. Just follow the process step by step and you will get your dreamed chart or maps. Really worthy trying.
 
-![alt text](<04 Datawrapper/Datawrapper.png>)
+![alt text](<05 Datawrapper/Datawrapper.png>)
 
 
 # Flourish
@@ -58,7 +58,7 @@ Assignment 2 - Data Visualization, 7 Ways
 - **Flourishr** is an online platforms designed for creating visualizations from data mostly like Datawrapper. **Flourish and Datawrapper** both prioritize user-friendly interfaces, catering to users without extensive coding or design experience. 
 - From it's website, we could see flourish offeres more a range of templates and customization options than datawrapper and provides users with a variety of templates and themes, allowing for quick creation of **professional-looking** visualizations.
 
-![alt text](<05 Flourish/Flourish.png>)
+![alt text](<06 Flourish/Flourish.png>)
 
 
 ## Technical Achievements
