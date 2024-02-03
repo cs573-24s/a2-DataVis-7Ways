@@ -62,8 +62,9 @@ Assignment 2 - Data Visualization, 7 Ways
 
 - **ggplot2** is a powerful data visualization package in the R programming language. It is part of the tidyverse ecosystem and provides a flexible and layered grammar for creating a wide variety of static and interactive plots.
 - Transitioning to plotnine in Python will be smoother. The syntax and concepts are very similar, allowing us to leverage our existing knowledge. 
+  ![alt text](<06 Flourish/Flourish.png>)
+  ![alt text](<07 R_ggplot2/ggplot.png>)
 
-![alt text](<07 R_ggplot2/ggplot.png>)
 
 ## Technical Achievements
 
