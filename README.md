@@ -10,6 +10,7 @@ Assignment 2 - Data Visualization, 7 Ways
 # d3 
 
 # Python + Seaborn + matplotlib.pyplot
+![Seaborn](img/seaborn.png)
 
 # Tableau
 ![Tableau](img/Tableau.png)
