@@ -12,6 +12,9 @@ Assignment 2 - Data Visualization, 7 Ways
 # Python + Seaborn + matplotlib.pyplot
 ![Seaborn](img/seaborn.png)
 
+# Python + Altair
+![Altair](img/altair.png)
+
 # Tableau
 ![Tableau](img/Tableau.png)
 
