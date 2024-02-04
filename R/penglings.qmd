@@ -1,0 +1,42 @@
+---
+title: "Penglings"
+format: html
+editor: visual
+---
+
+## Scatter Plot
+
+First, we load the library `palmerpenguins` and `tidyverse`.
+
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+Let's see what the data looks like.
+
+```{r}
+head(penguins)
+```
+
+Make a scatter plot from `flipper_length_mm` and `body_mass_g`.
+
+```{r}
+penguins |>
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, size = bill_length_mm), alpha = 0.8) +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
+  scale_size_area() +
+  labs(
+    title = "Flipper Length vs Body Mass",
+    x = "Flipper Length (mm)",
+    y = "Body Mass (g)"
+  ) +
+  guides(color = guide_legend(title="Species"), size = guide_legend(title="Bill Length (mm)"))
+```
+
+Save the chart
+
+```{r}
+ggsave('penglings.png', width = 20, height = 15, units = "cm")
+```
