@@ -19,3 +19,6 @@ Assignment 2 - Data Visualization, 7 Ways
 
 # Flourish
 ![Flourish](img/Flourish.png)
+
+# Datawrapper
+![Datawrapper](img/datawrapper.png)
