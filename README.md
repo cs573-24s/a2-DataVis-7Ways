@@ -8,6 +8,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ![ggplot2](img/ggplot2.png)
 
 # d3 
+![d3](img/d3js.png)
 
 # Python + Seaborn + matplotlib.pyplot
 ![Seaborn](img/seaborn.png)
