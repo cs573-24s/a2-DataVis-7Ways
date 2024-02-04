@@ -12,8 +12,10 @@ Assignment 2 - Data Visualization, 7 Ways
 # Python + Seaborn + matplotlib.pyplot
 
 # Tableau
+![Tableau](img/Tableau.png)
 
 # PowerBI
+![PowerBi](img/powerbi.png)
 
 # Flourish
-
+![Flourish](img/Flourish.png)
