@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/lyuchil/a2-DataVis-7Ways/main/penglings.csv"
+  },
+  "mark": "point",
+  "title": "Vega-Lite Graph",
+  "transform": [
+    {
+      "calculate": "datum.bill_length_mm < 40 ? 'small' : datum.bill_length_mm < 50 && datum.bill_length_mm > 40 ? 'medium' : 'large'",
+      "as": "size_category"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "flipper_length_mm",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    },
+    "y": {
+      "field": "body_mass_g",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    },
+    "fill": {
+      "field": "species",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Adelie", "Chinstrap", "Gentoo"],
+        "range": ["orange", "purple", "green"]
+      }
+    },
+    "size": {
+      "field": "size_category",
+      "type": "nominal",
+      "scale": {"domain": ["small", "medium", "large"], "range": [20, 50, 100]}
+    },
+    "opacity": {"value": 0.6},
+    "stroke": {"value": null}
+  },
+  "config": {}
+}
