@@ -33,13 +33,17 @@
             var y = d3.scaleLinear()
                 .domain([2500,6500])
                 .range([height, 0]);
-                
+
             svg.append('g')
                 .call(d3.axisLeft(y));
 
             var color = d3.scaleOrdinal()
-                .domain(["setosa", "versicolor", "virginica" ])
+                .domain(["Adelie", "Chinstrap", "Gentoo" ])
                 .range([ "#440154ff", "#21908dff", "#fde725ff"])
+
+            var radiusScale = d3.scaleLinear()
+                .domain([d3.min(data, d => +d.bill_length_mm), d3.max(data, d => +d.bill_length_mm)])
+                .range([3,10])
 
             var legend = svg.append('g')
                 .attr('transform', 'translate(' + (width - 70) + ',' + (height - 150) + ')')
@@ -69,13 +73,13 @@
                     .transition()
                     .duration(200)
                     .style("fill", "lightgrey")
-                    .attr("r", 3);
+                    .attr("r", d => radiusScale(+d.bill_length_mm));
 
                 d3.selectAll("." + selected_specie)
                     .transition()
                     .duration(200)
                     .style("fill", color(selected_specie))
-                    .attr("r", 7);
+                    .attr("r", d => radiusScale(+d.bill_length_mm));
             };
 
             // Highlight the specie that is hovered
@@ -84,7 +88,7 @@
                     .transition()
                     .duration(200)
                     .style("fill", "lightgrey")
-                    .attr("r", 5 );
+                    .attr("r", d => radiusScale(+d.bill_length_mm));
             };
 
             // Add dots
