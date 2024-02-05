@@ -20,5 +20,7 @@ if dfPeng is not None:
     print(dfPeng)
 
 fig = px.scatter(dfPeng, x="flipper_length_mm", y="body_mass_g", color="species",
-                 size = 'bill_length_mm')
+                 size = 'bill_length_mm', symbol="species")
 fig.show()
+
+# https://plotly.com/python/line-and-scatter/
