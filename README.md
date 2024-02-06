@@ -23,7 +23,7 @@ Aesthetic and Functional Enhancements: Utilized a consistent color scheme to dis
 
 
 
-#Vega-Lite
+# Vega-Lite
 
 Vega-Lite is a simplified, high-level version of Vega, designed for easier and quicker creation of basic charts without sacrificing customization options.
 To create the chart, I used Vega-Lite functions to generate a scatterplot with square marks, histograms for flipper length and body mass, and customized axis labels and titles, along with calculated Mass/Flipper Length Ratio and tooltips for species, flipper length, and body mass.
@@ -40,7 +40,7 @@ Design coherence through the arrangement of multiple views, specifically a scatt
 
 
 
-#Javascript + d3
+# Javascript + d3
 JavaScript is a high-level programming language used for creating interactive and dynamic web content.
 D3 is a JavaScript library that facilitates data visualization and manipulation by binding data to HTML and SVG elements.
 I used various D3 functions such as d3.csv() to load data, d3.scaleLinear() to define scales, d3.axisBottom() and d3.axisLeft() to create axes, and d3.select() to manipulate SVG elements for generating the scatter plot.
@@ -57,7 +57,7 @@ Aesthetic Appeal: Attention to design details and an appealing color palette con
 
 
 
-#Matlab
+# Matlab
 
 Matlab is a high-performance programming language and environment used for numerical computing, data analysis, and visualization.
 To create the plot in Matlab, I generated the scatterplot using the scatter function with custom color mapping based on penguin species, transparency settings, and the inclusion of a background image, along with additional annotations and legend.
@@ -76,7 +76,7 @@ Creating a descriptive and formatted caption using the annotation function to pr
 
 
 
-#Excel
+# Excel
 
 Excel is a spreadsheet program developed by Microsoft, used for organizing, formatting, and calculating data with formulas across a grid of cells.
 The visualization contains three linked plots, each providing insights into the morphological differences and annual variations among penguin species. Slicers at the top allow the user to filter the data by species, year, and/or island, which dynamically updates the plots based on the selected criteria.
@@ -94,7 +94,7 @@ The use of trend lines in each plot, provides immediate visual cues about the re
 
 
 
-#Python + Altair
+# Python + Altair
 Python is a high-level, interpreted programming language.
 Altair is a statistical visualization library for Python, designed to create graphs and charts with a concise and intuitive syntax.
 In this Altair code, I used various functions and methods such as alt.Chart, encode, properties, configure_title, configure_axis, configure_legend, configure_view, selection_point, and interactive to create and customize the interactive scatter plot with tooltips, selection, zooming, and panning capabilities, and then saved it as an HTML file.
@@ -111,7 +111,7 @@ Zooming and Panning: allow users to explore different scales of the data interac
 
 
 
-#Tableau
+# Tableau
 
 Tableau is a data visualization tool that enables users to create and share interactive and graphical representations of data through dashboards and reports.
 The dashboard shows various features such as interactive filters, parameters, dynamic charts (bar chart, scatter plot and line chart), and tooltips for detailed data display upon hover.
