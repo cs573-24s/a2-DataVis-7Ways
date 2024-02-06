@@ -1,6 +1,5 @@
 import pandas as pd
 import altair as alt
-import altair_viewer
 alt.renderers.enable("mimetype") 
 
 
@@ -20,14 +19,15 @@ if dfPeng is not None:
     dfPeng.drop(dfPeng.columns[0], axis=1, inplace=True)
     print(dfPeng)
 
-chart = alt.Chart(dfPeng).mark_point().encode(
-    x = "flipper_length_mm",
-    y = "body_mass_g",
-    color = "species"
-).interactive()
+chart = alt.Chart(dfPeng).mark_point(opacity=.8, filled=True).encode(
+    x = alt.X("flipper_length_mm", scale=alt.Scale(domain=(170, 240)), title='Flipper Length (mm)'),
+    y = alt.Y("body_mass_g", scale=alt.Scale(domain=(2500, 6500)), title='Body Mass (g)'),
+    color = "species",
+    size = "bill_length_mm"
+).properties(
+    width = 500,
+    height= 500
+).interactive().configure_axis(grid=False)
 
-# altair_viewer.display(chart)
-chart.show()
-# print(chart)
-
+chart.save('python_altair.html')
 

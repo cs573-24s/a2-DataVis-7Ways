@@ -8,7 +8,7 @@ date: "2024-02-05"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## GGPlot
 
 ```{r cars}
 library(palmerpenguins)
@@ -21,7 +21,8 @@ penguins
 ```
 
 ```{r}
-ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species)) + 
-  geom_point()
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species, size = bill_length_mm)) + 
+  geom_point(alpha = 0.8) +
+  labs(x = "Flipper Length (mm)", y = "Body Mass (g)")
 ```
 
