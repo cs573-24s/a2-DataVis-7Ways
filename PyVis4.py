@@ -1,7 +1,7 @@
 import pandas as pd
 from bokeh.plotting import figure, show
-from bokeh.models.tickers import SingleIntervalTicker
-from bokeh.models import HoverTool
+from bokeh.models import SingleIntervalTicker, HoverTool
+
 
 data = pd.read_csv("a2-DataVis-7Ways/penglings.csv").dropna()
 
@@ -19,18 +19,17 @@ p.yaxis.axis_label_text_font_size = "14pt"
 p.xaxis.major_label_text_font_size = "12pt"
 p.yaxis.major_label_text_font_size = "12pt"
 
-scatter_renderers = []
+scatter_renderers = {}
 for species, color in colors.items():
-    scatter_renderer = p.scatter('flipper_length_mm', 'body_mass_g', size='bill_length_mm', color=color, alpha=0.8, legend_label=species, source=data[data['species'] == species], line_color=None)
-    scatter_renderers.append(scatter_renderer)
+    source = data[data['species'] == species]
+    scatter_renderer = p.scatter('flipper_length_mm', 'body_mass_g', size='bill_length_mm', color=color, alpha=0.8, legend_label=species, source=source, line_color=None)
+    scatter_renderers[species] = scatter_renderer
 
 # Add hover tooltips
-hover = HoverTool(renderers=scatter_renderers,
-                  tooltips=[("Species", "@species"),
+hover = HoverTool(tooltips=[("Species", "@species"),
                             ("Flipper Length", "@flipper_length_mm (mm)"),
                             ("Body Mass", "@body_mass_g (g)"),
                             ("Bill Length", "@bill_length_mm (mm)")])
 p.add_tools(hover)
 
 show(p)
-

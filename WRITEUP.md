@@ -42,3 +42,21 @@ Overall, this library was very easy to use and was quite similar to Plotly in te
 For this visualization, I decided to add an extra tooltip functionality (coded within the `mplcursors.cursor()`function) to allow users the option to hover and inspect data points within the graph. `mplcursors` is a Python library that provides interactive cursor feedback for Matplotlib plots. Similar to the second graph, I also reformatted the tooltip display names to be visually appealing. 
 
 ![PyVis3](img/PyVis3.png)
+
+# Python + Bokeh 
+
+Bokeh is a Python library designed for creating interactive and data-driven visualizations in web browsers. It provides a flexible and easy-to-use interface for building a wide range of interactive plots, dashboards, and applications for data exploration and analysis. 
+
+To visualize the penglings dataset, I first dropped all Null values using pandas' `dropna()` function and then moved on to designing the actual baseline visualization. Unlike the prior 3 libraries, Bokeh required more coding and was generally not as intuitive. I first had to use the `figure()` functionality to establish the graphing object. Then, I implemented some styling changes like axis font sizes and the axis tickers (via the `SingleIntervalTicker()` function). Finally, I went about plotting the actual points using the `p.scatter()` function to specify additional graph details.
+
+Overall, I didn't feel this was quite as intuitive as the the previous graphs; however, it was still easy to use after reading some documentation. Since it requires a bit more code, I wouldn't suggest it as a first choice for making quick visualizations, but I could see it being advantageous for creating interactive and web-based visualizations that require a high degree of customization and interactivity. The Bokeh library itself has lots of sub functionalities that make its capabilities quite broad. 
+
+### Technical Achievments 
+
+For this graph, I also added a hover-to-inspect functionality using Bokeh's `HoverTool()`. Thus, users can hover over points on the graph to inspect the individual values.
+
+![PyVis4](img/PyVis4.png)
+
+# Javascript + D3
+
+D3 is 
