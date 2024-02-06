@@ -11,7 +11,7 @@ fig = px.scatter(
     color='species',
     size='bill_length_mm',
     opacity=0.8,
-    labels={'flipper_length_mm': 'Flipper Length (mm)', 'body_mass_g': 'Body Mass (g)'}
+    labels={'flipper_length_mm': 'Flipper Length (mm)', 'body_mass_g': 'Body Mass (g)', 'species':'Species', 'bill_length_mm':'Bill Length (mm)'}
 )
 
 
