@@ -29,3 +29,16 @@ For this visualization, I decided to add an extra tooltip functionality (coded w
 
 ![PyVis2](img/PyVis2.png)
 
+# Python + Matplotlib Pyplot
+
+Matplotlib's Pyplot is an API of Python's Matplotlib library. It consists of a collection of functions that enable users to manipulate visualizations similar to MATLAB. 
+
+To visualize the penglings dataset, I first dropped the Null values using the pandas `dropna()` function and then utilized the `plt.scatter()` function to build the baseline graph. Like the first two visualizations, this one was also fairly easy to accomplish; however, it did require some additional code to include the color mapping legend in the graph. 
+
+Overall, this library was very easy to use and was quite similar to Plotly in terms of how much code was required to obtain the baseline graph. As such, this would also be a great library to utilize if in need of quick data visualizations since it has relatively few coding requirements. 
+
+### Technical Achievments 
+
+For this visualization, I decided to add an extra tooltip functionality (coded within the `mplcursors.cursor()`function) to allow users the option to hover and inspect data points within the graph. `mplcursors` is a Python library that provides interactive cursor feedback for Matplotlib plots. Similar to the second graph, I also reformatted the tooltip display names to be visually appealing. 
+
+![PyVis3](img/PyVis3.png)
