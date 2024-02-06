@@ -3,143 +3,126 @@
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
-
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
-
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
-
-Your goal is to use 7 different tools to make the following chart:
-
-![](img/ggplot2.png)
-
-These features should be preserved as much as possible in your replication:
-
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
-
-Other features are not required. This includes:
-
-- The background grid.
-- The legends.
-
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
-
-Improvements are also welcome as part of Technical and Design achievements.
-
-Libraries, Tools, Languages
----
-
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
-
-Otherwise, you should seek tools and libraries to fill out your 7.
-
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
-
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
-
-I have marked a few that are strongly suggested.
-
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
-
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
 # R + ggplot2 + R Markdown
 
 R is a language primarily focused on statistical computing.
 ggplot2 is a popular library for charting in R.
 R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
+To visualize the penguin dataset, I employed ggplot2 and plotly for an interactive chart, highlighting species differences through color, size, and shape aesthetics. Additionally, the chart integrates facet_wrap to differentiate data by island and employs customized scales and themes for clarity and visual appeal. The analysis also calculates a new variable, bill_area_mm (showed on tooltip), for deeper insight, and the chart is made accessible through an HTML widget, served via servr.
+The use of ggplot2 and dplyr for data manipulation and visualization was straightforward due to their intuitive syntax and extensive documentation.Setting up the interactive visualization with plotly and serving it through servr was challenging due to the need for integration between R libraries and web techs.
 
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
+INSERTAR IMAGEN
 
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
+Technical Achievements:
+Interactive Visualization with Plotly: Enhanced user engagement by enabling dynamic interaction, such as mousing over points for detailed metrics on penguin characteristics, alongside integration of a computed variable (bill_area_mm) to deepen the analysis.
 
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
+Design Achievements:
+Aesthetic and Functional Enhancements: Utilized a consistent color scheme to distinguish between penguin species, optimized font and element sizes for readability, and implemented faceted views by island to compare distributions across species, thereby facilitating comparative analysis in a visually coherent manner.
 
 
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
 
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+
+
+#Vega-Lite
+
+Vega-Lite is a simplified, high-level version of Vega, designed for easier and quicker creation of basic charts without sacrificing customization options.
+To create the chart, I used Vega-Lite functions to generate a scatterplot with square marks, histograms for flipper length and body mass, and customized axis labels and titles, along with calculated Mass/Flipper Length Ratio and tooltips for species, flipper length, and body mass.
+This tool makes it easy to quickly generate basic and customizable data visualizations, while more complex and intricate visualizations may require using the more detailed and flexible Vega grammar. 
+
+INSERTAR IMAGEN
+
+Technical Achievements:
+Interactive features: tooltips displaying a calculated field (Mass/Flipper Length Ratio) upon mouseover.
+Incorporation of binning in the histograms, enabling a more granular analysis of flipper length and body mass by discretizing the data into intervals, which enhances the interpretability of the visualization.
+
+Design Achievements:
+Design coherence through the arrangement of multiple views, specifically a scatterplot and histograms, providing a holistic exploration of penguin metrics.
+
+
+
+#Javascript + d3
+JavaScript is a high-level programming language used for creating interactive and dynamic web content.
+D3 is a JavaScript library that facilitates data visualization and manipulation by binding data to HTML and SVG elements.
+I used various D3 functions such as d3.csv() to load data, d3.scaleLinear() to define scales, d3.axisBottom() and d3.axisLeft() to create axes, and d3.select() to manipulate SVG elements for generating the scatter plot.
+The amount of code required to create the plot is quite substantial, spanning multiple lines of code. Nevertheless, it provides multiple configuration functions to enhance the plot.
+
+INSERTAR IMAGEN
+
+Technical Achievements:
+Interactive Tooltips: The code implements interactive tooltips that provide detailed data information upon hover, enhancing user engagement and data exploration.
+
+Design Achievements:
+Aesthetic Appeal: Attention to design details and an appealing color palette contribute to improving the overall user experience.
+
+
+
+
+#Matlab
+
+Matlab is a high-performance programming language and environment used for numerical computing, data analysis, and visualization.
+To create the plot in Matlab, I generated the scatterplot using the scatter function with custom color mapping based on penguin species, transparency settings, and the inclusion of a background image, along with additional annotations and legend.
+Creating the scatterplot in Matlab was straightforward with easy customization options for color mapping and annotations; however, handling background images and achieving specific transparency levels required some additional steps.
+
+INSERTAR IMAGEN
+
+Technical Achievements:
+Utilizing the readtable function for efficient loading and extraction of data from the 'penglings.csv' file.
+Employing the scatter function with custom color mapping, transparency, legend handling, and background image manipulation for a visually enhanced and informative plot.
+
+Design Achievements:
+Integrating a background image to serve as a visually appealing backdrop for the scatterplot.
+Creating a descriptive and formatted caption using the annotation function to provide additional context and information within the plot.
+
+
+
+
+#Excel
+
+Excel is a spreadsheet program developed by Microsoft, used for organizing, formatting, and calculating data with formulas across a grid of cells.
+The visualization contains three linked plots, each providing insights into the morphological differences and annual variations among penguin species. Slicers at the top allow the user to filter the data by species, year, and/or island, which dynamically updates the plots based on the selected criteria.
+The slicers make it easy to filter data for interactive insights, but ensuring accurate linkage between slicers and charts required a more detailed arrangement.
+
+INSERTAR IMAGEN
+
+Technical Achievement:
+The integration of interactive slicers with multiple plots to dynamically filter and display complex biological data is a sophisticated technical feature that enhances user engagement and data exploration.
+
+Design Achievements:
+The distinct color coding for each penguin species across all plots creates a visually coherent and immediately understandable representation of the data.
+The use of trend lines in each plot, provides immediate visual cues about the relationship between variables for each penguin species, enhancing the viewer's ability to quickly discern correlations within the data.
+
+
+
+
+#Python + Altair
+Python is a high-level, interpreted programming language.
+Altair is a statistical visualization library for Python, designed to create graphs and charts with a concise and intuitive syntax.
+In this Altair code, I used various functions and methods such as alt.Chart, encode, properties, configure_title, configure_axis, configure_legend, configure_view, selection_point, and interactive to create and customize the interactive scatter plot with tooltips, selection, zooming, and panning capabilities, and then saved it as an HTML file.
+The libraries used offer a combination of simplicity in syntax, efficient data handling, and the ability to create interactive and aesthetically pleasing visualizations with minimal code.
+
+INSERTAR IMAGEN
+
+Technical achievements:
+Interactive Selections: Plot has interactive selections that allow users to select specific data points and highlight or filter based on those selections.
+
+Design Achievements:
+Zooming and Panning: allow users to explore different scales of the data interactively. The overall aesthetic choices—such as font selection, title customization, and grid line activation—create a visually appealing chart.
+
+
+
+
+#Tableau
+
+Tableau is a data visualization tool that enables users to create and share interactive and graphical representations of data through dashboards and reports.
+The dashboard shows various features such as interactive filters, parameters, dynamic charts (bar chart, scatter plot and line chart), and tooltips for detailed data display upon hover.
+Integrating and visualizing data in Tableau was straightforward, highlighting its strength in user-friendly data manipulation and visualization capabilities. The main challenge could involve customizing visualizations to fit specific analytical needs, such as the parameter and calculated fields configuration.
+
+INSERTAR IMAGEN
+Source: https://public.tableau.com/app/profile/antonela.tamagnini/viz/Divingintopenguinmetrics/Dashboard?publish=yes
+
+Technical achievements:
+Utilization of parameters and filters for dynamic data exploration, allowing users to customize data views and analyses.
+Integration of multiple data visualizations within a single dashboard, facilitating comprehensive data analysis.
+
+Design Achievements:
+Cohesive and user-friendly dashboard design that enhances data comprehension through strategic layout and visualization choices.
