@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A scatterplot showing flipper length and body mass of penguins, alongside histograms for each variable.",
+  "title": {
+    "text": "Diving into Penguin Metrics",
+    "subtitle": "An Insight into Flipper Length and Body Mass Across Different Species",
+    "fontSize": 20,
+    "subtitleFontSize": 15
+  },
+  "data": {"url": "penglings.csv"},
+  "hconcat": [
+    {
+      "width": 400,
+      "height": 300,
+      "mark": "square",
+      "encoding": {
+        "x": {
+          "field": "flipper_length_mm",
+          "type": "quantitative",
+          "axis": {"title": "Flipper Length (mm)"},
+          "scale": {"domain": [170, 230], "nice": 10}
+        },
+        "y": {
+          "field": "body_mass_g",
+          "type": "quantitative",
+          "axis": {"title": "Body Mass (g)"},
+          "scale": {"domain": [2500, 6500], "nice": 1000}
+        },
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "scale": {"scheme": "set1"}
+        },
+        "size": {
+          "field": "bill_length_mm",
+          "type": "quantitative",
+          "scale": {"range": [20, 100]}
+        },
+        "opacity": {"value": 0.6},
+        "tooltip": [
+          {"field": "species", "type": "nominal", "title": "Species"},
+          {"field": "flipper_length_mm", "type": "quantitative", "title": "Flipper Length (mm)"},
+          {"field": "body_mass_g", "type": "quantitative", "title": "Body Mass (g)"},
+          {"field": "Mass_to_Flipper_Length_Ratio", "type": "quantitative", "title": "Mass/Flipper Length Ratio", "format": ".2f"}
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.body_mass_g / datum.flipper_length_mm",
+          "as": "Mass_to_Flipper_Length_Ratio"
+        }
+      ]
+    },
+    {
+      "width": 200,
+      "height": 300,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "axis": {"title": "Occurrences"}
+        },
+        "y": {
+          "field": "flipper_length_mm",
+          "bin": true,
+          "type": "quantitative",
+          "axis": {"title": "Flipper Length (mm)"}
+        },
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "scale": {"scheme": "set1"}
+        },
+        "tooltip": [
+          {"field": "species", "type": "nominal", "title": "Species"},
+          {"field": "flipper_length_mm", "type": "quantitative", "title": "Flipper Length (mm)"}
+        ]
+      }
+    },
+    {
+      "width": 200,
+      "height": 300,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "axis": {"title": "Occurrences"}
+        },
+        "y": {
+          "field": "body_mass_g",
+          "bin": true,
+          "type": "quantitative",
+          "axis": {"title": "Body Mass (g)"}
+        },
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "scale": {"scheme": "set1"}
+        },
+        "tooltip": [
+          {"field": "species", "type": "nominal", "title": "Species"},
+          {"field": "body_mass_g", "type": "quantitative", "title": "Body Mass (g)"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "labelFont": "Georgia",
+      "titleFont": "Georgia",
+      "grid": true
+    },
+    "view": {"strokeOpacity": 0}
+  }
+}

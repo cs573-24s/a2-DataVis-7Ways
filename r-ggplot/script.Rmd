@@ -1,0 +1,56 @@
+---
+title: "RMarkdown_script"
+output: html_document
+---
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(servr)
+library(plotly)
+library(dplyr)
+library(htmlwidgets)
+```
+
+Plot similar to original:
+
+```{r}
+
+# Read the penguins.csv dataset
+penguins <- read.csv("penglings.csv")
+
+#plot
+p <- penguins %>%
+  mutate(bill_area_mm = bill_length_mm * bill_depth_mm) %>% 
+ggplot(aes(x = flipper_length_mm, y = body_mass_g, text = paste("Species:", species, "<br>Bill Area (mm²):", bill_area_mm))) +
+  geom_point(aes(color=species, size= bill_length_mm, shape=species), alpha = 0.8) +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
+  scale_size_continuous(name = "Penguin") +
+  facet_wrap(. ~ island, labeller = label_both) +
+  labs(title = "Diving into Penguin Metrics",
+       subtitle = "An Insight into Flipper Length and Body Mass Across Different Species",
+       x = "Flipper Length (mm)",
+       y = "Body Mass (g)",
+       caption = "Data source: Palmer Station LTER") +
+  theme_dark() +
+  theme(legend.position = "bottom", 
+        plot.caption = element_text(hjust = 0),
+        strip.text.x = element_text(face = "bold"),
+        plot.title = element_text(size = 18))
+interactive_plot <- ggplotly(p)
+interactive_plot
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+saveWidget(interactive_plot, "penguin_plot.html")
+servr::httd("C:/Users/Antonela/a2-DataVis-7Ways")
+```
+
