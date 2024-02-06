@@ -11,7 +11,7 @@ penguins %>%
   new_scale_color()+
   geom_smooth(aes(color = species, group = species), method=lm, se=FALSE, fullrange=TRUE)+
   scale_color_manual(values = darken(cols, .15)) +
-  facet_grid(~island, scales='free') + 
+  facet_grid(~island) + 
   labs(
    x="Flipper Length (mm)",
    y="Body Mass (g)"
