@@ -11,13 +11,13 @@ R Markdown is a document format that compiles to HTML or PDF and allows you to i
 To visualize the penguin dataset, I employed ggplot2 and plotly for an interactive chart, highlighting species differences through color, size, and shape aesthetics. Additionally, the chart integrates facet_wrap to differentiate data by island and employs customized scales and themes for clarity and visual appeal. The analysis also calculates a new variable, bill_area_mm (showed on tooltip), for deeper insight, and the chart is made accessible through an HTML widget, served via servr.
 The use of ggplot2 and dplyr for data manipulation and visualization was straightforward due to their intuitive syntax and extensive documentation.Setting up the interactive visualization with plotly and serving it through servr was challenging due to the need for integration between R libraries and web techs.
 
+![ggplot](img/ggplot.png)
 
+## Technical Achievements:
+Interactive Visualization with Plotly: Enhanced user engagement by enabling dynamic interaction, such as mousing over points for detailed metrics on penguin characteristics, alongside integration of a computed variable (bill area) to deepen the analysis.
 
-Technical Achievements:
-Interactive Visualization with Plotly: Enhanced user engagement by enabling dynamic interaction, such as mousing over points for detailed metrics on penguin characteristics, alongside integration of a computed variable (bill_area_mm) to deepen the analysis.
-
-Design Achievements:
-Aesthetic and Functional Enhancements: Utilized a consistent color scheme to distinguish between penguin species, optimized font and element sizes for readability, and implemented faceted views by island to compare distributions across species, thereby facilitating comparative analysis in a visually coherent manner.
+## Design Achievements:
+Aesthetic and Functional Enhancements: I used a consistent color scheme to distinguish between penguin species, optimized font and element sizes for readability, and implemented faceted views by island to compare distributions across species, thereby facilitating comparative analysis in a coherent manner.
 
 
 
