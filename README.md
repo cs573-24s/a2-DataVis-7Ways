@@ -5,6 +5,22 @@ Prof. Lane Harrison
 
 Andrew Kerekon
 
+## Tools
+- ggplot2
+- Excel
+- d3
+- Vega-Altair
+- p5
+- Flourish
+- DataWrapper
+
+## Libraries
+- R
+- JavaScript
+- Python
+
+# R + ggplot2
+
 # Excel
 
 Excel is a dedicated tool for graphing, and is widely used in the professional world.
@@ -15,7 +31,21 @@ For one, I first had to clean the data of unnecessary columns (island, bill dept
 
 After all of these changes, Excel didn't appear to have the capacity to add legend labels for species nor a legend for the bill length bubble size, so I was not able to add these portions. Despite these setbacks, I could see this tool being useful for non-technical users to create effective visualizations without needing to program them manually.
 
+Resources Consulted:
+- https://www.statology.org/excel-bubble-chart-color-by-value/
+- https://excelkid.com/bubble-chart/
+
 ![excel](img/excel.png)
+
+# JavaScript + d3
+
+# Python + Vega-Altair
+
+# JavaScript + p5
+
+# Flourish
+
+# DataWrapper 
 
 ## Technical Achievements
 - 
