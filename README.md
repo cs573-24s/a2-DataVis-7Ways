@@ -7,6 +7,20 @@ Assignment 2 - Data Visualization, 7 Ways
 
 ![d3_2](img/d3_2.png)
 
+# Python - Plotly
+
+# Python - Altair
+
+# Python - Folium
+
+# R - ggplot
+
+# OriginLab
+
+
+# Excel
+
+
 ## Technical Achievements
 - **Proved P=NP**: Using a combination of...
 - **Solved AI Forever**: ...
