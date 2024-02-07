@@ -24,7 +24,7 @@
     "color": {
       "field": "species",
       "type": "nominal",
-      "scale": {"scheme": "category10"},
+      "scale": {"range": ["orange","purple","green"]},
       "title": "Species"
     },
     "size": {
