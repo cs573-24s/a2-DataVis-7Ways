@@ -133,9 +133,9 @@ While it takes time to find the correct documentation, these functions made the 
 ![ggplot2](img/ggplot2.png)
 
 # d3...
+---
 ![Alt text](img/d3.png)
-Tool: flourish 
-Link: https://app.flourish.studio/projects
+Tool: d3 
 
 What steps are done: 
       - create login
@@ -154,6 +154,7 @@ Hacks:
       - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
 # Flourish
+---
 ![Alt text](img/flourish.png)
 Tool: flourish 
 Link: https://app.flourish.studio/projects
@@ -177,6 +178,7 @@ Hacks:
       - Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
 
 # powerbi 
+---
 ![Alt text](image.png)
 Tool: flourish 
 Link: https://app.flourish.studio/projects
@@ -226,73 +228,42 @@ Hacks:
 
 # vega-lite
 ![Alt text](img/vega-lite.png)
-Tool: flourish 
-Link: https://app.flourish.studio/projects
 
 What steps are done: 
-      * create login
-      * upload data
-      * draw report
+      - create login
+      - upload data
+      - draw report
 Advantage: 
-      * easy to work
-      * free edition for try
-      * plenty of examples and templates
+      - easy to work
+      - flexible
+      - plenty of examples and templates
            
 Disadvantage: 
-      * not flexible
-            * for example: only 1 legend is available
-      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+      - comparing to the drag and drop tools programming knowledge required
 Where do I see this in future:
-      * if it improves the data manipulation ection it has potential to grow
+      - flexible
 Hacks: 
-      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
-
-# Flourish
-![Alt text](img/flourish.png)
-Tool: flourish 
-Link: https://app.flourish.studio/projects
-
-What steps are done: 
-      * create login
-      * upload data
-      * draw report
-Advantage: 
-      * easy to work
-      * free edition for try
-      * plenty of examples and templates
-           
-Disadvantage: 
-      * not flexible
-            * for example: only 1 legend is available
-      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
-Where do I see this in future:
-      * if it improves the data manipulation ection it has potential to grow
-Hacks: 
-      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
-
+      - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
 # Altair
+---
 ![Alt text](img/altair.png)
-Tool: flourish 
-Link: https://app.flourish.studio/projects
 
 What steps are done: 
-      * create login
-      * upload data
-      * draw report
+      - create login
+      - upload data
+      - draw report
 Advantage: 
-      * easy to work
-      * free edition for try
-      * plenty of examples and templates
+      - easy to work
+      - flexible
+      - plenty of examples and templates
            
 Disadvantage: 
-      * not flexible
-            * for example: only 1 legend is available
-      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+      - comparing to the drag and drop tools programming knowledge required
 Where do I see this in future:
-      * if it improves the data manipulation ection it has potential to grow
+      - flexible
 Hacks: 
-      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+      - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
 # Flourish
 ![Alt text](img/flourish.png)
