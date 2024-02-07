@@ -27,3 +27,10 @@ The next one I used was Vega-Lite. This tool was all-around a very good experien
 
 # Matplotlib and Python
 ![Matplotlib and Python](img/matplotlib_python.png)
+
+The next tools I used were matplotlib and python. This combination I have some experience with due to my MQP, so it was a relatively easy task to put the data into it and use the proper commands to display it in certain ways. I also was able to add some extra features (more in technical acheivements). I would say this software is pretty decent for making graphs, but while this graph looks decent, the general look and feel of matplotlib is feels very dated and from an older style of visualization. With an important aspect of data viz is graphs and charts looking modern and slick, I would generally avoid matplotlib.
+
+# R and GGPlot
+![R and GGPlot](img/R_ggplot.png)
+
+The next tools I used were R and ggplot. This was a little harder, but mostly due to my inexperience with both tools. R required some installation, and I couldn't get it working quite the way I wanted to. GGplot functions were very similar to the matplotlib equivalents so that was relatively easy to understand, but I still had to do some research to find the right way to print it. Overall the benefits and detriments are very similar to matplotlib - it's relatively simple if you have the proper tools downloaded, but it has the feel of outdated graphing software which is a definite downgrade from the competition
