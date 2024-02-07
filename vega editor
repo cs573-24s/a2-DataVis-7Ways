@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/danile981199/a2-DataVis-7Ways/main/penglings.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8
+  },
+  "encoding": {
+    "x": {
+      "field": "flipper_length_mm",
+      "type": "quantitative",
+      "scale": {"zero": false},
+      "axis": {"title": "Flipper Length", "tickCount": 5}
+    },
+    "y": {
+      "field": "body_mass_g",
+      "type": "quantitative",
+      "scale": {"zero": false},
+      "axis": {"title": "Body Mass", "tickCount": 5}
+    },
+    "color": {
+      "field": "species",
+      "type": "nominal",
+      "scale": {"scheme": "category10"},
+      "title": "Species"
+    },
+    "size": {
+      "field": "bill_length_mm",
+      "type": "quantitative",
+      "title": "Bill Length",
+      "scale": {"zero": false, "range": [20, 200]}
+    }
+  }
+}
