@@ -43,11 +43,11 @@ Python is a wide-ranging dynamic programming language used for general-purpose. 
 Altair is a declarative statistical visualization library for Python.
 VSCode is an IDE (integrated development environment) used for scripting, debugging, embedding Git, etc. 
 
-To visualize the penguin dataset with Python and altair I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed altair's `alt.Chart().mark_point().encode()` documentation. Altair was not the easiest to use and gave me a lot of trouble once I was attempting to plot or visualize the data. Eventually, I used `chart.save()` in order to be able to view the plot. Nevetheless, I did enjoy how much I was able to control with the graph such as the x and y-axis ranges and where they started. 
+To visualize the penguin dataset with Python and altair I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed altair's `alt.Chart().mark_point().encode()` documentation. Altair was not the easiest to use and gave me a lot of trouble once I was attempting to plot or visualize the data. Eventually, I used `chart.save()` in order to be able to view the plot. Nevetheless, I did enjoy how much I was able to control with the graph such as the x and y-axis ranges and where they started. The `tooltip` feature is an easy alternative for a mouse-over for the data, therefore, I was easily able to show the sex, year, and island of each specie as the user hover's over a dot. 
 
-Altair also allows the user to interact with the graph by clicking and dragging. Simple features such as this go a long way within a visualization. I would use altair in the future if I was using it within a webpage. 
+Altair also allows the user to interact with the graph by clicking and dragging the graph. Simple features such as this go a long way within a visualization. I would use altair in the future if I was using it within a webpage. 
 
-![altair](img/ggplot2.png)
+![altair](img/altair_python.png)
 
 # Python + plotly + VSCode
 Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
@@ -86,7 +86,7 @@ VSCode is an IDE (integrated development environment) used for scripting, debugg
 Visualizing the penguin dataset using d3 and JS was easily the hardest but most validating graph to make out of the 7. I completed this interactive plot by using `svg.append(), function()`, and `scaleLinear()`. Every feature seen previous in other graphs had to be manually coded in such as the legend, the size of the dots, and the color of the dots. If I truly wanted to make something that was my own, I would use d3 + JS as it gave me a blank canvas and allowed me to craft whatever I envisioned. For this specific graph, I included a mouseover function that would highlight all the species in the group. This simple interaction really made the entire graph come together for me. 
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
+- **Mouse-Over Feature**: Using the `tooltip` feature in my Python + altair graph I was seamlessly able to incorporate hover-over elements when the user hovers over a dot. This feature allows the user to dive into the data and learn more about that specific penguin. 
 - **Solved AI Forever**: ...
 
 ### Design Achievements
