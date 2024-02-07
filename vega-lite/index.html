@@ -23,7 +23,11 @@
     // Assign the specification to a local variable vlSpec.
     var vlSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+      "height": 500,
+      "width": 500,
+
+
+
       "data": {"url": "https://raw.githubusercontent.com/bhnord/a2-DataVis-7Ways/main/penglings.csv"},
       "mark": "circle",
 
@@ -48,7 +52,7 @@
           "type": "quantitative",
           "scale": {
             "type": "pow",
-            "range": [1, 100]
+            "range": [1, 500]
           }
         },
         "x": {

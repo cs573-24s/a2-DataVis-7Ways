@@ -10,7 +10,7 @@ Since every element had to be created manually, the effort involved with this vi
 ![d3_no_hover](./img/d3_1.png)
 ![d3_hover](./img/d3_2.png)
 
-#### Sources
+#### D3 Sources
 
 [1](https://d3-graph-gallery.com/graph/scatter_basic.html)
 [2](https://stackoverflow.com/questions/11189284/d3-axis-labeling)
@@ -32,7 +32,7 @@ To get the chart to closer mimic the example plot, I had to change a few of the 
 
 ![seaborn_plot](./img/seaborn.png)
 
-#### Sources
+#### Seaborn Sources
 
 [1](https://stackoverflow.com/questions/14885895/color-a-scatter-plot-by-column-values)
 
@@ -49,7 +49,7 @@ and the library feels a bit more Pythonic and simple.
 
 ![altair_chart](./img/altair.png)
 
-#### Sources
+#### Altair Sources
 
 [1](https://altair-viz.github.io/user_guide/customization.html#customizing-colors)
 [2](https://altair-viz.github.io/gallery/scatter_tooltips.html)
@@ -117,6 +117,33 @@ view the changes over time of the diversity of each island.
 ![flourish_chart_3](./img/flourish3.png)
 
 [flourish link (interactive)](https://public.flourish.studio/visualisation/16735989/)
+
+## Vega-Lite
+
+This visualization tool was pretty easy to use and very simple.
+The syntax for the visualization was very clear and organized,
+and there was good docs on the Vega GitHub site.
+The only gripe I had with this visualization is that it was
+a bit complicated to perform more complex interactivity within
+the chart. I had tried to make interactivity of a drag bar
+as well as a species select, but it was a bit complicated
+and I couldn't figure it out. I only managed to add
+interactivity with the species select in the end.
+I also thought it was a bit difficult to create dynamic values
+from the data, as I couldn't figure out how to load a dynamic
+max and min values from the data. I did see that there was
+functionality with "transform" and "calculate" but I did not
+think this matched my use case exactly, as this creates a new
+column entirely, and performs some kind of transform on the
+entire data set.
+
+![Vega-Lite Chart](./img/vega-lite.png)
+
+### Vega-Lite Sources
+[basic tutorial](https://vega.github.io/vega-lite/tutorials/explore.html)
+
+[legend binding](https://vega.github.io/vega-lite/docs/bind.html#legend-binding/data/cars.json)
+
 ## Technical Achievements
 
 ### Show an Element's Detailed information on Hover in D3
@@ -187,3 +214,10 @@ using Flourish, and display these observations separately.
 I used a slider with the ability to "play" an animation to
 switch from year to year. This allows the user to see how the
 diversity of each island changed from year to year.
+
+### Isolate Species Selection in Vega-Lite
+
+I was able to add interactivity to the Vega-Lite chart by
+adding functionality to show one species at a time when the
+user selects a certain species. When one species is selected,
+all of the others are greyed out to give better visibility.
