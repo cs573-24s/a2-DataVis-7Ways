@@ -138,22 +138,20 @@ Tool: flourish
 Link: https://app.flourish.studio/projects
 
 What steps are done: 
-      * create login
-      * upload data
-      * draw report
+      - create login
+      - upload data
+      - draw report
 Advantage: 
-      * easy to work
-      * flexible
-      * plenty of examples and templates
+      - easy to work
+      - flexible
+      - plenty of examples and templates
            
 Disadvantage: 
-      * not flexible
-            * for example: only 1 legend is available
-      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+      - comparing to the drag and drop tools programming knowledge required
 Where do I see this in future:
-      * if it improves the data manipulation ection it has potential to grow
+      - flexible
 Hacks: 
-      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+      - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
 # Flourish
 ![Alt text](img/flourish.png)
@@ -161,31 +159,22 @@ Tool: flourish
 Link: https://app.flourish.studio/projects
 
 What steps are done: 
-      * create login
-      * upload data
-      * draw report
+      - create login
+      - upload data
+      - draw report
 Advantage: 
-      * easy to work
-      * free edition for try
-      * plenty of examples and templates
+      - easy to work
+      - free edition for try
+      - plenty of examples and templates
            
 Disadvantage: 
-      * not flexible
-            * for example: only 1 legend is available
-      * lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+      - not flexible
+            - for example: only 1 legend is available
+      - lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
 Where do I see this in future:
-      * if it improves the data manipulation ection it has potential to grow
+      - if it improves the data manipulation ection it has potential to grow
 Hacks: 
-      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
-
-
-
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
-
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+      - Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
 
 # powerbi 
 ![Alt text](image.png)
@@ -193,23 +182,22 @@ Tool: flourish
 Link: https://app.flourish.studio/projects
 
 What steps are done: 
-      * create login
-      * upload data
-      * draw report
+      - upload data
+      - draw report
 Advantage: 
-      * easy to work
-      * free desktop edition
-      * data manipulation capabilities
-      * plenty of examples and communities
+      - easy to work
+      - free desktop edition
+      - data manipulation capabilities
+      - plenty of examples and communities
            
 Disadvantage: 
-      * not flexible enough like ggplot
-            * for example: only 1 legend is available
+      - not flexible enough like ggplot, d3
+            - for example: only 1 legend is available
 
 Where do I see this in future:
-      * if it improves the data manipulation ection it has potential to grow
+      - it's already quite popular, so that will be continue
 Hacks: 
-      * Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+      - Because of the technical limitation of the tool, but using the table trick I display the second legend
 
 # Flourish
 ![Alt text](img/flourish.png)
