@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Vega-Lite Bar Chart</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+
+    <style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {
+    margin-right: 5px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Template for Embedding Vega-Lite Visualization</h1>
+    <!-- Container for the visualization -->
+    <div id="vis"></div>
+
+    <script>
+    // Assign the specification to a local variable vlSpec.
+    var vlSpec = {
+
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+
+      "width": 200,
+      "height": 200,
+      "data": [
+        {
+          "name": "source",
+          "url": "https://raw.githubusercontent.com/bhnord/a2-DataVis-7Ways/main/penglings.csv",
+          "transform": [
+            {
+              "type": "filter",
+              "expr": "datum['body_mass_g'] != null && datum['flipper_length_mm'] != null"
+            }
+          ]
+        }
+      ],
+      "mark": "point",
+
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "round": true,
+          "nice": true,
+          "zero": true,
+          "domain": {"data":"source","field": "flipper_length_mm"},
+          "range": "width"
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "round": true,
+          "nice": true,
+          "zero": true,
+          "domain": {"data":"source","field": "body_mass_g"},
+          "range": "height"
+
+        }
+
+      ],
+
+      "axes": 
+      [
+        {
+          "scale": "x",
+          "grid": true,
+          "domain": false,
+          "orient": "bottom",
+          "tickCount": 5
+        },
+        {
+          "scale": "y",
+          "grid": true,
+          "domain": false,
+          "orient": "left",
+          "tickCount": 5,
+          "title": "hello"
+        }
+
+      ],
+
+      "marks": [
+        {
+          "name": "makrs",
+          "type": "symbol",
+          "from": {"data": "source"},
+          "encode":{
+            "update":{
+              "x": {"field": "flipper_length_mm", "type": "quantitative"},
+              "y": {"field": "body_mass_g", "type": "quantitative"},
+              "shape": {"value": "circle"},
+              "strokeWidth": {"value": 2},
+              "opacity": {"value": 0.5},
+              "stroke": {"value": "#4682b4"},
+              "fill": {"value": "transparent"}
+            }
+          }
+        }
+      ]
+      /**
+      "encoding": {
+        "x": {"field": "flipper_length_mm", "type": "quantitative"},
+        "y": {"field": "body_mass_g", "type": "quantitative"}
+      }
+**/
+
+
+    };
+
+    // Embed the visualization in the container with id `vis`
+    vegaEmbed('#vis', vlSpec);
+    </script>
+  </body>
+</html>
