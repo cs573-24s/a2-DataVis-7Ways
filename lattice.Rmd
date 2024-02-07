@@ -26,6 +26,6 @@ xyplot(body_mass_g ~ flipper_length_mm | species, data = penguins,
        group = species,
        #panel = panel.smoothScatter,
        xlab = "Flipper Length (mm)", ylab = "Body Mass (g)",
-       main = "Body Mass vs. Flipper Length by Species")
+       main = "Flipper Length v. Body Mass by Species")
 ```
 
