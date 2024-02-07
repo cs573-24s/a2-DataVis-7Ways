@@ -17,7 +17,7 @@ Assignment 2 - Data Visualization, 7 Ways
 # R - ggplot
 
 # OriginLab
-
+![Originlab](img/OriginLab.png)
 
 # Excel
 
