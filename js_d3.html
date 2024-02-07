@@ -91,7 +91,6 @@
                     .attr("r", d => radiusScale(+d.bill_length_mm));
             };
 
-            // Add dots
             svg.append('g')
                 .selectAll("dot")
                 .data(data)
