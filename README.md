@@ -6,7 +6,7 @@ Prof. Lane Harrison
 Andrew Kerekon
 
 ## Tools
-- ggplot2
+- plotly
 - Excel
 - d3
 - Vega-Altair
@@ -19,7 +19,19 @@ Andrew Kerekon
 - JavaScript
 - Python
 
-# R + ggplot2
+# R + plotly
+Plotly is an interactive graphing library focusing on writing less code to produce detailed visualizations. Their software is available in R, JavaScript, and Python, but I decided to use their R library to practice programming in a different language.
+
+To visualize the Penglings dataset, I used plotly's scatter plot after cleaning the data using tidyr's drop_na() function. I then specified a color map to match particular species names to certain colors, and changed opacity to 80%. I also specified sources for x and y axes and created labels to clarify which axis contained which datapoints. Additionally, bubbles are scaled according to bill_length_mm scaled down by a factor of 0.3, and all text is scaled and formatted with Ariel.
+
+Plotly was a straightforward, easy-to-use library that was well-documented and suited this project perfectly. Importing data was made easy by the fact the penglings dataset already exists in R, and libraries such as plotly and tidyr were only a quick install away. Additionally, hover over on each data label is built in by default. The only downside was that I wasn't able to find a good way to include the bill_size circle size as part of the legend. I would recommend this tool to users who are comfortable with light programming in order to prepare much more detailed visualizations than those possible in Excel.
+
+Resources Consulted:
+- https://plotly.com/r/line-and-scatter/
+- https://plotly.com/r/figure-labels/
+- https://stackoverflow.com/a/38970417
+
+![plotly](img/plotly.png)
 
 # Excel
 

@@ -1,0 +1,31 @@
+---
+title: "penglings"
+format: html
+editor: visual
+---
+
+```{r}
+library(palmerpenguins)
+library(plotly)
+library(tidyr)
+penguins 
+```
+
+```{r}
+penguins %>% drop_na()
+
+ariel <- list(
+  family = "Ariel",
+  size = 14,
+  color = "black")
+arielTitle <- list(
+  family = "Ariel",
+  size = 16,
+  color = "black")
+colorMap <- c("#156082", "#E97132", "#196B24")
+colorMap <- setNames(colorMap, c("Adelie", "Chinstrap", "Gentoo"))
+fig <- plot_ly(data = penguins, type="scatter", opacity=0.8, mode="markers", x = ~flipper_length_mm, y = ~body_mass_g, color = ~species, colors = colorMap, marker = list(size=~bill_length_mm*0.3)) %>% layout(font = ariel, title = list(text = 'Flipper Length vs. Body Mass\nFor Adelie, Chinstrap, and Gentoo Penguins', font = arielTitle), xaxis = list(title = 'Flipper Length (mm)'), yaxis = list(title = 'Body Mass (g)'), legend = list(title=list(text='Species')))
+
+fig
+
+```
