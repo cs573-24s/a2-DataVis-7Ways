@@ -11,7 +11,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ![plotly](img/plotly.png)
 
 # Python - Altair
-
+![altair](img/altair.png)
 # Python - Folium
 
 # R - ggplot
