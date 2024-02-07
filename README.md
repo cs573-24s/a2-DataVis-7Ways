@@ -39,13 +39,14 @@ Tool: d3
 - create login
 - upload data
 - draw report
+
 **Advantage:**
 - flexible
 - plenty of examples and templates
            
 **Disadvantage:** 
 - comparing to the drag and drop tools programming knowledge required
-Where do I see this in future:
+**Where do I see this in future:**
 - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 Hacks: 
 - 
@@ -54,12 +55,13 @@ Hacks:
 ---
 ![Alt text](img/flourish.png)
 Tool: flourish 
-Link: https://app.flourish.studio/projects
+[Link:](https://app.flourish.studio/projects)
 
 **What steps are done:**
 - create login
 - upload data
 - draw report
+
 **Advantage:** 
 - easy to work
 - free edition for try
@@ -68,7 +70,8 @@ Link: https://app.flourish.studio/projects
 **Disadvantage:** 
 - not flexible <-- for example: only 1 legend is available
 - lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
-Where do I see this in future:
+
+**Where do I see this in future:**
 - if it improves the data manipulation ection it has potential to grow
 Hacks: 
 - Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
@@ -82,6 +85,7 @@ Link: https://app.flourish.studio/projects
 **What steps are done:** 
 - upload data
 - draw report
+
 **Advantage:** 
 - easy to work
 - free desktop edition
@@ -103,6 +107,7 @@ Link: https://app.flourish.studio/projects
 **What steps are done:** 
 - upload data
 - draw report
+
 **Advantage:** 
 - easy to work
 - free desktop edition
@@ -122,11 +127,12 @@ Link: https://app.flourish.studio/projects
 ---
 ![Alt text](img/altair.png)
 
-What steps are done: 
+**What steps are done:**
 - create login
 - upload data
 - draw report
-Advantage: 
+
+**Advantage:**
 - easy to work
 - free edition for try
 - plenty of examples and templates
@@ -134,14 +140,15 @@ Advantage:
 **Disadvantage:**
 - not flexible <-- for example: only 1 legend is available
 - lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
-Where do I see this in future:
+
+**Where do I see this in future:**
 - if it improves the data manipulation ection it has potential to grow
-Hacks: 
+**Hacks:**
 - Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
 
-# Flourish
+# R + ggplot2 (plotly) + R Markdown
 ---
-![Alt text](img/flourish.png)
+![Alt text](img/plotly.png)
 Tool: flourish 
 Link: https://app.flourish.studio/projects
 
