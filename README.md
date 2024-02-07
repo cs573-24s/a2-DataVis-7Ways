@@ -138,20 +138,19 @@ While it takes time to find the correct documentation, these functions made the 
 Tool: d3 
 
 What steps are done: 
-      - create login
-      - upload data
-      - draw report
+- create login
+- upload data
+- draw report
 Advantage: 
-      - easy to work
-      - flexible
-      - plenty of examples and templates
+- flexible
+- plenty of examples and templates
            
-Disadvantage: 
-      - comparing to the drag and drop tools programming knowledge required
+**Disadvantage:** 
+- comparing to the drag and drop tools programming knowledge required
 Where do I see this in future:
-      - flexible
+- Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 Hacks: 
-      - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
+- 
 
 # Flourish
 ---
