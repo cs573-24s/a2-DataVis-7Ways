@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Penglings</title>
+  </head>
+
+  <body style="background-color: white;">
+    <div id="container"></div>
+  </body>
+
+<script type="module">
+    import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+    const margin = {top: 30, right: 30, bottom: 60, left: 100};
+    const width = 0.5*window.screen.height - margin.left - margin.right
+    const height = 0.5*window.screen.height - margin.top - margin.bottom;
+
+    const svg = d3.select("#container").append("svg").attr("width", width + 2*margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+          `translate(${margin.left}, ${margin.top})`);
+
+    svg.append("rect")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("fill", "lightgray");
+
+    d3.csv("penglings.csv").then((data) => {
+        data = data.filter((d) => { return d.bill_length_mm !== "NA"})
+
+        let bill_lengths = []
+        for (let point in data) {
+          let rounded = Math.round(data[point].bill_length_mm / 10) * 10;
+          if (bill_lengths.indexOf(rounded) === -1) bill_lengths.push(rounded);
+        }
+
+        bill_lengths.sort()
+
+        const xAxis = d3.scaleLinear()
+            .domain([170, 235])
+            .range([ 0, width ]);
+        svg.append("g")
+            .attr("transform", `translate(0, ${height})`)
+            .call(d3.axisBottom(xAxis).tickSizeInner(-height)).append("text").style("font", "14px ariel").attr("fill", "black").attr("transform", `translate(${0.5*width}, ${margin.top})`).text("Flipper Length (mm)");
+
+        const yAxis = d3.scaleLinear()
+            .domain([2500, 6500])
+            .range([ height, 0]);
+        svg.append("g")
+            .call(d3.axisLeft(yAxis).tickSizeInner(-width)).append("text").style("font", "14px ariel").attr("fill", "black").attr("transform", `rotate(-90) translate(-${0.5*width}, -${0.5*margin.left})`).text("Body Mass (g)");
+
+        const r_scaler = 0.15
+
+        const penguins = ["Adelie", "Chinstrap", "Gentoo" ];
+        const colorMap = d3.scaleOrdinal()
+            .domain(penguins)
+            .range([ "#156082", "#E97132", "#196B24"]);
+        
+        svg.append("text").style("font", "16px ariel").attr("fill", "black").attr("transform", `translate(${0.5*margin.left}, ${-0.55*margin.top})`).text("Flipper Length vs. Body Mass");
+        svg.append("text").style("font", "16px ariel").attr("fill", "black").attr("transform", `translate(${0.1*margin.left}, ${-0.1*margin.top})`).text("For Adelie, Chinstrap, and Gentoo Penguins");
+
+        svg.append('g')
+            .selectAll("dot")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("class", (d) => { return "dot " + d.species } )
+            .attr("cx", (d) => { return xAxis(d.flipper_length_mm); } )
+            .attr("cy", (d) => { return yAxis(d.body_mass_g); } )
+            .attr("r", (d) => { return r_scaler * d.bill_length_mm})
+            .attr("opacity", 0.8)
+            .style("fill", (d) => { return colorMap(d.species) } )
+
+        svg.selectAll("dotPenguin")
+            .data(penguins)
+            .enter()
+            .append("circle")
+              .attr("cx", (d,i) => { return width + margin.right})
+              .attr("cy", (d,i) => { return 0.5*height + i*20})
+              .attr("r", 7)
+              .style("fill", (d) => { return colorMap(d)})
+
+        svg.selectAll("penguinLabels")
+              .data(penguins)
+              .enter()
+              .append("text").style("font", "14px ariel")
+                .attr("x", (d, i) => { return width + 1.3*margin.right})
+                .attr("y", (d,i) => { return 0.5*height + i*20})
+                .style("fill", (d) => { return colorMap(d)})
+                .text((d) => d)
+                .attr("text-anchor", "left")
+                .style("alignment-baseline", "middle");
+
+        svg.append("text").style("font", "14px ariel").attr("fill", "black").attr("transform", `translate(${width + margin.right}, ${0.45*height})`).text("Species");
+
+        svg.selectAll("dotBillSize")
+            .data(bill_lengths)
+            .enter()
+            .append("circle")
+              .attr("cx", (d,i) => { return width + margin.right})
+              .attr("cy", (d,i) => { return 0.15*height + i*20})
+              .attr("r", (d,i) => { return r_scaler * d})
+              .style("fill", "black")
+
+        svg.selectAll("billSizeLabel")
+              .data(bill_lengths)
+              .enter()
+              .append("text").style("font", "14px ariel")
+                .attr("x", (d, i) => { return width + 1.3*margin.right})
+                .attr("y", (d,i) => { return 0.15*height + i*20})
+                .style("fill", "black")
+                .text((d) => d)
+                .attr("text-anchor", "left")
+                .style("alignment-baseline", "middle");
+
+        svg.append("text").style("font", "14px ariel").attr("fill", "black").attr("transform", `translate(${width + margin.right}, ${0.10*height})`).text("bill_length_mm");
+    })
+  </script>
+</html>

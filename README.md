@@ -39,6 +39,21 @@ Resources Consulted:
 
 # JavaScript + d3
 
+d3 is a tool designed specifically for creating interactive visualizations with the JavaScript language.
+
+To visualize the penglings dataset, I used promises to import data from CSV and filtered out any entry such that bill_length_mm was "NA". Ithen used d3's built in axes to create x and y axes of a particular size, translating as needed to allow labels to end in the right locations. I also used tickSizeInner to ensure grid lines would display. Following resources below, I created points for each data point at 80% opacity that mapped each species to a different color, with flipper_length_mm along the x-axis and body_mass_g on the y-axis. By iterating over all possible bill_length_mms, I rounded to the nearest 10 to choose the right bubble size and created a corresponding legend with both species mapped to color and bill_length mapped to circle size.
+
+It was easy to bring in data, but difficult to adjust/scale where data ended up. I found myself having to test manual offsets for axis labels, which I needed to add myself rather than have tied to an axis like in Excel. I also found certain method chainings and general overhead of SVG files to be particularly cumbersome, especially when text would not appear until I set the fill to black. I would recommend d3 for technical users who want powerful visualizations, but only if they have the time required to realize a fully-fledged graphic.
+
+Resources Consulted:
+- https://d3-graph-gallery.com/graph/scatter_grouped_highlight.html
+- https://d3js.org/d3-fetch#csv
+- https://d3js.org/d3-axis
+- https://d3-graph-gallery.com/graph/custom_legend.html
+- https://observablehq.com/@weitinglin/how-can-i-skip-an-element-of-an-array-when-i-perform-a-data-data-
+
+![d3](img/d3.png)
+
 # Python + Vega-Altair
 
 # JavaScript + p5
