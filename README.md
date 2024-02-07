@@ -12,7 +12,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 # Python - Altair
 ![altair](img/altair.png)
-# Python - Folium
+# Python - Bokeh
 
 # R - ggplot
 
