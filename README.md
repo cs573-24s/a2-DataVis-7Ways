@@ -8,6 +8,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ![d3_2](img/d3_2.png)
 
 # Python - Plotly
+![plotly](img/plotly.png)
 
 # Python - Altair
 
