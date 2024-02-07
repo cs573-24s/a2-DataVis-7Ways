@@ -68,6 +68,19 @@ Resources Consulted:
 
 # Python + Vega-Altair
 
+Altair is a visualization library for Python that uses the Vega-Lite grammar, focusing on getting charts set up with little written code.
+
+In a Jupyter Notebook, I read the pengling's dataset into a pandas dataframe that Altair read to create a chart. This chart was configured to use the proper x and y axes titles and scales, to match other visualizations, and was also configured to use the same color bubbles. Additionally, opacity was configured to 80% and fonts were changed to Ariel sizes 14 and 16 in accordance with other visualizations.
+
+I found it easy to get set up with Altair, with the only hurdles being the need to clean NA values from the pandas dataframe and the fact that changing the font also changed the scaling of the chart, which required manual limits of (300, 300) to be set. On the contrary, configurability of certain methods was challenging -- I wasn't able to find a way to swap the order of the legends themselves (species below bill_length), only the entries within. I would recommend Altair for aspiring data visualization professionals who are comfortable working with pandas and messing with configuration variables to get a desired result.
+
+Resources Consulted:
+- https://altair-viz.github.io/getting_started/overview.html
+- https://altair-viz.github.io/gallery/multifeature_scatter_plot.html
+- https://altair-viz.github.io/user_guide/generated/toplevel/altair.Chart.html#altair.Chart
+- https://github.com/altair-viz/altair/issues/1465
+![vega-altair](img/vega-altair.png)
+
 # JavaScript + p5
 
 # Flourish
