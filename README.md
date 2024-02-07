@@ -90,6 +90,33 @@ connections and comparisons between the sub-visualizations.
 
 ![r_chart](./img/r2.png)
 
+## Flourish
+
+This visualization tool was extremely easy to use.
+It required no coding experience, and I was easily
+able to pick it up. To enter data, you just need to select a csv
+file, and you can select which columns pertain to which parts
+of the visualization. This made it extremely easy to create the
+visualization. It also has built-in interactivity which was
+a very nice tool. When you hover over the points on the plot,
+there is a tooltip that shows up that shows you the selected
+data on the plot. This also stays on click which is useful.
+There is functionality as well to add and remove specific groups
+from the visualization (species). To do this, you can click
+on the species in the legend and they will be filtered.
+I added more functionality to the plot by adding facets
+depending on which island the penguin was found on, as well as
+a time slider to show the data according to which year
+it was found. I also added a different shapes for male and 
+female observations of penguins to better represent the
+underlying data. This way, an observer of the chart can easily
+view the changes over time of the diversity of each island.
+
+![flourish_chart_1](./img/flourish1.png)
+![flourish_chart_2](./img/flourish2.png)
+![flourish_chart_3](./img/flourish3.png)
+
+[flourish link (interactive)](https://public.flourish.studio/visualisation/16735989/)
 ## Technical Achievements
 
 ### Show an Element's Detailed information on Hover in D3
@@ -152,3 +179,11 @@ I allowed the lines of best fit to match the species color, but darkened
 these lines so that they were more visible and did not blend in with the
 points themselves on the graph. To do this I used the darken functionality
 in the colorspace library as well as the ggnewscale library.
+
+### Show Observations by Year in Flourish
+
+I was able to split up observations of the penguins by year
+using Flourish, and display these observations separately.
+I used a slider with the ability to "play" an animation to
+switch from year to year. This allows the user to see how the
+diversity of each island changed from year to year.
