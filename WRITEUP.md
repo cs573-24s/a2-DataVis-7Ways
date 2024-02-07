@@ -65,5 +65,13 @@ To visualize the penglings dataset, I first loaded the csv data asynchronously u
 
 I felt this graph was definitely the hardest to construct due to the amount of coding it required. Unlike the previous tools and libraries used, this needed extensive specifications for design elements like margins, axis scaling, text rotation, legend design, etc. Thus, it is definitely the least beginner-friendly option. This being said, because users can control so many minute details in the code, I see this option being most useful for constructing especially detailed and complex data visualizations. Yes, it would require more time in the long run, but users would be able to have more creative control of the elements.
 
+### Technical Achievements
+
+For this graph, I added a color legend using additional svg variables to specify the placement, text, and colors. Users can view this legend in the top left corner of the graph.
+
 ![D3Vis](img/D3Vis.png)
+
+# Flourish
+
+
 
