@@ -13,7 +13,7 @@ Assignment 2 - Data Visualization, 7 Ways
 # Python - Altair
 ![altair](img/altair.png)
 # Python - Bokeh
-
+![bokeh](img/bokeh.png)
 # R - ggplot
 
 # OriginLab
