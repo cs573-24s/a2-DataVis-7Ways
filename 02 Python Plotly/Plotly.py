@@ -12,13 +12,14 @@ wd =  os.getcwd()
 data = pd.read_csv(wd + "\penglings.csv")
 #Drop NAs
 data = data.dropna(subset=['bill_length_mm'])
+data['scaled_size'] = (data['bill_length_mm']*data['bill_length_mm'])
 
 import plotly.io as pio
 import plotly.express as px
 pio.renderers.default='browser'
 
 fig = px.scatter(data, x="flipper_length_mm", y="body_mass_g", color="species",
-                 size='bill_length_mm', hover_data=['species'],
+                 size='scaled_size', hover_data=['species'],
                  labels={
                      "flipper_length_mm": "Flipper Length (mm)",
                      "body_mass_g": "Body Mass (g)",
