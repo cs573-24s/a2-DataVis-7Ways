@@ -1,0 +1,14 @@
+import altair as alt
+import pandas as pd
+
+data = pd.read_csv('penglings.csv')
+
+p = alt.Chart(data).mark_circle(opacity=0.8).encode(
+    x= alt.X('flipper_length_mm', scale=alt.Scale(domain=[170, 240])),
+    y= alt.Y('body_mass_g', scale=alt.Scale(domain=[2500, 6500])),
+    color='species',
+    size='bill_length_mm',
+    tooltip=['flipper_length_mm', 'body_mass_g', 'species']
+).properties(width=600, height=400, title='Penglings')
+
+p.save('scatter_plot.html')
