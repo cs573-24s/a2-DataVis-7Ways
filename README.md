@@ -18,6 +18,7 @@ Key features implemented with D3.js include some interactive elements, such as t
 ![d3_2](img/d3_2.png)
 
 # Python - Plotly
+Plotly is a very useful library that I've taken advantage of many times when I wanted to share something interactive. It comes with a default tooltip for users to investigate each data point. Also, I like default zooming feature that I could not implement in javascript. 
 ![plotly](img/plotly.png)
 
 # Python - Altair
@@ -26,6 +27,7 @@ Key features implemented with D3.js include some interactive elements, such as t
 ![bokeh](img/bokeh.png)
 # R - ggplot
 
+R is the first analytical tool that I used for data visualization, and I wanted to try something different! I remember doing some visual graphic animations with `ggplot2` and `gganimate` libraries. In this animation, we observe changes in body mass and flipper length by species.
 
 ![penguin_growth_over_time](img/penguin_growth_over_time.gif)
 # OriginLab
