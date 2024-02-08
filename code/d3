@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<div id="container"></div>
+<script type="module">
+
+    import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+    const width = 800;
+    const height = 600;
+    const marginTop = 40;
+    const marginRight = 40;
+    const marginBottom = 60;
+    const marginLeft = 60;
+
+    console.log(d3);
+
+    // Create the svg
+    const svg = d3.create("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    const container = document.getElementById('container');
+    container.appendChild(svg.node());
+
+    // Load the CSV
+    d3.csv('penglings.csv').then(function(data) {
+        // Select the x and y features
+        const xfeature = 'flipper_length_mm'
+        const yfeature = 'body_mass_g'
+
+        // Create the x-axis scale
+        const xScale = d3.scaleLinear()
+            .domain([d3.min(data, d => +d[xfeature]), d3.max(data, d => +d[xfeature])])
+            .range([0, width - marginLeft - marginRight]);
+
+        // Create the y-axis scale
+        const yScale = d3.scaleLinear()
+            .domain([d3.min(data, d => +d[yfeature]), d3.max(data, d => +d[yfeature])])
+            .range([height - marginBottom - marginTop, 0]);
+
+        // Create x-axis
+        svg.append('g')
+            .attr('transform', `translate(${marginLeft}, ${height - marginBottom})`)
+            .call(d3.axisBottom(xScale));
+
+        // Create y-axis
+        svg.append('g')
+            .attr('transform', `translate(${marginLeft}, ${marginTop})`)
+            .call(d3.axisLeft(yScale));
+
+        // Create x-axis label
+        svg.append('text')
+            .attr('transform', `translate(${width / 2}, ${height})`)
+            .style('text-anchor', 'middle')
+            .text('Flipper Length (mm)');
+
+        // Create y-axis label
+        svg.append('text')
+            .attr('transform', `translate(15, ${height / 2}) rotate(-90)`)
+            .style('text -anchor', 'middle')
+            .text('Body Mass (g)');
+
+        // Create a color scale for the different species
+        const colorScale = d3.scaleOrdinal()
+            .domain(data.map(d => d.species))
+            .range(['red', 'blue', 'green']);
+
+        //Create the size scale
+        const sizeScale = d3.scaleLinear()
+            .domain([d3.min(data, d => +d.bill_length_mm), d3.max(data, d => +d.bill_length_mm)])
+            .range([3, 10]);
+
+        // Plot the data
+        svg.selectAll('.dot')
+            .data(data)
+            .enter()
+            .append('circle')
+            .attr('class', 'dot')
+            .attr('cx', d => xScale(+d[xfeature]) + marginLeft)
+            .attr('cy', d => yScale(+d[yfeature]) + marginTop)
+            .attr('r', d => sizeScale(+d.bill_length_mm))
+            .style('fill', d => colorScale(d.species))
+            .style('fill-opacity', 0.8);
+    });
+
+</script>
