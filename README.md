@@ -98,6 +98,18 @@ Resources Consulted:
 ![vega-lite](img/vega-lite.png)
 
 # Flourish
+Flourish is a web-based data visualization design tool that exports to SVG.
+
+Using Flourish's built-in tutorial, I selected a scatter plot similar to the one Penglings would be modeled after. Setup was very different than other visualization tools, and I was prompted to select which columns from my data I would map to the x, y, color, and size attributes. The one hiccup here was unlike other tools, species (for color) was sorted by data index rather than by alphabetical order, so I had to sort the species column so that Chinstrap appeared before Gentoo. This was very straightforward, but took out a lot of customizability -- I felt that the circle size could not easily be scaled and that it was hard to differentiate certain circles from others. I also had to manually map colors depending on the index of the species entry, unlike other tools that had a 1-to-1 mapping -- adding species to the dataset could change coloring of points.
+
+Overall, I would strongly recommend Flourish to users in need of a crisp visualization that can easily be exported to HTML but not in need of deep customizability. I would also recommend it more strongly to users who prefer a web-based application in lieu of writing code. 
+
+Resources Consulted:
+- https://app.flourish.studio/@flourish/scatter
+- https://helpcenter.flourish.studio/hc/en-us/articles/8761569271567-How-to-color-the-dots-in-your-scatter-visualization
+
+[Link to visualization](https://public.flourish.studio/visualisation/16738738/)
+![flourish](img/flourish.png)
 
 # DataWrapper 
 
