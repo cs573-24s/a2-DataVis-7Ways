@@ -44,6 +44,25 @@ The final tool I used was Flourish, a web-based data vis platform with many visu
 # Technical Acheivements
 I worked to make as many of the graphs interactive to some degree. Some of the tools had the ability to do it on their own, others I had to add it in manually. Here are some screenshots of the results:
 
+
+
+d3 and js: Created a mouse event to hover/unhover a box with text inside of it
 ![](technical_img/tech_d3_js.png)
 
-Created a mouse event to hover/unhover a box with text inside of it
+
+R and ggplot2: Added feature that converted ggplot to 'plotly' which had functionality for hovering
+![](technical_img/tech_ggplot2.png)
+
+
+Python and MatplotLib: Added MLPCursors import to get hover functionality
+![](technical_img/tech_matplotlib.png)
+
+Vega-Lite: Used existing tooltip functionality to add a tooltip and populate with data fields
+![](technical_img/tech_matplotlib.png)
+
+Tableau: Functionality already existed
+![](technical_img/tech_tableau.png)
+
+Flourish: Functionality already existed
+![](technical_img/tech_tableau.png)
+

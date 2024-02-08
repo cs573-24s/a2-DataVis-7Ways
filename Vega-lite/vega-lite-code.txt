@@ -6,7 +6,13 @@
     "x": {"field": "flipper_length_mm", "type": "quantitative", "title": "Flipper Length (mm)", "scale": {"domain": [170, 240]}},
     "y": {"field": "body_mass_g", "type": "quantitative", "title": "Body Mass (g)", "scale": {"domain": [2500, 6500]}},
     "size": {"field": "bill_length_mm", "type": "quantitative", "title": "Bill Length (mm)", "scale": {"domain": [0, 100]}},
-    "color": {"field": "species", "type": "nominal", "title": "Species"}
+    "color": {"field": "species", "type": "nominal", "title": "Species"},
+    "tooltip": [
+      {"field": "flipper_length_mm", "type": "quantitative", "title": "Flipper Length (mm)"},
+      {"field": "body_mass_g", "type": "quantitative", "title": "Body Mass (g)"},
+      {"field": "bill_length_mm", "type": "quantitative", "title": "Bill Length (mm)"},
+      {"field": "species", "type": "nominal", "title": "Species"}
+    ]
   },
   "height": 300,
   "width": 400
