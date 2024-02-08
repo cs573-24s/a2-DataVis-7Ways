@@ -20,7 +20,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ![Originlab](img/Originlab.png)
 
 # Excel
-
+![excel](img/excel.png)
 
 ## Technical Achievements
 - **Proved P=NP**: Using a combination of...
