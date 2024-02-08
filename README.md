@@ -44,4 +44,4 @@ The final tool I used was Flourish, a web-based data vis platform with many visu
 # Technical Acheivements
 I worked to make as many of the graphs interactive to some degree. Some of the tools had the ability to do it on their own, others I had to add it in manually. Here are some screenshots of the results:
 
-![](technical_img/tech_d3_js.png)
+![Created a mouse event to hover/unhover a box with text inside of it](technical_img/tech_d3_js.png)
