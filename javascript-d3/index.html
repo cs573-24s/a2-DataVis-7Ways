@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Penguin Scatter Plot</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+      .tooltip {
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        padding: 2px;
+        text-align: left;
+        font: 12px sans-serif;
+        background: lightsteelblue;
+        font-style: italic;
+        border: 2px;
+        border-radius: 8px;
+        pointer-events: none;
+        opacity: 0;
+      }
+  </style>
+</head>
+<body>
+  <svg id="scatter-plot";"></svg>
+  <div id="tooltip" class="tooltip"></div>
+  <script src="script.js"></script>
+</body>
+</html>
