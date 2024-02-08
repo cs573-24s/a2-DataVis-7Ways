@@ -25,11 +25,23 @@ Key features implemented with D3.js include some interactive elements, such as t
 # Python - Bokeh
 ![bokeh](img/bokeh.png)
 # R - ggplot
+
+
 ![penguin_growth_over_time](img/penguin_growth_over_time.gif)
 # OriginLab
+
+OriginLab (my latest discovery) known for its advanced data analysis and graphing capabilities, offers a comprehensive solution for scientists and engineers looking to explore and visualize their data. I use this software when I do not need interactive visualizations for research papers, but highly quality custom plots. The good news is that WPI owns it!
+
+I've used OriginLab quite a lot, so creating this chart was not a challenge for me. It has a very detailed interface, so it requires watching some tutorials before using it.
+
 ![Originlab](img/Originlab.png)
 
 # Excel
+
+Known for its spreadsheet capabilities, Excel also offers a range of built-in tools for basic to intermediate data visualization tasks. Surprisingly, excel took much more time than others (not d3), for several reasons: 1) I figured out late I should have used a bubble chart, but not a scatter plot; 2) Because of formatting issues, excel did not recognize x-axis values and generated completely wrong data points, which is a very common issue.
+
+It does not have extensive customization capabilities, such as adjusting the legend freely, but it is a good option when no other software is available.
+
 ![excel](img/excel.png)
 
 ## Technical Achievements
