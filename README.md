@@ -2,15 +2,9 @@
 
 Assignment 2 - Data Visualization, 7 Ways  
 ===
-# d3...
+# d3 js
 ---
 ![Alt text](img/d3.png)
-Tool: d3 
-
-**What steps are done:**
-- create login
-- upload data
-- draw report
 
 **Advantage:**
 - flexible
@@ -18,6 +12,7 @@ Tool: d3
            
 **Disadvantage:** 
 - comparing to the drag and drop tools programming knowledge required
+
 **Where do I see this in future:**
 - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
@@ -58,8 +53,8 @@ Hacks:
 # powerbi 
 ---
 ![Alt text](img/pbi.png)
-Tool: flourish 
-Link: https://app.flourish.studio/projects
+
+Tool: powerbi 
 
 **What steps are done:** 
 - upload data
@@ -142,8 +137,8 @@ Size Encoding for Additional Insight: Utilizes point size to encode bill length,
 # R + ggplot2 (plotly) + R Markdown
 ---
 ![Alt text](img/plotly.png)
-Tool: flourish 
-Link: https://app.flourish.studio/projects
+
+Tool: RStudio
 
 Advantage: 
 - easy to work
