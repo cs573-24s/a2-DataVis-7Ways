@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "../penglings.csv"
+    },
+    "title": {
+      "text": "Flipper Length vs. Body Mass",
+      "subtitle": "For Adelie, Chinstrap, and Gentoo Penguins",
+      "font": "Ariel",
+      "subtitleFont": "Ariel",
+      "fontSize": 16,
+      "subtitleFontSize": 16
+    },
+    "mark": {
+      "type": "circle",
+      "opacity": 0.8
+    },
+    "encoding": {
+      "x": {
+        "field": "flipper_length_mm",
+        "type": "quantitative",
+        "scale": {"zero": false},
+        "axis": {"title": "Flipper Length (mm)", "labelFont": "Ariel", "titleFont": "Ariel", "titleFontSize": 14}
+      },
+      "y": {
+        "field": "body_mass_g",
+        "type": "quantitative",
+        "scale": {"zero": false},
+        "axis": {"title": "Body Mass (g)", "labelFont": "Ariel", "titleFont": "Ariel", "titleFontSize": 14}
+      },
+      "color": {"field": "species", "type": "nominal", "legend": {"labelFont": "Ariel", "titleFont": "Ariel", "labelFontSize": 14, "titleFontSize": 14}, "scale": {"range": ["#156082", "#E97132", "#196B24"]}},
+      "size": {"field": "bill_length_mm", "type": "quantitative", "legend": {"labelFont": "Ariel", "titleFont": "Ariel", "labelFontSize": 14, "titleFontSize": 14}}
+    }
+  }
+  
