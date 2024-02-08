@@ -1,0 +1,18 @@
+```{r}
+library(ggplot2)
+```
+
+```{r}
+df <- read.csv('penglings.csv')
+```
+
+```{r}
+df
+x <- df$flipper_length_mm
+y <- df$body_mass_g
+```
+
+```{r}
+ggplot(df, aes(x=x, y=y, color=species, size=bill_length_mm)) + geom_point(alpha=0.8) + labs(x = 'Flipper Length (mm)', y = 'Body Mass (g)', title = 'Penglings') + theme_minimal() 
+ggsave("R-Penglings.png", plot = last_plot(), width = 6, height = 4, dpi = 300)
+```
