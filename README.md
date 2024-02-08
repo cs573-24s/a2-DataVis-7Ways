@@ -7,16 +7,6 @@ Libraries, Tools, Languages
 ---
 The 3 libraries I used include: `Python, R, JavaScript` with tools including `d3, altair, plotly, seaborn, ggplot, lattice, and Flourish`.
 
-Other Requirements
----
-Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-
 # R + ggplot2 + R Markdown
 
 R is a language primarily focused on statistical computing.
@@ -35,6 +25,8 @@ lattice is a popular statistical graphin library used to create visualizations f
 R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
 
 I have no experience with lattice, so this was completely new to me. By using the libraries `xyplot()` feature, plotting was equally as straightforward as ggplot. Lattice, did allow me to use its multivariate analysis of features by visualizing each specie type in its own graph parallel to the other. I was also able to easily add in colors for each specie type making the categories very distinguishable. In the future, I intend to utilize lattice to visualize a plot in a manner that better conveys its meaning by separating the categories rather than stacking them on top of each other.
+
+The main downfall of lattice was its inability to directly size the fots based on bill_length_mm. To do that, creator would have to make a function to manuall update that.
 
 ![lattice](img/lattice.png)
 
@@ -56,7 +48,7 @@ VSCode is an IDE (integrated development environment) used for scripting, debugg
 
 To visualize the penguin dataset with Python and plotly I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed plotly's `px.scatter()` function to plot the data. Plotly was extremely easy to use and customize. I was seamlessly able to change the color and shape for each specie type. Plotly scatterplots also have built in functions that let the user interact with the data by using a lasso effect to focus only on a portion of the data. Additionally, there are options to zoom in and out of the data making the view of the information flexible. 
 
-![plotly](img/ggplot2.png)
+![plotly](img/plotly.png)
 
 # Python + seaborn + VSCode
 Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
@@ -65,7 +57,7 @@ VSCode is an IDE (integrated development environment) used for scripting, debugg
 
 To visualize the penguin dataset with Python and seaborn I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed seaborn's `sns.scatterplot()` function to plot the data. Seaborn had very robust documentation and allowed the creator to edit almost all components of the figure. Once the data was plotted and shown, it reminded me very much of plotly's features I mentioned above. Click and drag, zoom, and save were all available. My favorite feature was the undo and redo button within the figure. 
 
-![seaborn](img/ggplot2.png)
+![seaborn](img/seaborn.png)
 
 # Flourish
 Flourish is an interactive data visualization tool that enables the creation of data stories through a web-based app. 
@@ -87,9 +79,11 @@ Visualizing the penguin dataset using d3 and JS was easily the hardest but most 
 
 ## Technical Achievements
 - **Mouse-Over Feature**: Using the `tooltip` feature in my Python + altair graph I was seamlessly able to incorporate hover-over elements when the user hovers over a dot. This feature allows the user to dive into the data and learn more about that specific penguin. 
-- **Solved AI Forever**: ...
+- **Highlight Features**: Using d3 + J I added a highlight feature that when the user is hover-overed a certain specie, only that specie is colored and made bigger. On the other hand, the other dots are greyed out to emphasize the specie shown. 
 
 ### Design Achievements
 - **Color Vision Deficiencies**: As demonstrated in my ggplot2 + R colorscheme, I used the viridis() to include a perceptually uniform color scale for those with color vision deficiencies. 
 - **Absolute Judgement – Multivariate Analysis**: As demonstrated in my lattice + R plot, I was able to plot each specie on its own graph while still preserving the same y-axis across all species. This elements allows for absolute judgement between the penguins within each specie. 
-
+- **Dot Size Differentiation**: As demonstrated in some of my plots such as seaborn, I made the size of the dots very distinguishable to clearly visualize which dots were bigger than the others. 
+- **Specie Shape Differentiation** As shown in my plotly graph I was able to categorize each specie with a different shape. I did this in case the user is color blind and unable to differentiate between the colors in a graph.  
+- **Text-Font Change**: In my Flourish graph, I changed the font of thw graph to make it more visually appealing for the user to look at the graph. 

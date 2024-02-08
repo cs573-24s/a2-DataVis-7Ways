@@ -28,6 +28,10 @@ sns.scatterplot(x="flipper_length_mm", y="body_mass_g",
                 hue="species", size="bill_length_mm",
                 palette="ch:r=-.2,d=.3_r",
                 hue_order=penguins,
-                sizes=(10, 18), linewidth=0,
+                sizes=(20, 60),
                 data=dfPeng, ax=ax)
+
+ax.set_xlabel("Flipper Length (mm)")
+ax.set_ylabel("Body Mass (g)")
+
 plt.show()

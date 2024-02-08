@@ -21,6 +21,18 @@ if dfPeng is not None:
 
 fig = px.scatter(dfPeng, x="flipper_length_mm", y="body_mass_g", color="species",
                  size = 'bill_length_mm', symbol="species")
+fig.update_layout(
+    title="Penguin Data Visualization",
+    xaxis_title="Flipper Length (mm)",
+    yaxis_title="Body Mass (g)",
+    hoverlabel=dict(bgcolor="white", font_size=12),  # Customize tooltip appearance
+)
+
+# Make the graph more interactive
+fig.update_traces(mode="markers", marker=dict(opacity=0.8))  # Set marker opacity
+
+
+# Show the graph
 fig.show()
 
-# https://plotly.com/python/line-and-scatter/
+# For future reference https://plotly.com/python/line-and-scatter/
