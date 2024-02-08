@@ -1,145 +1,63 @@
 # 02-DataVis-7ways
 
-Assignment 2 - Data Visualization, 7 Ways  
+Assignment 2 - Data Visualization, 8 Ways  
+
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+For this assignment I utilized the following tools/languages:
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+1. R
+* Ggplot + Plotly
+* R
+2. Python
+* Matplotlib
+* Seaborn
+* Altair (Note: Jupyter notebook)
+3. Javascript
+* D3.js
+* Chart.js
+4. Google Sheets
+* Google Sheets
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+For my requirement I used 3 different programming languages and google sheets, making the graph in 8 different ways. I will now describe each of them in depth.
 
-Your goal is to use 7 different tools to make the following chart:
+### Ggplot + Plotly
+![caption](img/r-ggplot.png)
+The code for this was taken from the professor's tutorial. I modified it by first installing all the dependencies for it to run on my end. I needed to do this as it was my first time working with R and RStudio. That part was pretty difficult for me to figure out. I then, for added complexity, figured out how to make a trend line and do shapes (based on islands). Stack overflow was used for the first thing (https://stackoverflow.com/questions/38412817/draw-a-trend-line-using-ggplot). I really like how the trend lines doesn't go across the whole graph, following only the data points in the groups.
+The code in general behind this is pretty easy, but with some confusing syntax at first. I understand how it works now. From what I learned about R and Ggplot, Ggplot seems like a pretty nice way to make plots, with everything being kind of treated as an equation. Ggplot is pretty expansive in terms of plotting options, and was probably the easiest to use for complex chart options. When it comes to adding the tooltip, I used the library plotly in collaboration with ggplot (learned how to from https://plotly.com/ggplot2/hover-text-and-formatting/). Plotly added a lot of additional details to the graph, like the tool tip and a more informative legend, interesting showing that some species are only in 1 island and other cool tidbits.
 
-![](img/ggplot2.png)
+### R
+![caption](img/r.png)
+R by itself was a pretty basic implementation. I looked up documentation on how to add attributes to a plot (http://www.sthda.com/english/wiki/add-legends-to-plots-in-r-software-the-easiest-way), and created one. This implementation was extremely easy. From what I know of R just by itself though, the standard library is not the more thorough, and I should be using an alternative like Ggplot for more complex creations. I tried to add a tooltip for R, but there was no easy way to do so, especially since Plotly doesn't work with base R.
 
-These features should be preserved as much as possible in your replication:
+### Matplotlib
+![caption](img/matplotlib.png)
+Having used matplot before, this example was pretty easy for me. I looked up with chat gpt how to do size and coloring in matplot, and implemented that with the rest of the code I made. From what I know of matplotlib and doing it in previous works, I know matplotlib is extremely expansive, probably similar to ggplot in levels. It's also convenient with easy to follow syntax. It did not auto generate any axises however. It was also easy to exaggerate the sizes through doing simple multiplication. Matplotlib was not an easy language to add a tooltip to. I researched how to do it (starting from here https://stackoverflow.com/questions/7908636/how-to-add-hovering-annotations-to-a-plot), and used events to determine whether or not the cursor was over a point. Due to the difficulty of displaying a tooltip, I printed out what penguin was being looked at in the terminal
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+### Seaborn
+![caption](img/seaborn.png)
+Seaborn is based off of matplotlib, so it wasn't that difficult to implement, just requiring how to do a scatter plot differently. I looked up how to exactly make the scatterplot using Chatgpt, and edited the output to better fit. Interestingly, the axis was auto generated, and the size labels were different than that of ggplot. Seaborn is hailed as a more in depth statistical library, and is just as easy as matplot to use considering it uses matlab partially. Seaborn didn't even have the motion event system that matplotlib had. I looked up how I should do this, and stackoverflow recommended to use a different library for a tooltip, and there wasn't much documentation on seaborn with tooltips, so I didn't do this.
 
-Other features are not required. This includes:
+### Altair
+![caption](img/altair.png)
+Like the other python libraries, the syntax of Altair is relatively simple. I used chatgpt to figure out what's necessary to make a chart, and coded off of that. Altair is pretty annoying as a language to use. First off, it requires some sort of web based tool, making it so I needed to use jupyter notebook. Secondly, the axises weren't that fitting at first, so I had to manually adjust everything (I'm sure there's a better approach though). Despite this being able to accomplish the plot the same as Matplotlib and Seaborn, I'd prefer to use one of those two tools. Altair had a built in tooltip, probably because it's web based.
 
-- The background grid.
-- The legends.
+### D3.js
+![caption](img/d3.png)
+D3.js was my first javascript approach. I first looked at https://d3-graph-gallery.com/graph/scatter_basic.html to figure out how to make a basic scatter plot. For extra effort, I looked at https://d3-graph-gallery.com/graph/custom_legend.html to figure out how to make a legend. I also tried to figure out how to change the shapes in the scatterplot, but found it too troublesome to do. D3 is quite a freeform tool, allowing you to specify many aspects/components of the plot, a reason to use a web based visualization tool. However, this comes with there being a lot of code bloat, and everything having to be specified in detail. As mentioned before, I had trouble figuring out how to do something as basic as changing the shapes in the scatterplot. So this language is a hard one to master, but I know it to be very useful with how often it is used in the web and all the types of visualizations that can be made. I took a javascript coding approach to do a tooltip in this, inspired by https://medium.com/@kj_schmidt/hover-effects-for-your-scatter-plot-447df80ea116 . I coded the mouseover events to display a tooltip next to the circle when you hover over one.
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
+### Chart.js
+![caption](img/chart.png)
+Chart.js, in contrast to D3.js, has a lot more pre-made from the get go. I looked through the docs and was able to make a scatter plot relatively easily, with their pre built functionality. It was a bit difficult to figure out how to parse the csv though, so in the end I just decided to use d3's method. Chart.js is also a bit unruly, with less control on the placement of things, like how it takes up the size of the whole screen despite not being specified to. One cool thing about this though is information about each bubble is visible when highlighting. I'd want to use Chart.js if I wanted a simple web based solution. Chart.js had a built in toolkit.
 
-Improvements are also welcome as part of Technical and Design achievements.
-
-Libraries, Tools, Languages
----
-
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
-
-Otherwise, you should seek tools and libraries to fill out your 7.
-
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
-
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
-
-I have marked a few that are strongly suggested.
-
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
-
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
-
+### Google Sheets
+![caption](img/google-sheets.png)
+Google Sheets is a very simple approach that's also very limited and comes with difficulties in finding and changing various aspects of the chart. It not being code based meant I didn't have free rein to do what I wanted with the graph. Despite that, I could accomplis everything I wanted with the graph relatively simply. This would probably be my go to tool for simple visualizations. Google Sheets has a built in toolkit, which is pretty nice for such an easy tool.
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+- My main form of technical achievement was trying to add some sort of tooltip that describes what the points are to all graphs, as discussed in each individual section.
+- I also put in extra effort with Ggplot and D3.js, adding trend lines/shapes to ggplot, adding the legend to d3.js, and adding shapes to R. 
+- I also created an 8th visualization.
 
 ### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+- No design achievements worked on. I did try to make sure everything looked fine however, adjusting each graph to be more visible through methods such as changing the size of the bubbles.

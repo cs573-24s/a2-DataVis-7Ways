@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Plot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+</head>
+<body>
+
+<canvas id="scatterPlot" width="0" height="200"></canvas>
+
+<script>
+
+// Load the data from the CSV file
+d3.csv("../penglings.csv")
+    .then(data => {
+        // parsing a csv
+
+        const x_values = data.map(d => d.flipper_length_mm);
+        const y_values = data.map(d => d.body_mass_g);
+        const size_values = data.map(d => d.bill_length_mm);
+        const species_values = data.map(d => d.species);
+
+        // Set up the color scale
+        const colorScale = {
+            "Adelie": "rgba(255,166,0,.8)", //orange,
+            "Chinstrap": "rgba(160, 32, 240, .8)", //purple
+            "Gentoo": "rgba(0,255,255,.8)" //cyan
+        };
+
+        const datasets = [{
+            label: 'Scatter Plot',
+            backgroundColor: ["rgba(255,166,0,.8)","rgba(160, 32, 240, .8)","rgba(0,255,255,.8)"],
+            data: data.map((d, index) => ({
+                x: x_values[index],
+                y: y_values[index],
+                r: size_values[index],
+                backgroundColor: colorScale[d.species],
+                species: d.species
+            })),
+        }];
+
+        // Set up the chart options
+        const options = {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Flipper Length (mm)'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Body Mass (g)'
+                    }
+                }
+            },
+        };
+
+        // Create the scatter plot using Chart.js
+        const ctx = document.getElementById('scatterPlot').getContext('2d');
+        new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: datasets,
+            },
+            options: options,
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Plot</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .tooltip{
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="tooltip" id="tooltip"></div>
+    <script>
+
+        // Load the data from the CSV file
+        d3.csv("../penglings.csv").then(function (data) {
+
+            // Set up the SVG container
+            // let margin = { top: 20, right: 20, bottom: 70, left: 70 };
+            let width = 600;
+            let height = 400;
+            const symbol = d3.symbol();
+
+            let svg = d3.select("body")
+                .append("svg")
+                .attr("width", width + 50)
+                .attr("height", height + 50)
+                .append("g")
+            // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // axis
+            let x_scale = d3.scaleLinear().domain([170, 240]).range([0, width]);
+            let y_scale = d3.scaleLinear().domain([2500, 6500]).range([height, 0]);
+            let size_scale =
+                d3.scaleLinear()
+                    .domain(
+                        [
+                            d3.min(data, d => +d.bill_length_mm),  // from min to max
+                            d3.max(data, d => +d.bill_length_mm)]
+                    ).range([5, 10]); // have visibly distinct sizes
+
+            // Setting up color based on species
+            let colorScale = d3.scaleOrdinal()
+                .domain(["Adelie", "Chinstrap", "Gentoo"])
+                .range(["orange", "purple", "cyan"]);
+
+            const div = d3.select(".tooltip")
+                .style("opacity", 0);
+            // Create circles
+            const dots = svg.selectAll("dots")
+                .data(data)
+                .enter().append("circle")
+                .attr("cx", d => x_scale(d.flipper_length_mm))
+                .attr("cy", d => y_scale(d.body_mass_g))
+                .attr("r", d => size_scale(d.bill_length_mm))
+                .attr("fill", d => colorScale(d.species))
+                .attr("opacity", 0.8)
+                .on('mouseover', function (d, i) { //https://medium.com/@kj_schmidt/hover-effects-for-your-scatter-plot-447df80ea116
+                    div.transition()
+                        .style("opacity", 1);
+                    div.html("Flipper length " +  d.flipper_length_mm + ", Body mass " + d.body_mass_g)
+                        .style("left", (d3.event.pageX + 20) + "px")
+                        .style("top", (d3.event.pageY - 10) + "px")
+                })
+                .on('mouseout', function (d, i) {
+                    div.transition()
+                        .style("opacity", 0);
+                });
+
+            // x axis
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x_scale))
+                .append("text")
+                .attr("x", width / 2)
+                .attr("y", 30)
+                .attr("fill", "#000") // black color
+                .text("Flipper Length (mm)");
+
+            // y axis
+            svg.append("g")
+                .call(d3.axisLeft(y_scale))
+                .append("text")
+                .attr("transform", "rotate(-90)") // so it's vertical text
+                .attr("x", -height / 2 + 50)
+                .attr("dy", "1em")
+                .attr("fill", "#000")
+                .text("Body Mass (g)");
+
+            // Add legend
+            let legend = svg.selectAll("legend")
+                .data(colorScale.domain())
+                .enter().append("g")
+
+            //https://d3-graph-gallery.com/graph/custom_legend.html
+            legend.append("rect")
+                .attr("x", width - 20)
+                .attr("y", function (_, i) { return i * 20; })
+                .attr("width", 20)
+                .attr("height", 20)
+                .style("fill", colorScale);
+
+            legend.append("text")
+                .attr("x", width - 25)
+                .attr("y", function (_, i) { return i * 20 + 10 })
+                .attr("dy", "5px")
+                .style("text-anchor", "end")
+                .text(function (d) { return d; });
+
+        });
+    </script>
+
+</body>
+
+</html>
