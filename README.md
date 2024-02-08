@@ -2,34 +2,6 @@
 
 Assignment 2 - Data Visualization, 7 Ways  
 ===
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
 # d3...
 ---
 ![Alt text](img/d3.png)
@@ -48,8 +20,15 @@ Tool: d3
 - comparing to the drag and drop tools programming knowledge required
 **Where do I see this in future:**
 - Due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
-Hacks: 
-- 
+
+**Technical achievements:** 
+Dynamic Data Loading: Uses D3 to asynchronously load data from the "penglings.csv" file, allowing for dynamic data integration. 
+Color and Size Encoding: Encodes species information with custom colors and bill length with variable circle sizes, providing a multi-dimensional representation of the data.
+Text Annotations: Adds informative text annotations for axis titles and legends, contributing to the clarity of the visualization.
+
+**Design achievements:** 
+Consistent Styling: Maintains consistent and cohesive styling throughout the visualization, contributing to a unified and aesthetically pleasing design.
+Dynamic Size & Color Legend implementation:  Utilizes a custom color mapping for each penguin species and dynamically generates legends for both size and color based on the specified data ranges and color mapping
 
 # Flourish
 ---
@@ -166,20 +145,19 @@ Size Encoding for Additional Insight: Utilizes point size to encode bill length,
 Tool: flourish 
 Link: https://app.flourish.studio/projects
 
-What steps are done: 
-- create login
-- upload data
-- draw report
 Advantage: 
 - easy to work
 - free edition for try
 - plenty of examples and templates
            
 Disadvantage: 
-- not flexible <-- for example: only 1 legend is available
-- lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
-Where do I see this in future:
-- if it improves the data manipulation ection it has potential to grow
-Hacks: 
-- Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+R, ggplot2 (plotly), and R Markdown are hard to learn especially mastering these tools, especially for beginners. Additionally, the generation of complex interactive visualizations may require a deeper understanding of underlying code, potentially posing a challenge for users seeking a more straightforward graphical interface.
 
+Hacks: 
+- I used the professor's code as a basis for extension.
+
+**Technical achievements:**
+Efficient data manipulation, meticulous aesthetic configuration, faceting, and the transformation of a static ggplot into an interactive plot using plotly were seamlessly executed to create a visually appealing representation of penguin metrics. The plot's aesthetics were fine-tuned for clarity, employing color schemes and sizing considerations. Faceting enhances insights by breaking down the data into subplots based on categorical variables. The integration of plotly introduces interactivity, such as tooltips and zooming, fostering a dynamic and engaging exploration of the penguin metrics.
+
+**Design achievements:**
+Enhances plot interpretation by customizing legends, ensuring a clear association between colors and penguin species. This contributes to improved readability and comprehension of the visualized data. Additionally, the faceting of the plot by penguin sex aids in a focused comparison between male and female penguins, highlighting potential differences in metrics. The use of ggplotly introduces interactivity, allowing users to explore specific details through tooltips, enhancing the overall user experience. Clear titles and axis labels further contribute to the plot's interpretability, guiding viewers in understanding the relationships between different penguin metrics.
