@@ -59,7 +59,7 @@ Assignment 2 - Data Visualization, 7 Ways
 * Way to go to make a very simple scatter plot
 * There is no way to add a size feature to the chart
 * To make the scatter plot I need to make some customization on the data (see the file).
-* 
+  
 ![Excel](img/excel-penglings.png)
 ===
 
@@ -67,7 +67,7 @@ Assignment 2 - Data Visualization, 7 Ways
 * Very straightforward and easy to use for beginners.
 * lots of templates that can be easy to follow and modify.
 * The simple animation seems easy to add, like a slider.
-* 
+  
 ![Flourish](img/Flourish.png)
 ===
 
@@ -76,8 +76,15 @@ Assignment 2 - Data Visualization, 7 Ways
 * limited features to customize the axis.
 * color blind check in the end is unique.
 * The animation and interactivity are limited and worse than `Flourish.`
+  
 ![Datawrapper](img/datawrapper.png)
 ===
 
 ## Technical Achievements
+* Try eight different viz tools and learn each behavior to add some animation like tool-tips.
+* Learn more about d3, and is quite frustrating.
+  
+## Design Achievements
+* Keep the consistency of color options and scale of the axis, and try to follow the example.
+* Try some interactivity features on different tools
 
