@@ -73,5 +73,13 @@ For this graph, I added a color legend using additional svg variables to specify
 
 # Flourish
 
+Flourish is a web platform designed for creating and sharing interactive data visualizations and stories. It offers a user-friendly interface that allows users to create a wide range of visualizations, including charts, maps, and narratives, without requiring any coding.
+
+To visualize the penglings dataset smoothly, I started by selecting the scatterplot option on the intro page. Then, I imported the data through the Flourish data tab. Next, I easily selected the columns I wanted to visualize from the right-hand panel of the data tab. Finally, to achieve the desired dot opacity, I navigated back to the graph pane and adjusted the opacity in the `Dot Styles` tab.
+
+Overall, this tool was probably the easiest to use since it didn't require any coding. The sheer breadth of graphs available to users makes this tool a fantastic option for non-coding audiences who want to visualize data in more customizeable ways. Generally, I think anyone looking for an intuitive (non-coding intensive) way to design visuals would greatly benefit from this tool. 
+
+![FlourishVis](img/FlourishVis.png)
+
 
 
