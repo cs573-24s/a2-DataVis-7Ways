@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Penguin Scatter-Plot</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+      .tooltip {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        text-align: center;
+        font: 12px;
+        background: rgb(5, 232, 249);
+        font-style: italic;
+        border: 2px;
+        border-radius: 8px;
+        pointer-events: none;
+        opacity: 0;
+      }
+  </style>
+</head>
+<body>
+  <svg id="scatter-plot";></svg>
+  <div id="tooltip" class="tooltip"></div>
+  <script>
+    //Load CSV Data
+    d3.csv("penglings.csv").then(function(data) {
+
+      // Parse numeric values as numbers
+      data.forEach(function(d) {
+        d.flipper_length_mm = +d.flipper_length_mm; // Convert from string to number
+        d.body_mass_g = +d.body_mass_g; // Convert from string to number
+      });
+
+      // Define dimensions and margins of the graph
+      const margin = {top: 70, right: 30, bottom: 30, left: 60},
+            width = 800 - margin.left - margin.right,
+            height = 600 - margin.top - margin.bottom;
+
+      // Define array of colors
+      const colors = ['green', 'red', 'blue']; // Define green, red, and blue colors
+
+      // Create color scale
+      const colorScale = d3.scaleOrdinal()
+        .domain(data.map(d => d.species))
+        .range(colors); // Update color scale with new colors
+
+      // Create SVG elements
+      const svg = d3.select("#scatter-plot")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .style("background-color", "#05E8F9")
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      // Define scales
+      const xScale = d3.scaleLinear()
+        .domain([169, d3.max(data, d => d.flipper_length_mm)]) // Start at 170
+        .range([0, width]);
+
+      // Calculate tick values from 10 to 10 within the domain
+      const xTicks = d3.range(Math.ceil(xScale.domain()[0] / 10) * 10, Math.floor(xScale.domain()[1] / 10) * 10 + 1, 10);
+
+      const xAxis = d3.axisBottom(xScale)
+      .tickValues(xTicks)
+      .tickFormat(d3.format('d')); // ensures formatting as a decimal number
+
+      const yScale = d3.scaleLinear()
+        .domain([2600, d3.max(data, d => d.body_mass_g)])
+        .range([height, 0]);
+
+      // Calculate tick values from 1000 to 1000 within the image
+      const yTicks = d3.range(Math.floor(yScale.domain()[0] / 1000) * 1000, Math.ceil(yScale.domain()[1] / 1000) * 1000 + 1, 1000);
+
+      const yAxis = d3.axisLeft(yScale)
+      .tickValues(yTicks)
+      .tickFormat(d3.format('d'));
+
+      // Add axes to the SVG
+      svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(xAxis)
+        .selectAll("text")
+        .style("font-style", "italic")
+        .style("font-family", "Arial")
+        .style("font-size", "12px");
+
+      svg.append("g")
+        .call(yAxis)
+        .selectAll("text")
+        .style("font-style", "italic")
+        .style("font-family", "Arial")
+        .style("font-size", "12px");
+
+        // Style x axis
+        svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width)
+        .attr("y", height - 5)
+        .text("Flipper Length (mm)")
+        .style("font-size", "18px")
+        .style("font-weight", "bold");
+      
+      // Style y axis
+      svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 15)
+        .attr("x", -5)
+        .text("Body Mass (g)")
+        .style("font-size", "18px")
+        .style("font-weight", "bold");
+        
+      // Add Title
+      svg.append("text")
+        .attr("x", width / 2)             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "24px") 
+        .style("font-weight", "bold")
+        .style("fill", "#040404") // Ensure the title is visible on your background
+        .text("Diving into Penguin Metrics");
+
+      // Add Subtitle
+      svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", 20 - (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .style("fill", "#040404") // Ensure the subtitle is visible on your background
+        .text("An Insight into Flipper Length and Body Mass Across Different Species");
+
+      // Create a div for the tooltip
+      const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px");
+
+      //point size to bill_length_mm
+      const sizeScale = d3.scaleLinear()
+      .domain([d3.min(data, d => +d.bill_length_mm), d3.max(data, d => +d.bill_length_mm)])
+      .range([5, 13]); // Adjust the range based on minimum and maximum circle sizes
+      
+      //Legend
+      const legendPosition = { x: width-600, y: margin.top-50 };
+      // Create a legend group
+      const legend = svg.selectAll(".legend")
+      .data(colorScale.domain())
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", (d, i) => `translate(0,${i * 20})`); // Stack legend items vertically
+
+      // Add colored rectangles to legend items
+      legend.append("rect")
+      .attr("x", legendPosition.x)
+      .attr("y", legendPosition.y)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", colorScale);
+
+      // Add text labels to legend items
+      legend.append("text")
+      .attr("x", legendPosition.x + 22)
+      .attr("y", legendPosition.y + 9) // Center text vertically within rectangle
+      .attr("dy", ".35em")
+      .style("text-anchor", "start")
+      .text(d => d);
+
+      // Add scatter points
+      svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xScale(d.flipper_length_mm))
+        .attr("cy", d => yScale(d.body_mass_g))
+        .attr("r", d => sizeScale(d.bill_length_mm)) // Use sizeScale for radius
+        .style("fill", d => colorScale(d.species)) // Use the color scale for species
+        .style("opacity", 0.8) // Set the opacity of the circles
+        .style("stroke", "#ccc")
+        .style("stroke-width", "1px")
+        // Tooltip events
+        .on("mouseover", function(event, d) {
+          d3.select(this)
+           .transition()
+           .duration(150)
+           .attr("r", d => sizeScale(d.bill_length_mm) * 2); // Increase the radius by 1.5 times
+          tooltip.transition()
+                 .duration(200)
+                 .style("opacity", .9);
+          tooltip.html("<strong>Species: </strong>" + d.species + "<br/>" + 
+                       "<strong>Flipper Length: </strong>" + d.flipper_length_mm + "mm<br/>" + 
+                       "<strong>Body Mass: </strong>" + d.body_mass_g + "g")
+                 .style("left", (event.pageX) + "px")
+                 .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+           .transition()
+           .duration(150)
+           .attr("r", d => sizeScale(d.bill_length_mm)); // Reset the radius
+          tooltip.transition()
+                 .duration(500)
+                 .style("opacity", 0);
+        });
+    }).catch(function(error){
+        console.log(error);
+    });
+  </script>
+</body>
+</html>
