@@ -1,0 +1,24 @@
+
+
+```{r}
+
+library(ggplot2)
+library(plotly)
+
+penglings <- read.csv("C:\\Users\\DT\\VScodeProjects\\a2-DataVis-7Ways\\penglings.csv")
+
+colors <- c("Adelie" = "orange", "Gentoo" = "green", "Chinstrap" = "purple")
+
+# Read the CSV file
+g <- ggplot(data = penglings, aes(flipper_length_mm, body_mass_g, color = species, size = bill_length_mm,
+text = paste("Species: ", species, "<br>Flipper Length: ", flipper_length_mm,
+"<br>Body Mass: ", body_mass_g, "<br>Size: ", bill_length_mm))) +
+geom_point(alpha = 0.8) +
+scale_color_manual(values = colors) +
+scale_size_continuous( range = c(5, 10)) +
+labs(
+    x="Flipper Length (mm)",
+    y="Body Mass (g)"
+) 
+g 
+```
