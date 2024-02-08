@@ -17,13 +17,12 @@ D3.js, or Data-Driven Documents, is a JavaScript library renowned for its unmatc
 I think that due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
 **Technical achievements:** 
-Dynamic Data Loading: Uses D3 to asynchronously load data from the "penglings.csv" file, allowing for dynamic data integration. 
-Color and Size Encoding: Encodes species information with custom colors and bill length with variable circle sizes, providing a multi-dimensional representation of the data.
-Text Annotations: Adds informative text annotations for axis titles and legends, contributing to the clarity of the visualization.
+- Color and Size Encoding: Encodes species information with custom colors and bill length with variable circle sizes, providing a multi-dimensional representation of the data.
+- Text Annotations: Adds informative text annotations for axis titles and legends, contributing to the clarity of the visualization.
 
 **Design achievements:** 
-Consistent Styling: Maintains consistent and cohesive styling throughout the visualization, contributing to a unified and aesthetically pleasing design.
-Dynamic Size & Color Legend implementation:  Utilizes a custom color mapping for each penguin species and dynamically generates legends for both size and color based on the specified data ranges and color mapping
+- Consistent Styling: Maintains consistent and cohesive styling throughout the visualization, contributing to a unified and aesthetically pleasing design.
+- Dynamic Size & Color Legend implementation:  Utilizes a custom color mapping for each penguin species and dynamically generates legends for both size and color based on the specified data ranges and color mapping
 
 # 2. Flourish
 Flourish is a data visualization platform that enables users to create interactive and engaging visualizations, including maps, charts, and narratives, without extensive coding. With a user-friendly interface, it simplifies the process of storytelling through data, making it accessible for a wide range of users.
@@ -33,7 +32,7 @@ Tool: flourish
 [Link:](https://app.flourish.studio/projects)
 
 **Advantage:** 
-- user-friendly interfac
+- User-friendly interface
 - Free edition for try
 - Plenty of examples and templates
            
@@ -56,9 +55,9 @@ Tool: powerbi
 
 **Advantage:** 
 - User-Friendly Interface
-- free desktop edition
-- data manipulation capabilities
-- plenty of examples and communities
+- Free desktop edition
+- Fata manipulation capabilities
+- Plenty of examples and communities
            
 **Disadvantage:** 
 - Complexity in Customization (for example: only 1 legend is available)
@@ -144,7 +143,7 @@ I used the professor's code as a basis for extension.
 Efficient data manipulation, meticulous aesthetic configuration, faceting, and the transformation of a static ggplot into an interactive plot using plotly were seamlessly executed to create a visually appealing representation of penguin metrics. The plot's aesthetics were fine-tuned for clarity, employing color schemes and sizing considerations. Faceting enhances insights by breaking down the data into subplots based on categorical variables. The integration of plotly introduces interactivity, such as tooltips and zooming, fostering a dynamic and engaging exploration of the penguin metrics.
 
 **Design achievements:**
-Enhances plot interpretation by customizing legends, ensuring a clear association between colors and penguin species. This contributes to improved readability and comprehension of the visualized data. Additionally, the faceting of the plot by penguin sex aids in a focused comparison between male and female penguins, highlighting potential differences in metrics. The use of ggplotly introduces interactivity, allowing users to explore specific details through tooltips, enhancing the overall user experience. Clear titles and axis labels further contribute to the plot's interpretability, guiding viewers in understanding the relationships between different penguin metrics.
+Enhances plot interpretation by customizing legends, ensuring a clear association between colors and penguin species. This contributes to improved readability and comprehension of the visualized data. Additionally, the faceting of the plot by penguin sex aids in a focused comparison between male and female penguins, highlighting potential differences in metrics. The use of ggplotly introduces interactivity, allowing users to explore specific details through tooltips, enhancing the overall user experience.
 
 # 7. Python + Matplotlib
 Matplotlib is a widely-used plotting library in the Python ecosystem, and its development has been active with regular updates and improvements. Developers often work on enhancing user experience, adding features, and addressing issues raised by the community.
@@ -166,8 +165,7 @@ I think that Matplotlib will become get faster at showing big and complex data, 
 To overcome the challenge of displaying both legends simultaneously, I created two separate legend sets. The first legend set captures the color information for each species, while the second one illustrates the size classification. Both legend sets are then combined into a comprehensive legend_handles list, which is subsequently utilized to generate a unified legend with the title "Species." This legend is positioned in the upper left corner outside the plot area, offering a clear and comprehensive reference for interpreting the penguin data visualization.
 
 **Technical achievements:**
-Achieved dynamic data visualization by implementing marker size adjustments based on a conditional statement, showcasing adept data manipulation skills. Utilizing the matplotlib library for plotting, the code successfully employs a customized color mapping strategy, enhancing visual differentiation among penguin species. Skillful legend management is demonstrated through the inclusion of species and bill length categories, contributing to the overall interpretability of the plot. The integration of external libraries, particularly numpy for conditional sizing, reflects a sophisticated approach to leveraging tools for enhanced functionality. Lastly, the code is characterized by clear and well-documented practices, ensuring accessibility and maintainability for future collaboration or modifications.
+Achieved dynamic data visualization by implementing marker size adjustments based on a conditional statement, showcasing adept data manipulation skills. Utilizing the matplotlib library for plotting, the code employs a customized color mapping strategy, enhancing visual differentiation among penguin species. The integration of external libraries, particularly numpy for conditional sizing, reflects a sophisticated approach to leveraging tools for enhanced functionality. 
 
 **Design achievements:**
-Demonstrated an integration of matplotlib in Python for creating a visually appealing and informative scatter plot of penguin data. Effective color mapping distinguishes between different penguin species, while dynamically adjusting marker size based on bill length enhances the representation of individual data points. The thoughtful inclusion of legends provides clear insights into both species and bill length categories, contributing to the overall clarity of the visualization. Additionally, the code showcases the ability to combine data manipulation techniques with design principles, resulting in a cohesive and meaningful representation of the dataset. Overall, the achievement lies in the creation of a well-designed and comprehensible data visualization through thoughtful choices in color, size, and other plot elements.
-
+Demonstrated an integration of matplotlib in Python for creating a visually appealing and informative scatter plot of penguin data. Effective color mapping distinguishes between different penguin species, while dynamically adjusting marker size based on bill length enhances the representation of individual data points. The thoughtful inclusion of legends provides clear insights into both species and bill length categories, contributing to the overall clarity of the visualization.
