@@ -15,7 +15,7 @@ Assignment 2 - Data Visualization, 7 Ways
 # Python - Bokeh
 ![bokeh](img/bokeh.png)
 # R - ggplot
-
+![penguin_growth_over_time](img/penguin_growth_over_time.gif)
 # OriginLab
 ![Originlab](img/Originlab.png)
 
