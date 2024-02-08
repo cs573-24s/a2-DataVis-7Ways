@@ -1,145 +1,61 @@
-# 02-DataVis-7ways
-
 Assignment 2 - Data Visualization, 7 Ways  
 ===
+This assignment explores the visualization capabilities of several different tools and libraries across programming languages and software, including D3.js, Altair, Plotly, Bokeh, ggplot2 in R, OriginLab, and Excel.
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+# D3.js
+Data Driven Documents (D3) is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. This part was a complete challenge for me, as I have no experience in JavaScript, but I am amazed by its capabilities, especially hovering over functionalities. 
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+D3.js was utilized to create an interactive scatter plot that showcases the relationship between flipper length and body mass, with the points colored by species and sized by bill length. This visualization was designed to be both informative and engaging, allowing users to explore the dataset in an intuitive manner.
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+Key features implemented with D3.js include some interactive elements, such as tooltips added to each data point, displaying detailed information about the penguin (e.g., species, measurements) on hover, enhancing the interactivity and accessibility of the data. In addition to the tooltip, when a user hovers over a penguin species, the plot emphasizes the selected species in its original color while dimming the others to grey. To achieve this effect, D3.js's event listeners were utilized to modify the opacity, color and size of the data points based on mouse events. Upon hovering (`mouseover` event) over a data point, a JavaScript function adjusts the styling of all other points to a lower opacity and changes their color to grey. Conversely, when the mouse leaves a data point (`mouseout` event), the plot returns to its original state, with all species displayed in their respective colors and full opacity. I possible extension could be zoom feature, which is useful when overlapping data points are visualized.
 
-Your goal is to use 7 different tools to make the following chart:
+**Challenges**
+- Learning Curve: D3.js has a steep learning curve, especially for those new to web development or JavaScript. Mastering its selection and data-binding model requires time and patience.
+- Complexity in Implementation: Building a visualization from scratch with D3.js can be more time-consuming and complex compared to using high-level libraries, due to the need for detailed setup of scales, axes, and other plot components.
 
-![](img/ggplot2.png)
+![d3_1](img/d3_1.png)
 
-These features should be preserved as much as possible in your replication:
+![d3_2](img/d3_2.png)
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+# Python - Plotly
+Plotly is a very useful library that I've taken advantage of many times when I wanted to share something interactive. It comes with a default tooltip for users to investigate each data point. Also, I like the default zooming feature that I could not implement in JavaScript. It also guides users on how to reset the visualization to its original form. 
+![plotly](img/plotly.png)
 
-Other features are not required. This includes:
+# Python - Altair
 
-- The background grid.
-- The legends.
+Altair is a  visualization library for Python. It was quite easy to implement, yet I had to specify the x-axis and y-axis domains, which I would expect to be automatic. Also, I did not find the zooming feature user-friendly, as one could easily misorient the graph (and there is no guide on how to reset it). 
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
+![altair](img/altair.png)
+# Python - Bokeh
 
-Improvements are also welcome as part of Technical and Design achievements.
+This is another interactive visualization library that I used in Python. I found this one visually more appealing, because of several reasons: 1) Zooming options: box or wheel. 2) Tooltip: you can see all information for overlapping data points, and also tooltip can be deactivated.
+![bokeh](img/bokeh.png)
+# R - ggplot
 
-Libraries, Tools, Languages
----
+R is the first analytical tool that I used for data visualization, and I wanted to try something different! I remember doing some visual graphic animations with `ggplot2` and `gganimate` libraries. In this animation, we observe changes in body mass and flipper length by species.
 
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
+I am not aware of a similar animation library in Python, so I will definitely use it while presenting historical change of data.
 
-Otherwise, you should seek tools and libraries to fill out your 7.
+![penguin_growth_over_time](img/penguin_growth_over_time.gif)
+# OriginLab
 
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
+OriginLab (my latest discovery) known for its advanced data analysis and graphing capabilities, offers a comprehensive solution for scientists and engineers looking to explore and visualize their data. I use this software when I do not need interactive visualizations for research papers, but highly quality custom plots. The good news is that WPI owns it!
 
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
+I've used OriginLab quite a lot, so creating this chart was not a challenge for me. It has a very detailed interface, so it requires watching some tutorials before using it.
 
-I have marked a few that are strongly suggested.
+![Originlab](img/Originlab.png)
 
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
+# Excel
 
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
+Known for its spreadsheet capabilities, Excel also offers a range of built-in tools for basic to intermediate data visualization tasks. Surprisingly, excel took much more time than others (not d3), for several reasons: 1) I figured out late I should have used a bubble chart, but not a scatter plot; 2) Because of formatting issues, excel did not recognize x-axis values and generated completely wrong data points, which is a very common issue.
 
-Tips
----
+It does not have extensive customization capabilities, such as adjusting the legend freely, but it is a good option when no other software is available.
 
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
-
+![excel](img/excel.png)
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+- **`mouseover` events**: In D3, it is possible to define more than one mouseover event, which I find quite useful (it is not possible with Python libraries!). On mouseover, the other species are greyed out, and their radius is equal to highlight the selected species. On mouseleave event, tooltip opacity is set to 0 and all data points are back to their original color and size.
 
 ### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+- **Position of legend**: I intentionally position labels so that they are among the first elements noticed when viewing the plot. This is due to the natural reading pattern of left-to-right and top-to-bottom in many cultures. 
+- **Color selection**: I let libraries decide on to color scheme, except for d3. I always use colorbrewer2.org to decide on colors, based on the number of data classes and the nature of the data. 

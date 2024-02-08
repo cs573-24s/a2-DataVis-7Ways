@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 2 - Scatter Plot with d3</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    /* CSS to hide the x and y axis lines */
+    .domain {
+      stroke: none;
+    }
+      /* Hide the first tick mark on the x and y axes */
+    .x.axis .tick:first-of-type line,
+    .y.axis .tick:first-of-type line {
+    display: none;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="scatter"></div>
+  <script src="d3.js"></script>
+</body>
+</html>

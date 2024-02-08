@@ -1,0 +1,42 @@
+---
+title: "Assignment 2 - R"
+author: "Ozge AYGUL"
+date: "February 7, 2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(readr)
+library(viridis)
+library(dplyr)
+library(gganimate)
+```
+
+## Assignment 2 - Scatter Plot with ggplot
+
+```{r}
+data <- read.csv("penglings.csv")
+data <- data[!is.na(data$body_mass_g), ]
+```
+
+
+
+```{r pressure, echo=FALSE}
+p <-ggplot(data, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point(aes(size = bill_length_mm), alpha = 0.6) +
+  scale_color_viridis_d() +
+  transition_time(year) +
+  labs(title = 'Year: {frame_time}', x = 'Flipper Length (mm)', y = 'Body Mass (g)',
+        subtitle = "Illustrating changes in body mass and flipper length by species") +
+  theme_minimal()
+
+# Create the animation
+anim <- p + ease_aes('linear')
+
+# Save the animation
+anim_save("penguin_growth_over_time.gif", animation = anim)
+
+```
+
