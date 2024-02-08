@@ -1,9 +1,13 @@
 <!doctype html>
 <html>
   <body>
-    <div>
-      <svg></svg>
+    <div style= "display: inline-flex">
+      <div>
+        <svg></div>
       <svg id="legend" height="200" width="150" style="padding-bottom: 150" />
+      <div id="speciesInfoDiv" style="height: 400px; width: 500px; border-color: black; border-width: 1px; border: solid">
+        <svg id="speciesInfo" width="500" height="400" style="z-index: -1; position: absolute"/>
+      </div>
     </div>
     <div id="tooltips">Species:</div>
     <div id="tooltipfl">Flipper Length:</div>
@@ -13,31 +17,31 @@
 
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script type="module">
-    //code modified from https://d3-graph-gallery.com/graph/scatter_basic.html
-    //https://stackoverflow.com/questions/11189284/d3-axis-labeling
-    //https://d3-graph-gallery.com/graph/custom_legend.html
-    //https://medium.com/@kj_schmidt/show-data-on-mouse-over-with-d3-js-3bf598ff8fc2
-    let margin = { top: 10, right: 30, bottom: 80, left: 60 };
-    let width = 460 - margin.left - margin.right;
-    let height = 400 - margin.top - margin.bottom;
+  //code modified from https://d3-graph-gallery.com/graph/scatter_basic.html
+  //https://stackoverflow.com/questions/11189284/d3-axis-labeling
+  //https://d3-graph-gallery.com/graph/custom_legend.html
+  //https://medium.com/@kj_schmidt/show-data-on-mouse-over-with-d3-js-3bf598ff8fc2
+  let margin = { top: 10, right: 30, bottom: 80, left: 60 };
+  let width = 460 - margin.left - margin.right;
+  let height = 400 - margin.top - margin.bottom;
 
-    let tooltips = d3.select("#tooltips");
-    let tooltipfl = d3.select("#tooltipfl");
-    let tooltipbm = d3.select("#tooltipbm");
-    let tooltipbl = d3.select("#tooltipbl");
-    // setting up size of svg, and g element groups svg shapes together
-    let legend = d3.select("#legend");
-    let svg = d3
-      .select("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // shifts over for spacing
+  let tooltips = d3.select("#tooltips");
+  let tooltipfl = d3.select("#tooltipfl");
+  let tooltipbm = d3.select("#tooltipbm");
+  let tooltipbl = d3.select("#tooltipbl");
+  // setting up size of svg, and g element groups svg shapes together
+  let legend = d3.select("#legend");
+  let svg = d3
+  .select("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); // shifts over for spacing
 
-    //read in penglings
-    d3.csv(
-      "https://raw.githubusercontent.com/bhnord/a2-DataVis-7Ways/main/penglings.csv",
-    ).then(function (data) {
+  //read in penglings
+  d3.csv(
+    "https://raw.githubusercontent.com/bhnord/a2-DataVis-7Ways/main/penglings.csv",
+  ).then(function (data) {
       //create linear scale from x to width -- x axis ticks
       let x = d3.scaleLinear().domain([170, 235]).range([0, width]);
 
@@ -86,7 +90,55 @@
           tooltipbm.html(`Body Mass:`);
           tooltipbl.html(`Bill Length:`);
           d3.select(this).style("stroke", "none");
-        });
+        })
+        .on("click", speciesInfo)
+      ;
+
+
+
+
+      function speciesInfo(){
+        const infoMap = new Map();
+        infoMap.set("gentoo", ["The gentoo penguin (/ˈdʒɛntuː/ JEN-too) (Pygoscelis papua)",
+          "is a penguin species (or possibly a species complex) in the genus Pygoscelis,",
+          "most closely related to the Adélie penguin (P. adeliae) and the chinstrap penguin",
+          "(P. antarcticus). The earliest scientific description was made in 1781 by",
+          "Johann Reinhold Forster with a type locality in the Falkland Islands. The species",
+          "calls in a variety of ways, but the most frequently heard is a loud trumpeting,",
+          "which the bird emits with its head thrown back."])
+        let s = d3.select("#speciesInfo")
+        let sd = d3.select("#speciesInfoDiv")
+        s.append("circle")
+          .attr("fill", "orange")
+          .attr("r", 1)
+          .attr("cy", 200)
+          .attr("cx", 250)
+          .transition()
+          .duration(2000)
+          .attr("r", 500)
+
+        let k = 0;
+        for(const c of infoMap.get('gentoo')){
+          s
+          .append("text")
+          .text(c)
+          .attr("opacity", 0)
+          .attr("x", 50)
+          .attr("y", 100 + k)
+          .attr("font-family", "sans-serif")
+          .attr("font-size", "12px")
+          .attr("fill", "black")
+          .transition()
+          .duration(5000)
+          .attr("opacity", 1)
+          k += 20;
+
+
+        }
+        
+
+
+      }
 
       //axis labels
       svg
@@ -107,75 +159,75 @@
         .text("Body Mass (g)");
     });
 
-    //bill_length_legend
-    legend.append("text").attr("x", 40).attr("y", 130).text("bill_length_mm");
-    legend
-      .append("circle")
-      .attr("cx", 50)
-      .attr("cy", 150)
-      .attr("r", (40 / 10) ** 1.25)
-      .style("fill", "grey");
-    legend
-      .append("circle")
-      .attr("cx", 50)
-      .attr("cy", 170)
-      .attr("r", (50 / 10) ** 1.25)
-      .style("fill", "grey");
-    legend
-      .append("text")
-      .attr("x", 70)
-      .attr("y", 150)
-      .text("40")
-      .style("font-size", "15px")
-      .attr("alignment-baseline", "middle");
-    legend
-      .append("text")
-      .attr("x", 70)
-      .attr("y", 170)
-      .text("50")
-      .style("font-size", "15px")
-      .attr("alignment-baseline", "middle");
+  //bill_length_legend
+  legend.append("text").attr("x", 40).attr("y", 130).text("bill_length_mm");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 150)
+    .attr("r", (40 / 10) ** 1.25)
+    .style("fill", "grey");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 170)
+    .attr("r", (50 / 10) ** 1.25)
+    .style("fill", "grey");
+  legend
+    .append("text")
+    .attr("x", 70)
+    .attr("y", 150)
+    .text("40")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+  legend
+    .append("text")
+    .attr("x", 70)
+    .attr("y", 170)
+    .text("50")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
 
-    //species legend
-    legend.append("text").attr("x", 40).attr("y", 30).text("species");
-    legend
-      .append("circle")
-      .attr("cx", 50)
-      .attr("cy", 50)
-      .attr("r", 6)
-      .style("fill", "#479f9f");
-    legend
-      .append("circle")
-      .attr("cx", 50)
-      .attr("cy", 70)
-      .attr("r", 6)
-      .style("fill", "#9933cb");
-    legend
-      .append("circle")
-      .attr("cx", 50)
-      .attr("cy", 90)
-      .attr("r", 6)
-      .style("fill", "#fba044");
-    legend
-      .append("text")
-      .attr("x", 70)
-      .attr("y", 50)
-      .text("Gentoo")
-      .style("font-size", "15px")
-      .attr("alignment-baseline", "middle");
-    legend
-      .append("text")
-      .attr("x", 70)
-      .attr("y", 70)
-      .text("Chinstrap")
-      .style("font-size", "15px")
-      .attr("alignment-baseline", "middle");
-    legend
-      .append("text")
-      .attr("x", 70)
-      .attr("y", 90)
-      .text("Adelie")
-      .style("font-size", "15px")
-      .attr("alignment-baseline", "middle");
+  //species legend
+  legend.append("text").attr("x", 40).attr("y", 30).text("species");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", 6)
+    .style("fill", "#479f9f");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 70)
+    .attr("r", 6)
+    .style("fill", "#9933cb");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 90)
+    .attr("r", 6)
+    .style("fill", "#fba044");
+  legend
+    .append("text")
+    .attr("x", 70)
+    .attr("y", 50)
+    .text("Gentoo")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+  legend
+    .append("text")
+    .attr("x", 70)
+    .attr("y", 70)
+    .text("Chinstrap")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+  legend
+    .append("text")
+    .attr("x", 70)
+    .attr("y", 90)
+    .text("Adelie")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
   </script>
 </html>
