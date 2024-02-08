@@ -28,7 +28,7 @@ The amount of code required to create the plot was quite substantial, spanning m
 ![d3](img/d3.png)
 
 ## Technical Achievements:
-Interactive Tooltips: The code implements interactive tooltips that provide detailed data information upon hover. This makes it easier for users to get involved and explore the data.
+Interactive Tooltips: The code implements interactive tooltips that provide detailed data information upon hover. The circles have interactivity (change sizes) when hovering on them. These features make it easier for users to get involved and explore the data.
 
 ## Design Achievements:
 Aesthetic Appeal: Attention to design details and an appealing color palette contributed to improving the overall user experience.
