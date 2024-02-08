@@ -2,9 +2,6 @@
 
 Assignment 2 - Data Visualization, 7 Ways  
 
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-===
-
 # Python + Plotly Express (PyVis1)
 
 Plotly Express is a graphing library available for use with Python. Originally developed by the company Plotly, this library provides users with access to DASH graphics with ease through the inclusion of a wide variety of functions and graph objects that negate the necessity of lengthy code segments. 
