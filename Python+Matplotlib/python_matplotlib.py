@@ -45,7 +45,7 @@ plt.ylabel('Body Mass (g)')
 plt.title('DataViz-7Ways - Python + Matplotlib')
 plt.show()
 
-#
+# run in juypter notebook for interactive
 # tooltip = plugins.PointLabelTooltip(scatter, labels=list(data['bill_length_mm']))
 # plugins.connect(figure, tooltip)
 
