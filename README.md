@@ -75,7 +75,7 @@ Tool: powerbi
 **Hacks:**
 - Because of the technical limitation of the tool, but using the table trick I display the second legend
 
-# vega-lite
+# Vega-lite
 ![Alt text](img/vega-lite.png)
 
 **Advantage:** 
@@ -100,7 +100,7 @@ Data Range and size consideration: Carefully chosen scales prevent crowding or s
 
 Consistent Aesthetics: Unified color palette, color harmony,  opacity for Clarity and visual elements contribute to a cohesive design.
 
-# Altair
+# Python + Altair
 ---
 ![Alt text](img/altair.png)
 
@@ -156,3 +156,38 @@ Efficient data manipulation, meticulous aesthetic configuration, faceting, and t
 
 **Design achievements:**
 Enhances plot interpretation by customizing legends, ensuring a clear association between colors and penguin species. This contributes to improved readability and comprehension of the visualized data. Additionally, the faceting of the plot by penguin sex aids in a focused comparison between male and female penguins, highlighting potential differences in metrics. The use of ggplotly introduces interactivity, allowing users to explore specific details through tooltips, enhancing the overall user experience. Clear titles and axis labels further contribute to the plot's interpretability, guiding viewers in understanding the relationships between different penguin metrics.
+
+# Python + Matplotlib
+---
+![Alt text](img/altair.png)
+
+**Advantage:**
+- easy to work
+- free edition for try
+- plenty of examples and templates
+           
+**Disadvantage:**
+- not flexible <-- for example: only 1 legend is available
+- lack of data manipulation opportunities (you can add and delete columns but you can't do basic data maniplation such as create a new column as a sum of 2 other columns)
+
+**Where do I see this in future:**
+- if it improves the data manipulation ection it has potential to grow
+**Hacks:**
+- Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+**Technical achievements:**
+Altair Chart Configuration: Utilizes Altair to create an interactive scatter plot with circles. Applies color mapping to species and sets a custom color range. Encodes size based on bill length, contributing an additional data dimension.
+
+Tooltip Integration: Incorporates tooltips for interactive exploration, providing details on species and numerical variables when hovering over data points.
+
+Mark Configuration: Configures the circle marks with a specified opacity level for better visibility.
+
+Interactive Display: Uses the IPython display function to showcase the interactive chart within the Jupyter Notebook environment. In summary, the code effectively leverages Altair's capabilities to create an interactive and visually informative scatter plot, showcasing technical achievements in data visualization and exploration.
+
+**Design achievements:**
+Consistent Aesthetics: Maintains a consistent aesthetic with a specified color range and opacity, contributing to a unified and visually appealing design.
+
+Color Mapping for Species: Implements a custom color mapping for each penguin species, enhancing visual distinction and facilitating species identification.
+
+Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
+
