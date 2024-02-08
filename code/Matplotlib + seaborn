@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+data = pd.read_csv('penglings.csv')
+
+y = data['body_mass_g']
+x = data['flipper_length_mm']
+
+size = data['bill_length_mm']
+
+plt.figure(figsize=(10, 8))
+p = sns.scatterplot(data=data, x=x, y=y, hue=data['species'], size=size, alpha=0.8)
+plt.xlabel('Flipper Length (mm)')
+plt.ylabel('Body Mass (g)')
+plt.title('Penglings')
+
+handles, labels = p.get_legend_handles_labels()
+plt.legend(handles, labels, bbox_to_anchor=(0, .8), loc='center left')
+
+plt.savefig('penglings_plot.png', bbox_inches='tight')
+plt.show()
