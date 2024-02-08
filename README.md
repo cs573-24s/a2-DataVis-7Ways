@@ -58,7 +58,7 @@ Python and MatplotLib: Added MLPCursors import to get hover functionality
 ![](technical_img/tech_matplotlib.png)
 
 Vega-Lite: Used existing tooltip functionality to add a tooltip and populate with data fields
-![](technical_img/tech_matplotlib.png)
+![](technical_img/tech_vega_lite.png)
 
 Tableau: Functionality already existed
 ![](technical_img/tech_tableau.png)
