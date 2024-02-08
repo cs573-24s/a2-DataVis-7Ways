@@ -64,5 +64,7 @@ Tableau: Functionality already existed
 ![](technical_img/tech_tableau.png)
 
 Flourish: Functionality already existed
-![](technical_img/tech_tableau.png)
+![](technical_img/tech_flourish.png)
+
+I did not attempt this with excel, as I lost the actual graph that I had made with excel and only have the screenshots. However after doing some research the best way to add hover interactivity would be to add "Data Labels" to the graph. However the default functionality of excel is very limited so it would be better to create a Dynamic Chart using extra excel features. 
 
