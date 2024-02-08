@@ -48,7 +48,6 @@ Tool: flourish
 - Due to technical constraints, I couldn't display both legends simultaneously. However, I addressed this limitation by customizing the color legend to accurately represent the assigned colors for each relevant category.
 
 # 3. PowerBI 
----
 Power BI is a Microsoft business analytics tool that facilitates data visualization and sharing, offering a user-friendly interface and seamless integration with the Microsoft ecosystem for robust data connectivity and dynamic dashboard creation.
 
 ![Alt text](img/pbi.png)
@@ -71,7 +70,6 @@ Tool: powerbi
 - Because of the technical limitation of the tool, but using the table trick I display the second legend
 
 # 4. Vega-lite
----
 Vega-Lite is a high-level declarative visualization grammar that simplifies the creation of interactive and expressive visualizations using a concise JSON syntax.
 
 ![Alt text](img/vega-lite.png)
@@ -102,7 +100,6 @@ Data Range and size consideration: Carefully chosen scales prevent crowding or s
 Consistent Aesthetics: Unified color palette, color harmony,  opacity for Clarity and visual elements contribute to a cohesive design.
 
 # 5. Python + Altair
----
 Altair is a declarative statistical visualization library for Python that enables users to create a wide range of interactive and visually appealing charts. With a concise and intuitive syntax, Altair allows users to express their data visualizations using a simple Python API, making it accessible for both beginners and experienced data scientists. It seamlessly integrates with Pandas DataFrames, providing a convenient way to transform and visualize data in a meaningful manner.
 
 ![Alt text](img/altair.png)
@@ -135,7 +132,6 @@ Color Mapping for Species: Implements a custom color mapping for each penguin sp
 Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
 
 # 6. R + ggplot2 (plotly) + R Markdown
----
 Plotly is a versatile and interactive data visualization library that supports a wide range of chart types. Combining R with ggplot2 for versatile plotting, Plotly for interactive visualizations, and R Markdown for dynamic report generation provides a powerful and seamless workflow. This integrated stack allows for creating aesthetically pleasing and interactive data visualizations within R Markdown documents, facilitating reproducible and shareable data analyses and reports.
 
 ![Alt text](img/plotly.png)
@@ -160,7 +156,6 @@ Efficient data manipulation, meticulous aesthetic configuration, faceting, and t
 Enhances plot interpretation by customizing legends, ensuring a clear association between colors and penguin species. This contributes to improved readability and comprehension of the visualized data. Additionally, the faceting of the plot by penguin sex aids in a focused comparison between male and female penguins, highlighting potential differences in metrics. The use of ggplotly introduces interactivity, allowing users to explore specific details through tooltips, enhancing the overall user experience. Clear titles and axis labels further contribute to the plot's interpretability, guiding viewers in understanding the relationships between different penguin metrics.
 
 # 7. Python + Matplotlib
----
 Matplotlib is a widely-used plotting library in the Python ecosystem, and its development has been active with regular updates and improvements. Developers often work on enhancing user experience, adding features, and addressing issues raised by the community.
 
 ![Alt text](img/altair.png)
