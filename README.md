@@ -17,7 +17,7 @@ To visualize the penguins dataset, I made use of ggplot2's `aes()` function to v
 
 The documentation of ggplot(2) was rather easy to find and to follow. While it didn't make the most elegant chart, it was extremely easy to put this chart together. Despite the data having NaN values, ggplot() didn't account for any of them within the graph which made the cleaning of the data one step easier. I would use ggplot() in the future when I am trying to create an aesthetically easy yet simple chart to make. When I looked into being able to include interactive elements to the graph, ggplot did not allow me, however, I could include another package (plotly) the do this. 
 
-![ggplot2](01 R_ggplot/ggplot2.png)
+![ggplot2](01R_ggplot/ggplot2.png)
 
 # R + lattice + R Markdown
 R is a language primarily focused on statistical computing.
@@ -28,7 +28,7 @@ I have no experience with lattice, so this was completely new to me. By using th
 
 The main downfall of lattice was its inability to directly size the fots based on bill_length_mm. To do that, creator would have to make a function to manuall update that.
 
-![lattice](img/lattice.png)
+![lattice](02R_lattice/lattice.png)
 
 # Python + altair + VSCode
 Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
@@ -39,7 +39,7 @@ To visualize the penguin dataset with Python and altair I first had to load in a
 
 Altair also allows the user to interact with the graph by clicking and dragging the graph. Simple features such as this go a long way within a visualization. I would use altair in the future if I was using it within a webpage. 
 
-![altair](img/altair_python.png)
+![altair](03Python_Altair/altair_python.png)
 
 # Python + plotly + VSCode
 Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
@@ -48,7 +48,7 @@ VSCode is an IDE (integrated development environment) used for scripting, debugg
 
 To visualize the penguin dataset with Python and plotly I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed plotly's `px.scatter()` function to plot the data. Plotly was extremely easy to use and customize. I was seamlessly able to change the color and shape for each specie type. Plotly scatterplots also have built in functions that let the user interact with the data by using a lasso effect to focus only on a portion of the data. Additionally, there are options to zoom in and out of the data making the view of the information flexible. 
 
-![plotly](img/plotly.png)
+![plotly](04Python_plotly/plotly.png)
 
 # Python + seaborn + VSCode
 Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
@@ -57,7 +57,7 @@ VSCode is an IDE (integrated development environment) used for scripting, debugg
 
 To visualize the penguin dataset with Python and seaborn I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed seaborn's `sns.scatterplot()` function to plot the data. Seaborn had very robust documentation and allowed the creator to edit almost all components of the figure. Once the data was plotted and shown, it reminded me very much of plotly's features I mentioned above. Click and drag, zoom, and save were all available. My favorite feature was the undo and redo button within the figure. 
 
-![seaborn](img/seaborn.png)
+![seaborn](05Python_seaborn/seaborn.png)
 
 # Flourish
 Flourish is an interactive data visualization tool that enables the creation of data stories through a web-based app. 
@@ -66,14 +66,14 @@ Visualizing the penguin dataset using Flourish was an extremely easy task. Hones
 
 Play with it here: https://public.flourish.studio/visualisation/16708125/
 
-![flourish](img/Flourish.png)
+![flourish](06Flourish/Flourish.png)
 
 # d3 + JS + VSCode
 d3 is a JS library used to produce dynamic, interactive data visualizations in web browsers using SVG's.
 JS (JaveScript) is a programming language used alognside CSS and HTML to design webpages. JS controls the interactions within the website. 
 VSCode is an IDE (integrated development environment) used for scripting, debugging, embedding Git, etc. 
 
-![d3JS](img/d3js.png)
+![d3JS](07D3_JS/d3js.png)
 
 Visualizing the penguin dataset using d3 and JS was easily the hardest but most validating graph to make out of the 7. I completed this interactive plot by using `svg.append(), function()`, and `scaleLinear()`. Every feature seen previous in other graphs had to be manually coded in such as the legend, the size of the dots, and the color of the dots. If I truly wanted to make something that was my own, I would use d3 + JS as it gave me a blank canvas and allowed me to craft whatever I envisioned. For this specific graph, I included a mouseover function that would highlight all the species in the group. This simple interaction really made the entire graph come together for me. 
 
