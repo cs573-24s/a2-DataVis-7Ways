@@ -81,7 +81,16 @@ Overall, this tool was probably the easiest to use since it didn't require any c
 
 ![FlourishVis](img/FlourishVis.png)
 
-# R + 
+# R + ggplot2 + plotly
 
+GGplot2 and Plotly are both R packages designed for creating visualizations. The primary difference between the two is that Plotly offers more interactive functionalities, whereas ggplot2 is mainly for "flat" visuals. 
 
+To visualize the penglings dataset, I first installed the required packages/libraries and then proceeded to enter the parameters for the baseline graph using the `ggplot` function. In order to alter it from the example provided in class, I added theme elements and a `guides` function for the species legend. I also converted the ggplot2 graph into plotly so that I could add interactive elements for the technical achievements. 
 
+Overall, these tools and library were fairly easy to use (not much different that matplotlib and plotly express in Python). I can see them being useful for statistics-centered visualizations and tasks that focus more on mathematical operations as opposed to user interface. 
+
+### Technical Achievements
+
+By integrating Plotly's `ggplotly()` function into the graph, I was able to make a hover-to-inspect feature for users to interact with.
+
+![RVis](img/RVis.png)
