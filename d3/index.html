@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v7.js"></script>
+
+<div id="my_dataviz"></div>
+
+<script>
+  // set the dimensions and margins of the graph
+  const margin = { top: 70, right: 50, bottom: 50, left: 60 },
+    width = 900 - margin.left - margin.right,
+    height = 900 - margin.top - margin.bottom;
+
+  // append the svg
+  const svg = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+  // load the data
+  d3.csv("penglings.csv").then(function (data) {
+    // encountered a random points at origin caused by the NaN value
+    // filtering out the rows with NaN
+    data = data.filter((d) => !isNaN(d.body_mass_g));
+
+    // set the scale for x axis
+    const xScale = d3.scaleLinear().domain([0, 0]).range([0, width]);
+    svg
+      .append("g")
+      .attr("class", "xAxis")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(xScale));
+
+    // set the scale for y axis
+    const yScale = d3.scaleLinear().domain([2500, 6300]).range([height, 0]);
+    svg.append("g").call(d3.axisLeft(yScale));
+
+    // creating a scale to adjust the size of the data points
+    const sizeScale = d3
+      .scaleLinear()
+      .domain([
+        d3.min(data, (d) => d.bill_length_mm),
+        d3.max(data, (d) => d.bill_length_mm),
+      ])
+      .range([5, 10]);
+    svg.append("g").call(d3.axisLeft(yScale));
+
+    // mapping the species to a color
+    const color = d3
+      .scaleOrdinal()
+      .domain(["Adelie", "Chinstrap", "Gentoo"])
+      .range(["orange", "purple", "green"]);
+
+    // add color and species legend
+    const colorLegend = svg
+      .append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(20,20)");
+
+    const legendContent = colorLegend
+      .selectAll("g")
+      .data(color.domain())
+      .enter()
+      .append("g")
+      .attr("transform", (d, i) => `translate(0 , ${i * 30})`);
+
+    legendContent
+      .append("circle")
+      .attr("cx", 715)
+      .attr("cy", 25)
+      .attr("r", 5)
+      .attr("fill", color);
+
+    legendContent
+      .append("text")
+      .attr("x", 30)
+      .attr("y", 5)
+      .text((d) => d)
+      .attr("fill", "black");
+
+    // add the data points onto the graph
+    svg
+      .append("g")
+      .selectAll("dot")
+      .data(data)
+      .join("circle")
+      .attr("cx", (d) => xScale(d.flipper_length_mm)) // transform using the scale
+      .attr("cy", (d) => yScale(d.body_mass_g))
+      .attr("r", (d) => sizeScale(d.bill_length_mm))
+      .attr("opacity", 0.75)
+      .style("fill", (d) => color(d.species));
+
+    // adding plot title
+    svg
+      .append("text")
+      .attr("x", width / 2)
+      .attr("y", 5)
+      .attr("text-anchor", "middle")
+      .style("font-size", "18px")
+      .text("D3.js Plot");
+
+    // redrawing the x axis while applying delay
+    xScale.domain([165, 250]);
+    svg
+      .select(".xAxis")
+      .transition()
+      .duration(3000)
+      .attr("opacity", "1")
+      .call(d3.axisBottom(xScale));
+
+    // apply delay to all circles
+    svg
+      .selectAll("circle")
+      .transition()
+      .delay(function (d, i) {
+        return i * 3;
+      })
+      .duration(3000)
+      .attr("cx", (d) => xScale(d.flipper_length_mm))
+      .attr("cy", (d) => yScale(d.body_mass_g));
+  });
+</script>
