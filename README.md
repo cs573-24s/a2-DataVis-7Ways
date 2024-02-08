@@ -3,122 +3,9 @@
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
-
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
-
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
-
-Your goal is to use 7 different tools to make the following chart:
-
-![](img/ggplot2.png)
-
-These features should be preserved as much as possible in your replication:
-
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
-
-Other features are not required. This includes:
-
-- The background grid.
-- The legends.
-
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
-
-Improvements are also welcome as part of Technical and Design achievements.
-
 Libraries, Tools, Languages
 ---
-
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
-
-Otherwise, you should seek tools and libraries to fill out your 7.
-
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
-
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
-
-I have marked a few that are strongly suggested.
-
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
-
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
+The 3 libraries I used include: `Python, R, JavaScript` with tools including `d3, altair, plotly, seaborn, ggplot, lattice, and Flourish`.
 
 # R + ggplot2 + R Markdown
 
@@ -126,20 +13,77 @@ R is a language primarily focused on statistical computing.
 ggplot2 is a popular library for charting in R.
 R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
 
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
+To visualize the penguins dataset, I made use of ggplot2's `aes()` function to visualize the correct data with the correct color categories and size dimentions. Additionally, I used `geom_point()` to adjust the opacity of the data points distributed throughout the graph. 
 
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
+The documentation of ggplot(2) was rather easy to find and to follow. While it didn't make the most elegant chart, it was extremely easy to put this chart together. Despite the data having NaN values, ggplot() didn't account for any of them within the graph which made the cleaning of the data one step easier. I would use ggplot() in the future when I am trying to create an aesthetically easy yet simple chart to make. When I looked into being able to include interactive elements to the graph, ggplot did not allow me, however, I could include another package (plotly) the do this. 
 
-![ggplot2](img/ggplot2.png)
+![ggplot2](01R_ggplot/ggplot2.png)
 
-# d3...
+# R + lattice + R Markdown
+R is a language primarily focused on statistical computing.
+lattice is a popular statistical graphin library used to create visualizations for multivariate relationships. 
+R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
 
-(And so on...)
+I have no experience with lattice, so this was completely new to me. By using the libraries `xyplot()` feature, plotting was equally as straightforward as ggplot. Lattice, did allow me to use its multivariate analysis of features by visualizing each specie type in its own graph parallel to the other. I was also able to easily add in colors for each specie type making the categories very distinguishable. In the future, I intend to utilize lattice to visualize a plot in a manner that better conveys its meaning by separating the categories rather than stacking them on top of each other.
 
+The main downfall of lattice was its inability to directly size the fots based on bill_length_mm. To do that, creator would have to make a function to manuall update that.
+
+![lattice](02R_lattice/lattice.png)
+
+# Python + altair + VSCode
+Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
+Altair is a declarative statistical visualization library for Python.
+VSCode is an IDE (integrated development environment) used for scripting, debugging, embedding Git, etc. 
+
+To visualize the penguin dataset with Python and altair I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed altair's `alt.Chart().mark_point().encode()` documentation. Altair was not the easiest to use and gave me a lot of trouble once I was attempting to plot or visualize the data. Eventually, I used `chart.save()` in order to be able to view the plot. Nevetheless, I did enjoy how much I was able to control with the graph such as the x and y-axis ranges and where they started. The `tooltip` feature is an easy alternative for a mouse-over for the data, therefore, I was easily able to show the sex, year, and island of each specie as the user hover's over a dot. 
+
+Altair also allows the user to interact with the graph by clicking and dragging the graph. Simple features such as this go a long way within a visualization. I would use altair in the future if I was using it within a webpage. 
+
+![altair](03Python_Altair/altair_python.png)
+
+# Python + plotly + VSCode
+Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
+Plotly is a python library designed to make graphing and data visualizations interactive.
+VSCode is an IDE (integrated development environment) used for scripting, debugging, embedding Git, etc. 
+
+To visualize the penguin dataset with Python and plotly I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed plotly's `px.scatter()` function to plot the data. Plotly was extremely easy to use and customize. I was seamlessly able to change the color and shape for each specie type. Plotly scatterplots also have built in functions that let the user interact with the data by using a lasso effect to focus only on a portion of the data. Additionally, there are options to zoom in and out of the data making the view of the information flexible. 
+
+![plotly](04Python_plotly/plotly.png)
+
+# Python + seaborn + VSCode
+Python is a wide-ranging dynamic programming language used for general-purpose. It's design philosphy emphasizes the readability of code. 
+Seaborn is a python library based on matplotlib that provides a high-level interace for attractive/informative statistical graphs. 
+VSCode is an IDE (integrated development environment) used for scripting, debugging, embedding Git, etc. 
+
+To visualize the penguin dataset with Python and seaborn I first had to load in and clean the data by removing NaN values and the first column. Once the data processing was complete, I employed seaborn's `sns.scatterplot()` function to plot the data. Seaborn had very robust documentation and allowed the creator to edit almost all components of the figure. Once the data was plotted and shown, it reminded me very much of plotly's features I mentioned above. Click and drag, zoom, and save were all available. My favorite feature was the undo and redo button within the figure. 
+
+![seaborn](05Python_seaborn/seaborn.png)
+
+# Flourish
+Flourish is an interactive data visualization tool that enables the creation of data stories through a web-based app. 
+
+Visualizing the penguin dataset using Flourish was an extremely easy task. Honestly, it took longer to sign-up for Flourish than to create the scatterplot. I enjoyed exploring and messing around with Flourishs' features. I was able to change the animation of the graph, the text-style, and include filter's to adjust the data on the scatterplot. I thing Flourish was a less complicated Tableau and Power BI.
+
+Play with it here: https://public.flourish.studio/visualisation/16708125/
+
+![flourish](06Flourish/Flourish.png)
+
+# d3 + JS + VSCode
+d3 is a JS library used to produce dynamic, interactive data visualizations in web browsers using SVG's.
+JS (JaveScript) is a programming language used alognside CSS and HTML to design webpages. JS controls the interactions within the website. 
+VSCode is an IDE (integrated development environment) used for scripting, debugging, embedding Git, etc. 
+
+![d3JS](07D3_JS/d3js.png)
+
+Visualizing the penguin dataset using d3 and JS was easily the hardest but most validating graph to make out of the 7. I completed this interactive plot by using `svg.append(), function()`, and `scaleLinear()`. Every feature seen previous in other graphs had to be manually coded in such as the legend, the size of the dots, and the color of the dots. If I truly wanted to make something that was my own, I would use d3 + JS as it gave me a blank canvas and allowed me to craft whatever I envisioned. For this specific graph, I included a mouseover function that would highlight all the species in the group. This simple interaction really made the entire graph come together for me. 
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+- **Mouse-Over Feature**: Using the `tooltip` feature in my Python + altair graph I was seamlessly able to incorporate hover-over elements when the user hovers over a dot. This feature allows the user to dive into the data and learn more about that specific penguin. 
+- **Highlight Features**: Using d3 + J I added a highlight feature that when the user is hover-overed a certain specie, only that specie is colored and made bigger. On the other hand, the other dots are greyed out to emphasize the specie shown. 
 
 ### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+- **Color Vision Deficiencies**: As demonstrated in my ggplot2 + R colorscheme, I used the viridis() to include a perceptually uniform color scale for those with color vision deficiencies. 
+- **Absolute Judgement – Multivariate Analysis**: As demonstrated in my lattice + R plot, I was able to plot each specie on its own graph while still preserving the same y-axis across all species. This elements allows for absolute judgement between the penguins within each specie. 
+- **Dot Size Differentiation**: As demonstrated in some of my plots such as seaborn, I made the size of the dots very distinguishable to clearly visualize which dots were bigger than the others. 
+- **Specie Shape Differentiation** As shown in my plotly graph I was able to categorize each specie with a different shape. I did this in case the user is color blind and unable to differentiate between the colors in a graph.  
+- **Text-Font Change**: In my Flourish graph, I changed the font of thw graph to make it more visually appealing for the user to look at the graph. 

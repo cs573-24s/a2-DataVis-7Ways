@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphing using D3</title>
+</head>
+<body>
+    <div id="penguins"></div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>   
+    <script>
+        var margin = {top: 10, right: 30, bottom: 30, left: 60},
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+        var svg = d3.select('#penguins')
+            .append('svg')
+                .attr('width', width + margin.left + margin.right)
+                .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+                .attr('transform','translate(' + margin.left + ',' + margin.top + ')');
+
+        // Load the data
+        d3.csv('https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv').then(function(data) {
+
+            var x = d3.scaleLinear()
+                .domain([170,240])
+                .range([0, width]);
+            svg.append('g')
+                .attr('transform', 'translate(0,' + height + ')')
+                .call(d3.axisBottom(x));
+
+            var y = d3.scaleLinear()
+                .domain([2500,6500])
+                .range([height, 0]);
+
+            svg.append('g')
+                .call(d3.axisLeft(y));
+
+            var color = d3.scaleOrdinal()
+                .domain(["Adelie", "Chinstrap", "Gentoo" ])
+                .range([ "#440154ff", "#21908dff", "#fde725ff"])
+
+            var radiusScale = d3.scaleLinear()
+                .domain([d3.min(data, d => +d.bill_length_mm), d3.max(data, d => +d.bill_length_mm)])
+                .range([3,10])
+
+            var legend = svg.append('g')
+                .attr('transform', 'translate(' + (width - 70) + ',' + (height - 150) + ')')
+                .selectAll('.legend')
+                .data(color.domain())
+                .enter().append('g')
+                .attr('class', 'legend')
+                .attr('transform', function(d, i) { return 'translate(0,' + i * 20 + ')'; });
+
+            legend.append('rect')
+                .attr('x', 0)
+                .attr('width', 18)
+                .attr('height', 18)
+                .style('fill', color);
+
+            legend.append('text')
+                .attr('x', 25)
+                .attr('y', 9)
+                .attr('dy', '.35em')
+                .style('text-anchor', 'start')
+                .text(function(d) { return d; });
+
+            var highlight = function(d){
+                selected_specie = d.species;
+
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", "lightgrey")
+                    .attr("r", d => radiusScale(+d.bill_length_mm));
+
+                d3.selectAll("." + selected_specie)
+                    .transition()
+                    .duration(200)
+                    .style("fill", color(selected_specie))
+                    .attr("r", d => radiusScale(+d.bill_length_mm));
+            };
+
+            // Highlight the specie that is hovered
+            var doNotHighlight = function(){
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", "lightgrey")
+                    .attr("r", d => radiusScale(+d.bill_length_mm));
+            };
+
+            svg.append('g')
+                .selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                    .attr("class", function (d) { return "dot " + d.species; } )
+                    .attr("cx", function (d) { return x(d.flipper_length_mm); } )
+                    .attr("cy", function (d) { return y(d.body_mass_g); } )
+                    .attr("r", 5)
+                    .style("fill", function (d) { return color(d.species); } )
+                    .on("mouseover", highlight)
+                    .on("mouseleave", doNotHighlight );
+        });
+    </script>
+</body>
+</html>
+

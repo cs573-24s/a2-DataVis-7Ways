@@ -1,0 +1,39 @@
+---
+title: "ggplot"
+output: pdf_document
+date: "2024-02-05"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## GGPlot
+
+```{r cars}
+library(palmerpenguins)
+library(tidyverse)
+library(ggplot2)
+library(viridis)
+```
+
+```{r pressure, echo=FALSE}
+penguins
+```
+
+```{r}
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species, size = bill_length_mm)) + 
+  geom_point(alpha = 0.8) +
+  labs(x = "Flipper Length (mm)", y = "Body Mass (g)")
+```
+```{r}
+ggplot(penguins, aes(flipper_length_mm, body_mass_g, color = species, size = bill_length_mm)) + 
+  geom_point(alpha = 0.8) +
+  scale_color_viridis(discrete = TRUE) +
+  scale_fill_viridis(discrete = TRUE) +
+  scale_size_continuous(range = c(2, 10)) +
+  labs(x = "Flipper Length (mm)", y = "Body Mass (g)") +
+  ggtitle("Body Mass vs. Flipper Length by Species")
+
+```
+
