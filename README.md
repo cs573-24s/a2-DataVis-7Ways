@@ -3,7 +3,7 @@ Assignment 2 - Data Visualization, 7 Ways
 This assignment explores the visualization capabilities of several different tools and libraries across programming languages and software, including D3.js, Altair, Plotly, Bokeh, ggplot2 in R, OriginLab, and Excel.
 
 # D3.js
-Data Driven Documents (D3) is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. This part was a complete challenge for me, as I have no experience in JavaScript, but I am amazed with its capabilities, especially hovering on functionalities.
+Data Driven Documents (D3) is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. This part was a complete challenge for me, as I have no experience in JavaScript, but I am amazed by its capabilities, especially hovering over functionalities. 
 
 D3.js was utilized to create an interactive scatter plot that showcases the relationship between flipper length and body mass, with the points colored by species and sized by bill length. This visualization was designed to be both informative and engaging, allowing users to explore the dataset in an intuitive manner.
 
@@ -18,12 +18,12 @@ Key features implemented with D3.js include some interactive elements, such as t
 ![d3_2](img/d3_2.png)
 
 # Python - Plotly
-Plotly is a very useful library that I've taken advantage of many times when I wanted to share something interactive. It comes with a default tooltip for users to investigate each data point. Also, I like the default zooming feature that I could not implement in javascript. It also guides user to 
+Plotly is a very useful library that I've taken advantage of many times when I wanted to share something interactive. It comes with a default tooltip for users to investigate each data point. Also, I like the default zooming feature that I could not implement in JavaScript. It also guides users on how to reset the visualization to its original form. 
 ![plotly](img/plotly.png)
 
 # Python - Altair
 
-Altair is a  visualization library for Python. It was quite easy to implement, yet I had to specify the x-axis and y-axis domains, which I would expect to be automatic. Also, I did not find the zooming feature user-friendly, as one could easily misorient the graph (and there is no guide how to reset it). 
+Altair is a  visualization library for Python. It was quite easy to implement, yet I had to specify the x-axis and y-axis domains, which I would expect to be automatic. Also, I did not find the zooming feature user-friendly, as one could easily misorient the graph (and there is no guide on how to reset it). 
 
 ![altair](img/altair.png)
 # Python - Bokeh
@@ -54,8 +54,8 @@ It does not have extensive customization capabilities, such as adjusting the leg
 ![excel](img/excel.png)
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+- **`mouseover` events**: In D3, it is possible to define more than one mouseover event, which I find quite useful (it is not possible with Python libraries!). On mouseover, the other species are greyed out, and their radius is equal to highlight the selected species. On mouseleave event, tooltip opacity is set to 0 and all data points are back to their original color and size.
 
 ### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+- **Position of legend**: I intentionally position labels so that they are among the first elements noticed when viewing the plot. This is due to the natural reading pattern of left-to-right and top-to-bottom in many cultures. 
+- **Color selection**: I let libraries decide on to color scheme, except for d3. I always use colorbrewer2.org to decide on colors, based on the number of data classes and the nature of the data. 
