@@ -79,6 +79,7 @@ Resources Consulted:
 - https://altair-viz.github.io/gallery/multifeature_scatter_plot.html
 - https://altair-viz.github.io/user_guide/generated/toplevel/altair.Chart.html#altair.Chart
 - https://github.com/altair-viz/altair/issues/1465
+
 ![vega-altair](img/vega-altair.png)
 
 # Vega-Lite
@@ -111,7 +112,18 @@ Resources Consulted:
 [Link to visualization](https://public.flourish.studio/visualisation/16738738/)
 ![flourish](img/flourish.png)
 
-# DataWrapper 
+# DataWrapper
+Similar to Flourish, DataWrapper is a web-based visualization design tool to create graphics without needing to write code.
+
+Following only DataWrapper's walkthrough, I chose a scatterplot very similar to the desired Penglings chart, and imported the Penglings CSV into their web portal. From there, I was prompted to check data columns -- then select the proper columns and scaling for the horizontal and vertical axes. Color was a little cumbersome, but by selecting customize colors I unlocked a hidden dropdown where I could split on "species" and have each species of penguin have a custom color, and set this opacity to 80%. Despite this, I couldn't add a label to indicate that this data was from the "species" column. I could also select a maximum size, but it seemed rather arbitary and I couldn't scale it -- "25" turned out to be approximately the circle size I was hoping for, even though the largest bill_length is closer to 60mm. In order for labels to be as expected, I also had to rename the columns from "flipper_length_mm" and "body_mass_g" to "Flipper Length (mm)" and "Body Mass (g)" respectively to display as indicated.
+
+DataWrapper was perhaps the most straightforward tool and as such I would recommend it to users who aren't comfortable with chart design, but certain features lacked the customizability of labeling and scaling that code-based tools would permit.
+
+Resources Consulted:
+- https://www.datawrapper.de/charts/scatter-plot
+
+[Link to visualization](https://www.datawrapper.de/_/QboAL/)
+![datawrapper](img/datawrapper.png)
 
 ## Technical Achievements
 - 
