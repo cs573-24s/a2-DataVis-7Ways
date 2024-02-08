@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 1</title>
+
+
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+  <h1>Penguin Graph</h1>
+
+  <script>
+
+
+
+    var svg = d3.select("body").append("svg")
+      .attr("width", 2000)
+      .attr("height", 1500);
+
+
+    // Set up SVG container dimensions
+    const tableWidth = 600;
+    const tableHeight = 500;
+
+    // Create an SVG for table
+    var tableSvg = svg.append("svg")
+      .attr("width", tableWidth)
+      .attr("height", tableHeight)
+      .attr("transform", "translate(60, 0)");
+
+
+
+    d3.csv("penglings.csv").then(function (data) {
+
+      data = data.filter(function (d) {
+        return d.flipper_length_mm !== "NA" && d.body_mass_g !== "NA";
+      });
+      // Convert strings to numbers if necessary
+
+      data.forEach(function (d) {
+        d.flipper_length_mm = +d.flipper_length_mm;
+        d.body_mass_g = +d.body_mass_g;
+      });
+
+
+      // Set up scales for x and y axes
+      const xScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.flipper_length_mm) - 10, d3.max(data, d => d.flipper_length_mm) + 5])
+        .range([0, tableWidth]);
+
+      const yScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.body_mass_g) - 100, d3.max(data, d => d.body_mass_g) + 100])
+        .range([tableHeight, 0]);
+
+      // Create circles for each data point
+      tableSvg.selectAll("circle")
+        .data(data)
+        .enter().append("circle")
+        .attr("cx", d => xScale(d.flipper_length_mm))
+        .attr("cy", d => yScale(d.body_mass_g))
+        .attr("r", d => getBillSize(d.bill_length_mm)) // Adjust the radius for bill size
+        .attr("fill", d => getColorWithOpacity(d.species, 0.5))
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut);
+
+      // Create x-axis
+      svg.append("g")
+        .attr("transform", "translate(100," + tableHeight + ")")
+        .call(d3.axisBottom(xScale));
+
+      // Create y-axis
+      svg.append("g")
+        .attr("transform", "translate(100, 0)")
+        .call(d3.axisLeft(yScale));
+
+      function handleMouseOver(event, d) {
+        // Display tooltip with information
+        d3.select(this).attr("r", 8); // Increase circle radius for highlighting
+
+        const [x, y] = d3.pointer(event);
+
+        const tooltipBox = tableSvg.append("rect") // Append a white rectangle behind the text
+          .datum(d)
+          .attr("id", "tooltipBox")
+          .attr("x", xScale(d.flipper_length_mm) + 5)
+          .attr("y", yScale(d.body_mass_g) - 20)
+          .attr("width", 130) // Adjust the width based on your content
+          .attr("height", 80) // Adjust the height based on your content
+          .attr("fill", "white")
+          .style("opacity", 0.8); // Adjust the opacity as needed
+
+        const tooltip = tableSvg.append("text")
+          .datum(d)
+          .attr("id", "tooltip")
+          .attr("x", xScale(d.flipper_length_mm) + 10)
+          .attr("y", yScale(d.body_mass_g) - 10)
+          .style("font-size", "12px")
+          .style("font-weight", "bold");
+
+
+        const lines = [
+          `Species: ${d.species}`,
+          `Flipper Length: ${d.flipper_length_mm} mm`,
+          `Body Mass: ${d.body_mass_g} g`,
+          `Bill Length: ${d.bill_length_mm} mm`
+        ];
+
+        tooltip.selectAll("tspan")
+          .data(lines)
+          .enter().append("tspan")
+          .attr("x", xScale(d.flipper_length_mm) + 10)
+          .attr("dy", 16)
+          .text(d => d);
+
+      }
+
+      function handleMouseOut(d, i) {
+        // Remove tooltip and reset circle radius
+        d3.select(this).attr("r", d => getBillSize(d.bill_length_mm));
+        tableSvg.select("#tooltip").remove();
+        tableSvg.select("#tooltipBox").remove();
+      }
+
+
+
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+    function getColorWithOpacity(species, opacity) {
+      switch (species) {
+        case "Adelie":
+          return `rgba(255, 165, 0, ${opacity})`; // Orange with specified opacity
+        case "Gentoo":
+          return `rgba(128, 0, 128, ${opacity})`; // Purple with specified opacity
+        case "Chinstrap":
+          return `rgba(0, 100, 0, ${opacity})`; // Dark green with specified opacity
+        // Add more cases as needed for additional species
+        default:
+          return `rgba(0, 0, 0, ${opacity})`; // Default color for unknown species with specified opacity
+      }
+    }
+
+    function getBillSize(billLength) {
+      return billLength / 5;
+
+    }
+
+    var legend = svg.append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(" + (tableWidth) + "," + (tableHeight / 2) + ")");
+
+
+    var legendColors = [`rgba(255, 165, 0)`, `rgba(128, 0, 128)`, `rgba(0, 100, 0)`]; // Replace with actual colors or use a scale
+    var legendLabels = ["Adelie", "Gentoo", "Chinstrap"];
+
+    legend.selectAll("rect")
+      .data(legendColors)
+      .enter().append("rect")
+      .attr("y", function (d, i) { return i * 20; })
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("fill", d => d);
+
+    legend.selectAll("text")
+      .data(legendLabels)
+      .enter().append("text")
+      .attr("y", function (d, i) { return i * 20 + 12; })
+      .attr("x", 20)
+      .text(d => d);
+
+
+    // X label
+    svg.append('text')
+      .attr('x', tableWidth / 2 + 100)
+      .attr('y', tableHeight + 40)
+      .attr('text-anchor', 'middle')
+      .style('font-family', 'Helvetica')
+      .style('font-size', 12)
+      .text('Flipper Length (mm)');
+
+    // // Y label
+    svg.append('text')
+      .attr('text-anchor', 'middle')
+      .attr('transform', 'translate(40,' + tableHeight / 2 + ')rotate(-90)')
+      .style('font-family', 'Helvetica')
+      .style('font-size', 12)
+      .text('Body Mass (g)');
+
+  </script>
+</body>
+
+</html>

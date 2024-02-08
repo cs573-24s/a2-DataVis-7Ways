@@ -3,143 +3,68 @@
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+# D3 + Javascript
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+![D3 and Javascript](img/d3_javascript.png)
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
-
-Your goal is to use 7 different tools to make the following chart:
-
-![](img/ggplot2.png)
-
-These features should be preserved as much as possible in your replication:
-
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
-
-Other features are not required. This includes:
-
-- The background grid.
-- The legends.
-
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
-
-Improvements are also welcome as part of Technical and Design achievements.
-
-Libraries, Tools, Languages
----
-
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
-
-Otherwise, you should seek tools and libraries to fill out your 7.
-
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
-
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
-
-I have marked a few that are strongly suggested.
-
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
-
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
+The first graph I created was using the d3 data visualization library for javascript. I thought it would be simple since I already had experience with creating something like this, but it really took a lot of time and effort. The graph itself was fine, but I really struggled a lot with the formatting of the page. I kept having issues where the bottom half of the graph was cut off and eventually had to redo the entire layout of the page to make things appear properly. Aside from that however, each feature the graph had to have was very easy to add and only required minor tweaks. I think this tool will be really useful for me, but it will take a lot more experience for me to be good at handling it. One hack that i did take some time on was getting the N/A values to disappear, as they would appear in the corner of the graph; i just had to filter out the N/A values from the dataset at the start. Out of all the ones I looked at, I think this combo is by far the most flexible, but for the task of creating a simple graph it is unnecessary and other tools are far quicker and more efficient. 
 
 
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+# Excel
+![Excel](img/excel.png)
 
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+The next software I used was Excel, utilizing the built-in graphing functionalities to act on the data. Since I am not very experienced with excel, this took me some time. However it was only a matter of looking for the proper columns to highlight and selecting them under the proper conditions, as well as some minor formatting changes; once I had the columns right I was basically finished. I could see the tool being really useful for someone with not too much coding experience, as zero code was required; but I don't think this tool is right for me.
+
+# Tableau
+![Tableau](img/tableau.png)
+
+The next one I used was Tableau, a data visualization and business intelligence platform. I have to say, all the hoops I needed to jump through to install the software, register with a student license, and install were definitely a downgrade on the product. It took me longer to find where i needed to go than to create the actual graph. The graphing itself was pretty easy, once I understood the built in category system it was pretty simple to place all the datapoints in their respective categories and create the graph. I would say this is only for someone who uses tableau extensively; if you want to make one or two graphs, this whole process is not really worth it. Also it didn't require any coding, so those less experienced with code will probably find this easier.
+
+# Vega-Lite
+![Vega-Lite](img/vega-lite.png)
+
+The next one I used was Vega-Lite, a high-level grammar language for creating charts/graphs. This tool was all-around a very good experience. The Lite version was completley web-based, so I didn't have to download anything, and with only a few commands I could generate all of the required data in a pleasing format. Literally the only step that brought me any difficulty was importing the CSV file properly. For someone who just wants to generate a graph or other plot, this is the perfect software to use; it's lightweight, and responds quickly with very few commands.
+
+# Matplotlib and Python
+![Matplotlib and Python](img/matplotlib_python.png)
+
+The next tools I used were matplotlib, a 2D plotting library, and python, the language the library is built for. This combination I have some experience with due to my MQP, so it was a relatively easy task to put the data into it and use the proper commands to display it in certain ways. I would say this software is pretty decent for making graphs, but while this graph looks decent, the general look and feel of matplotlib is feels very dated and from an older style of visualization. With an important aspect of data viz is graphs and charts looking modern and slick, I would generally avoid matplotlib.
+
+# R and GGPlot2
+![R and GGPlot2](img/R_ggplot.png)
+
+The next tools I used were R, a statistical computing language, and ggplot2, a plotting library made for R. This was a little harder, but mostly due to my inexperience with both tools. R required some installation, and I couldn't get it working quite the way I wanted to. GGplot functions were very similar to the matplotlib equivalents so that was relatively easy to understand, but I still had to do some research to find the right way to print it. Overall the benefits and detriments are very similar to matplotlib - it's relatively simple if you have the proper tools downloaded, but it has the feel of outdated graphing software which is a definite downgrade from the competition
+
+# Flourish
+![Flourish](img/flourish.png)
+
+The final tool I used was Flourish, a web-based data vis platform with many visualization options. My experience with this website was VERY positive; it was ridiculously easy to import data, and customize the chart to fit the requirements that were set for it. I think in the future whenever I have to create a simple graph or chart for any purpose, I will probably start with this website. Obviously it won't work for a more complicated visualization, which is where a more advanced tool such as d3 would come into play, but Flourish is more than advanced enough for any simple data display.
+
+
+# Technical Acheivements
+I worked to make as many of the graphs interactive to some degree. Some of the tools had the ability to do it on their own, others I had to add it in manually. Here are some screenshots of the results:
+
+
+
+d3 and js: Created a mouse event to hover/unhover a box with text inside of it
+![](technical_img/tech_d3_js.png)
+
+
+R and ggplot2: Added feature that converted ggplot to 'plotly' which had functionality for hovering
+![](technical_img/tech_ggplot2.png)
+
+
+Python and MatplotLib: Added MLPCursors import to get hover functionality
+![](technical_img/tech_matplotlib.png)
+
+Vega-Lite: Used existing tooltip functionality to add a tooltip and populate with data fields
+![](technical_img/tech_vega_lite.png)
+
+Tableau: Functionality already existed
+![](technical_img/tech_tableau.png)
+
+Flourish: Functionality already existed
+![](technical_img/tech_flourish.png)
+
+I did not attempt this with excel, as I lost the actual graph that I had made with excel and only have the screenshots. However after doing some research the best way to add hover interactivity would be to add "Data Labels" to the graph. However the default functionality of excel is very limited so it would be better to create a Dynamic Chart using extra excel features. 
+
