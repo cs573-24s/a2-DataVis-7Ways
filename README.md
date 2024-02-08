@@ -104,33 +104,31 @@ Link: https://app.flourish.studio/projects
 # vega-lite
 ![Alt text](img/vega-lite.png)
 
-**What steps are done:** 
-- upload data
-- draw report
-
 **Advantage:** 
-- easy to work
-- free desktop edition
-- data manipulation capabilities
+- easy to learn
+- flexible
 - plenty of examples and communities
            
 **Disadvantage:** 
-- not flexible enough like ggplot, d3
-- for example: only 1 legend is available
+- Coding knowledge required.
 
-**Where do I see this in future:**
-      - it's already quite popular, so that will be continue
-**Hacks:**
-- Because of the technical limitation of the tool, but using the table trick I display the second legend
+**Technical achievements:**
+Declarative Syntax & Effective Data Mapping: Uses a concise and high-level syntax for visualization configuration and efficiently maps variables to visual channels for a comprehensive representation. 
+
+Color Encoding & Palette Usage & Opacity Control: Implements a meaningful color scale for enhanced data interpretation, and applies a distinct and visually appealing color palette for species differentiation. Includes opacity for transparency, improving visibility in crowded regions. 
+
+Dynamic Data Source: Enables dynamic loading of data from an external CSV file for adaptability.
+
+Scale Configuration & Size Variation: Defines scales for accurate data representation and distribution and uses varying point sizes to convey additional information effectively.
+
+**Design achievements:**
+Data Range and size consideration: Carefully chosen scales prevent crowding or sparse regions, optimizing distribution.
+
+Consistent Aesthetics: Unified color palette, color harmony,  opacity for Clarity and visual elements contribute to a cohesive design.
 
 # Altair
 ---
 ![Alt text](img/altair.png)
-
-**What steps are done:**
-- create login
-- upload data
-- draw report
 
 **Advantage:**
 - easy to work
@@ -145,6 +143,22 @@ Link: https://app.flourish.studio/projects
 - if it improves the data manipulation ection it has potential to grow
 **Hacks:**
 - Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
+
+**Technical achievements:**
+Altair Chart Configuration: Utilizes Altair to create an interactive scatter plot with circles. Applies color mapping to species and sets a custom color range. Encodes size based on bill length, contributing an additional data dimension.
+
+Tooltip Integration: Incorporates tooltips for interactive exploration, providing details on species and numerical variables when hovering over data points.
+
+Mark Configuration: Configures the circle marks with a specified opacity level for better visibility.
+
+Interactive Display: Uses the IPython display function to showcase the interactive chart within the Jupyter Notebook environment. In summary, the code effectively leverages Altair's capabilities to create an interactive and visually informative scatter plot, showcasing technical achievements in data visualization and exploration.
+
+**Design achievements:**
+Consistent Aesthetics: Maintains a consistent aesthetic with a specified color range and opacity, contributing to a unified and visually appealing design.
+
+Color Mapping for Species: Implements a custom color mapping for each penguin species, enhancing visual distinction and facilitating species identification.
+
+Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
 
 # R + ggplot2 (plotly) + R Markdown
 ---
