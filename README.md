@@ -112,15 +112,15 @@ I think that Altair is expected to become even more popular as it maintains its 
 
 
 **Technical achievements:**
--Altair Chart Configuration: Utilizes Altair to create an interactive scatter plot with circles. Applies color mapping to species and sets a custom color range. Encodes size based on bill length, contributing an additional data dimension.
--Tooltip Integration: Incorporates tooltips for interactive exploration, providing details on species and numerical variables when hovering over data points.
--Mark Configuration: Configures the circle marks with a specified opacity level for better visibility.
--Interactive Display: Uses the IPython display function to showcase the interactive chart within the Jupyter Notebook environment. In summary, the code effectively leverages Altair's capabilities to create an interactive and visually informative scatter plot, showcasing technical achievements in data visualization and exploration.
+- Altair Chart Configuration: Utilizes Altair to create an interactive scatter plot with circles. Applies color mapping to species and sets a custom color range. Encodes size based on bill length, contributing an additional data dimension.
+- Tooltip Integration: Incorporates tooltips for interactive exploration, providing details on species and numerical variables when hovering over data points.
+- Mark Configuration: Configures the circle marks with a specified opacity level for better visibility.
+- Interactive Display: Uses the IPython display function to showcase the interactive chart within the Jupyter Notebook environment. In summary, the code effectively leverages Altair's capabilities to create an interactive and visually informative scatter plot, showcasing technical achievements in data visualization and exploration.
 
 **Design achievements:**
--Consistent Aesthetics: Maintains a consistent aesthetic with a specified color range and opacity, contributing to a unified and visually appealing design.
--Color Mapping for Species: Implements a custom color mapping for each penguin species, enhancing visual distinction and facilitating species identification.
--Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
+- Consistent Aesthetics: Maintains a consistent aesthetic with a specified color range and opacity, contributing to a unified and visually appealing design.
+- Color Mapping for Species: Implements a custom color mapping for each penguin species, enhancing visual distinction and facilitating species identification.
+- Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
 
 # 6. R + ggplot2 (plotly) + R Markdown
 Plotly is a versatile and interactive data visualization library that supports a wide range of chart types. Combining R with ggplot2 for versatile plotting, Plotly for interactive visualizations, and R Markdown for dynamic report generation provides a powerful and seamless workflow. This integrated stack allows for creating aesthetically pleasing and interactive data visualizations within R Markdown documents, facilitating reproducible and shareable data analyses and reports.
