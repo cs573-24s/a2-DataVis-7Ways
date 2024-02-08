@@ -176,18 +176,8 @@ Enhances plot interpretation by customizing legends, ensuring a clear associatio
 - Because of the technical limitation of the tool, I couldn't display the both legend but I customized the color legend to show required colors for related category
 
 **Technical achievements:**
-Altair Chart Configuration: Utilizes Altair to create an interactive scatter plot with circles. Applies color mapping to species and sets a custom color range. Encodes size based on bill length, contributing an additional data dimension.
-
-Tooltip Integration: Incorporates tooltips for interactive exploration, providing details on species and numerical variables when hovering over data points.
-
-Mark Configuration: Configures the circle marks with a specified opacity level for better visibility.
-
-Interactive Display: Uses the IPython display function to showcase the interactive chart within the Jupyter Notebook environment. In summary, the code effectively leverages Altair's capabilities to create an interactive and visually informative scatter plot, showcasing technical achievements in data visualization and exploration.
+Achieved dynamic data visualization by implementing marker size adjustments based on a conditional statement, showcasing adept data manipulation skills. Utilizing the matplotlib library for plotting, the code successfully employs a customized color mapping strategy, enhancing visual differentiation among penguin species. Skillful legend management is demonstrated through the inclusion of species and bill length categories, contributing to the overall interpretability of the plot. The integration of external libraries, particularly numpy for conditional sizing, reflects a sophisticated approach to leveraging tools for enhanced functionality. Lastly, the code is characterized by clear and well-documented practices, ensuring accessibility and maintainability for future collaboration or modifications.
 
 **Design achievements:**
-Consistent Aesthetics: Maintains a consistent aesthetic with a specified color range and opacity, contributing to a unified and visually appealing design.
-
-Color Mapping for Species: Implements a custom color mapping for each penguin species, enhancing visual distinction and facilitating species identification.
-
-Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
+Demonstrated an integration of matplotlib in Python for creating a visually appealing and informative scatter plot of penguin data. Effective color mapping distinguishes between different penguin species, while dynamically adjusting marker size based on bill length enhances the representation of individual data points. The thoughtful inclusion of legends provides clear insights into both species and bill length categories, contributing to the overall clarity of the visualization. Additionally, the code showcases the ability to combine data manipulation techniques with design principles, resulting in a cohesive and meaningful representation of the dataset. Overall, the achievement lies in the creation of a well-designed and comprehensible data visualization through thoughtful choices in color, size, and other plot elements.
 
