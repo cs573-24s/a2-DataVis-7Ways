@@ -36,7 +36,7 @@ The next tools I used were matplotlib, a 2D plotting library, and python, the la
 The next tools I used were R, a statistical computing language, and ggplot2, a plotting library made for R. This was a little harder, but mostly due to my inexperience with both tools. R required some installation, and I couldn't get it working quite the way I wanted to. GGplot functions were very similar to the matplotlib equivalents so that was relatively easy to understand, but I still had to do some research to find the right way to print it. Overall the benefits and detriments are very similar to matplotlib - it's relatively simple if you have the proper tools downloaded, but it has the feel of outdated graphing software which is a definite downgrade from the competition
 
 # Flourish
-![Flourish](img/R_ggplot.png)
+![Flourish](img/flourish.png)
 
 The final tool I used was Flourish, a web-based data vis platform with many visualization options. My experience with this website was VERY positive; it was ridiculously easy to import data, and customize the chart to fit the requirements that were set for it. I think in the future whenever I have to create a simple graph or chart for any purpose, I will probably start with this website. Obviously it won't work for a more complicated visualization, which is where a more advanced tool such as d3 would come into play, but Flourish is more than advanced enough for any simple data display.
 
