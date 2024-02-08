@@ -17,7 +17,7 @@ To visualize the penguins dataset, I made use of ggplot2's `aes()` function to v
 
 The documentation of ggplot(2) was rather easy to find and to follow. While it didn't make the most elegant chart, it was extremely easy to put this chart together. Despite the data having NaN values, ggplot() didn't account for any of them within the graph which made the cleaning of the data one step easier. I would use ggplot() in the future when I am trying to create an aesthetically easy yet simple chart to make. When I looked into being able to include interactive elements to the graph, ggplot did not allow me, however, I could include another package (plotly) the do this. 
 
-![ggplot2](img/ggplot2.png)
+![ggplot2](01 R_ggplot/ggplot2.png)
 
 # R + lattice + R Markdown
 R is a language primarily focused on statistical computing.
