@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+
+<body>
+  <script>
+
+    var svg = d3.select("body").append("svg")
+      .attr("width", 1500)
+      .attr("height", 1200);
+
+    const tableWidth = 700;
+    const tableHeight = 500;
+
+    var tableSvg = svg.append("svg")
+      .attr("width", tableWidth)
+      .attr("height", tableHeight)
+      .attr("transform", "translate(60, 0)");
+
+
+    d3.csv("penglings.csv").then(function (data) {
+
+      data = data.filter(function (d) {
+        return d.flipper_length_mm !== "NA" && d.body_mass_g !== "NA";
+      });
+
+      data.forEach(function (d) {
+        d.flipper_length_mm = +d.flipper_length_mm;
+        d.body_mass_g = +d.body_mass_g;
+      });
+
+
+      // scales for x and y axes
+      const xScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.flipper_length_mm) - 10, d3.max(data, d => d.flipper_length_mm) + 5])
+        .range([0, tableWidth]);
+
+      const yScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.body_mass_g) - 100, d3.max(data, d => d.body_mass_g) + 100])
+        .range([tableHeight, 0]);
+
+      // Create circles
+      tableSvg.selectAll("circle")
+        .data(data)
+        .enter().append("circle")
+        .attr("cx", d => xScale(d.flipper_length_mm))
+        .attr("cy", d => yScale(d.body_mass_g))
+        .attr("r", d => getBillSize(d.bill_length_mm))
+        .attr("fill", d => Color(d.species))
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut);
+
+      // Create x-axis
+      svg.append("g")
+        .attr("transform", "translate(100," + tableHeight + ")")
+        .call(d3.axisBottom(xScale));
+
+      // Create y-axis
+      svg.append("g")
+        .attr("transform", "translate(100, 0)")
+        .call(d3.axisLeft(yScale));
+
+      function handleMouseOver(event, d) {
+        // circle radius
+        d3.select(this).attr("r", 8); 
+
+        const [x, y] = d3.pointer(event);
+
+        const tipBox = tableSvg.append("rect") // white rec as the bcg of text
+          .datum(d)
+          .attr("id", "tipBox")
+          .attr("x", xScale(d.flipper_length_mm) + 5)
+          .attr("y", yScale(d.body_mass_g) - 20)
+          .attr("width", 130) // Adjust the width based on your content
+          .attr("height", 80) // Adjust the height based on your content
+          .attr("fill", "white")
+          .style("opacity", 0.8); // Adjust the opacity as needed
+
+        const tooltip = tableSvg.append("text")
+          .datum(d)
+          .attr("id", "tooltip")
+          .attr("x", xScale(d.flipper_length_mm) + 10)
+          .attr("y", yScale(d.body_mass_g) - 10)
+          .style("font-size", "12px")
+          .style("font-weight", "bold");
+
+
+        const lines = [
+          `Species: ${d.species}`,
+          `Flipper Length: ${d.flipper_length_mm} mm`,
+          `Body Mass: ${d.body_mass_g} g`,
+          `Bill Length: ${d.bill_length_mm} mm`
+        ];
+
+        tooltip.selectAll("tspan")
+          .data(lines)
+          .enter().append("tspan")
+          .attr("x", xScale(d.flipper_length_mm) + 10)
+          .attr("dy", 16)
+          .text(d => d);
+
+      }
+
+      function handleMouseOut(d, i) {
+        // Remove tooltip and reset circle radius
+        d3.select(this).attr("r", d => getBillSize(d.bill_length_mm));
+        tableSvg.select("#tooltip").remove();
+        tableSvg.select("#tipBox").remove();
+      }
+
+
+
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+    function Color(species) {
+      switch (species) {
+        case "Adelie":
+          return `rgba(0, 245, 255)`; 
+        case "Gentoo":
+          return `rgba(0, 0, 205)`; 
+        case "Chinstrap":
+          return `rgba(255, 0, 0)`; 
+      }
+    }
+
+    function getBillSize(billLength) {
+      return billLength / 10;
+
+    }
+
+    var legend = svg.append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(" + (tableWidth) + "," + (tableHeight / 2) + ")");
+
+
+    var legendColors = [`rgba(0, 245, 255)`, `rgba(0, 0, 205)`, `rgba(255, 0, 0)`]; 
+    var legendLabels = ["Adelie", "Gentoo", "Chinstrap"];
+
+    //Legend graph
+    legend.selectAll("rect")
+      .data(legendColors)
+      .enter().append("rect")
+      .attr("y", function (d, i) { return i * 20; })//make sure every element is in vertical
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("fill", d => d);
+
+    //Legend text
+    legend.selectAll("text")
+      .data(legendLabels)
+      .enter().append("text")
+      .attr("y", function (d, i) { return i * 20 + 12; })
+      .attr("x", 20)
+      .text(d => d);
+
+
+    // X label
+    svg.append('text')
+      .attr('x', tableWidth / 2 + 100)
+      .attr('y', tableHeight + 40)
+      .style('font-size', 15)
+      .text('Flipper Length');
+
+    // // Y label
+    svg.append('text')
+      .attr('transform', 'translate(40,' + tableHeight / 2 + ')rotate(-90)')
+      .style('font-size', 15)
+      .text('Body Mass');
+
+  </script>
+</body>
+
+</html>
