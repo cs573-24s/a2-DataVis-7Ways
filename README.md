@@ -146,6 +146,9 @@ Bubble size legend is not supported.
 
 Technical Achievements:
 
+* Interactive tooltips display detailed information about the data point where the mouse is pointing.
+* Interactive legend: When the mouse hovers over a species, the corresponding data points in the plot will appear, while the data points belonging to the other two species will fade out.
+
 Design Achievements:
 
 * Color mapping to species.
@@ -157,16 +160,35 @@ Design Achievements:
 
 07 Tableau
 ---
+It's easy and enjoyable to create an interactive dashboard using Tableau. I made several plots and selected three to combine into my final dashboard. (The <> logic works here). I added interactive filters on my dashboard, allowing data to change in each plot correspondingly. It's cool to create a dashboard without writing any code (for this visualization) and simply drag and drop elements. But I can imgaine that it's going to be slow when the dataset is large.
 
-![image](07_Tableau/Tableau_1.png)
+
+![image](07_Tableau/Tableau_4.png)
 
 ![image](07_Tableau/Tableau_2.png)
 ![image](07_Tableau/Tableau_3.png)
 
 Technical Achievements:
 
+* Interactive tooltips display detailed information about the data point where the mouse is pointing.
+* Interactive legend: When the mouse hovers over a species, the corresponding data points in the plot will appear, while the data points belonging to the other two species will fade out.
+* Data changes in each plot correspondingly and simultaneously based on the interactive filter.
+* Implemented additional plots along with the bubble chart.
+
 Design Achievements:
+
+* Color mapping to species.
+* Size mapping to bill length
+* The background grid
+* Set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species and size mapping to Bill Length.
 
 reference:
 ---
 1. https://stackoverflow.com/questions/57417164/is-there-a-way-to-calculate-optimal-sizeref-value-for-plotly-scatter3d 
+2. https://flourish.studio/examples/
+3. https://altair-viz.github.io/gallery/seattle_weather_interactive.html
+4. https://plotly.com/python/line-and-scatter/
+5. https://issuu.com/dezinemagazine/docs/dezine_-_issue_06/s/19734
+6. https://d3-graph-gallery.com/graph/bubble_template.html
+7. https://d3-graph-gallery.com/graph/bubble_legend.html
