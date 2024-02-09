@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Plot with D3.js</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+
+<div id="scatter-plot"></div>
+
+<script>
+// Specify the path to your CSV file
+const csvFilePath = 'C:/Users/madel/Downloads/penglings2.csv';
+
+// Set up the dimensions and margins of the graph
+const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+const width = 600 - margin.left - margin.right;
+const height = 400 - margin.top - margin.bottom;
+
+// Append the SVG to the specified div
+const svg = d3.select('#scatter-plot')
+    .append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+    .append('g')
+    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+// Read the CSV file and create the scatter plot
+d3.csv(csvFilePath)
+    .then(data => {
+        // Convert string values to numbers if needed
+        data.forEach(d => {
+            d.flipper_length_mm = +d.flipper_length_mm;
+            d.body_mass_g = +d.body_mass_g;
+        });
+
+        // Set up the scales for x and y axes
+        const xScale = d3.scaleLinear().domain([d3.min(data, d => d.flipper_length_mm), d3.max(data, d => d.flipper_length_mm)]).range([0, width]);
+        const yScale = d3.scaleLinear().domain([d3.min(data, d => d.body_mass_g), d3.max(data, d => d.body_mass_g)]).range([height, 0]);
+
+        // Add x-axis
+        svg.append('g')
+            .attr('transform', `translate(0,${height})`)
+            .call(d3.axisBottom(xScale));
+
+        // Add y-axis
+        svg.append('g')
+            .call(d3.axisLeft(yScale));
+
+        // Add circles for each data point
+        svg.selectAll('circle')
+            .data(data)
+            .enter().append('circle')
+            .attr('cx', d => xScale(d.flipper_length_mm))
+            .attr('cy', d => yScale(d.body_mass_g))
+            .attr('r', 5); // Adjust the radius as needed
+    })
+    .catch(error => console.error('Error loading the data:', error));
+</script>
+
+</body>
+</html>
