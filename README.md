@@ -70,9 +70,7 @@ This HTML file incorporates D3.js to create a scatter plot visualization of peng
     - Error handling is done using `.catch()` method to log any errors to the console.
 ----------------------------------------------------------------------
 
-*Visualization using Python*
-----------------------------------------------------------------------
-*(3) Python + Altair*:
+*(3) Python + Altair* :
 
 This Python code creates scatter plots using Altair library to visualize the relationship between bill length and bill depth of penguins from a given dataset. Best part of using Altair is you zoom in and zoom out the scatterplots.
 
@@ -170,6 +168,7 @@ Plotly is known for its rich interactivity features. It offers extensive support
 
 ----------------------------------------------------------------------
 *(8)Visualization using Tableau*
+
 Tableau is a data visualization tool that enables users to create and share interactive and graphical representations of data through dashboards and reports. This dashboard shows various features such as interactive filters, parameters, dynamic charts (bar chart, scatter plot and line chart), and tooltips for detailed data display upon hover. Integrating and visualizing data in Tableau was straightforward, showing its strength in user-friendly data manipulation and visualization. Here in this visualization we have added filters for years and sex of the species which dynamically adjusts the scatter plots output.
 
 ![](img/tableauoutput.jpeg)
