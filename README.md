@@ -42,7 +42,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 - **Vega-lite** Enrich your stories with charts, maps, and tables as it's slogan says, it's free and no sign-up is required.
 
-![alt text](<05 Vega-lite/penguin_Vegalite.png>)
+![alt text](<05 Vega-lite/penguin_Vega-lite.png>)
 
 
 # Flourish
