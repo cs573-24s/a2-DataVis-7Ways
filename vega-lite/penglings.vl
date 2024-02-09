@@ -13,7 +13,8 @@
     },
     "mark": {
       "type": "circle",
-      "opacity": 0.8
+      "opacity": 0.8,
+      "tooltip": true
     },
     "encoding": {
       "x": {
