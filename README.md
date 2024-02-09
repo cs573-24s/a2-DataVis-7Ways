@@ -5,7 +5,7 @@ Assignment 2 - Data Visualization, 7 Ways
 
 (1) DataWrapper Visualization : Live Demo [Here](https://www.datawrapper.de/_/ILbG9/) 
 
-![](dw_viz_output.png)
+![](img/dw_viz_output.png)
 
 Datawrapper is an online data visualization tool that allows users to create interactive and customizable charts, maps, and tables from their data. It provides a user-friendly interface where users can easily upload their datasets or connect to external data sources such as Google Sheets, Excel files, or SQL databases.
 
