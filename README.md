@@ -2,144 +2,170 @@
 
 Assignment 2 - Data Visualization, 7 Ways  
 ===
+# 1. d3 js
+D3.js, or Data-Driven Documents, is a JavaScript library renowned for its unmatched customization and low-level control in creating interactive and dynamic data visualizations for the web. With a steep learning curve, it empowers developers to craft highly tailored and sophisticated visualizations through direct manipulation of HTML, SVG, and CSS.
+![Alt text](img/d3.png)
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+**Advantage:**
+- Unmatched Customization
+- Community Support
+           
+**Disadvantage:** 
+- Higher Learning Curve Compared to other Tools: D3.js demands a steeper learning curve in contrast to drag-and-drop tools, as it requires programming expertise for effective utilization.
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+**Where do I see this in future:**
+I think that due to the specialized nature of technical skills, particularly in coding, their widespread adoption among non-coders may be limited.
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+**Technical achievements:** 
+- Color and Size Encoding: Encodes species information with custom colors and bill length with variable circle sizes, providing a multi-dimensional representation of the data.
+- Text Annotations: Adds informative text annotations for axis titles and legends, contributing to the clarity of the visualization.
 
-Your goal is to use 7 different tools to make the following chart:
+**Design achievements:** 
+- Consistent Styling: Maintains consistent and cohesive styling throughout the visualization, contributing to a unified and aesthetically pleasing design.
+- Dynamic Size & Color Legend implementation:  Utilizes a custom color mapping for each penguin species and dynamically generates legends for both size and color based on the specified data ranges and color mapping
 
-![](img/ggplot2.png)
+# 2. Flourish
+Flourish is a data visualization platform that enables users to create interactive and engaging visualizations, including maps, charts, and narratives, without extensive coding. With a user-friendly interface, it simplifies the process of storytelling through data, making it accessible for a wide range of users.
 
-These features should be preserved as much as possible in your replication:
+![Alt text](img/flourish.png)
+Tool: flourish 
+[Link:](https://app.flourish.studio/projects)
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+**Advantage:** 
+- User-friendly interface
+- Free edition for try
+- Plenty of examples and templates
+           
+**Disadvantage:** 
+- Limited Customization Options
+- Limited Data Manipulation Features: While Flourish allows column addition and deletion, it lacks basic functionality for creating new columns, such as computing the sum of two existing columns, limiting its flexibility in more advanced data transformations.
 
-Other features are not required. This includes:
+**Where do I see this in future:**
+I reckon that Flourish may evolve to address user feedback and expand its capabilities, potentially incorporating more advanced data manipulation features.
 
-- The background grid.
-- The legends.
+**Hacks:**
+Due to technical constraints, I couldn't display both legends simultaneously. However, I addressed this limitation by customizing the color legend to accurately represent the assigned colors for each relevant category.
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
+# 3. PowerBI 
+Power BI is a Microsoft business analytics tool that facilitates data visualization and sharing, offering a user-friendly interface and seamless integration with the Microsoft ecosystem for robust data connectivity and dynamic dashboard creation.
 
-Improvements are also welcome as part of Technical and Design achievements.
+![Alt text](img/pbi.png)
 
-Libraries, Tools, Languages
----
+Tool: powerbi 
 
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
+**Advantage:** 
+- User-Friendly Interface
+- Free desktop edition
+- Fata manipulation capabilities
+- Plenty of examples and communities
+           
+**Disadvantage:** 
+- Complexity in Customization (for example: only 1 legend is available)
 
-Otherwise, you should seek tools and libraries to fill out your 7.
+**Where do I see this in future:**
+I think that Power BI is likely to continue evolving as a leading business intelligence and analytics tool, with advancements in features, connectivity, and collaboration.
 
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
+**Hacks:**
+Because of the technical limitation of the tool, but using the table trick I display the second legend
 
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
+# 4. Vega-lite
+Vega-Lite is a high-level declarative visualization grammar that simplifies the creation of interactive and expressive visualizations using a concise JSON syntax.
 
-I have marked a few that are strongly suggested.
+![Alt text](img/vega-lite.png)
 
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
+**Advantage:** 
+- Declarative simplicity
+- High-level abstractions
+- Default interactivity
+           
+**Disadvantage:** 
+- Limited Customization
 
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
+**Where do I see this in future:**
+ I reckon that Vega-Lite is likely to remain a prominent choice for declarative data visualization, gaining further adoption for its simplicity and versatility.
 
-Tips
----
+**Technical achievements:**
+- Declarative Syntax & Effective Data Mapping: Uses a concise and high-level syntax for visualization configuration and efficiently maps variables to visual channels for a comprehensive representation. 
+- Color Encoding & Palette Usage & Opacity Control: Implements a meaningful color scale for enhanced data interpretation, and applies a distinct and visually appealing color palette for species differentiation. Includes opacity for transparency, improving visibility in crowded regions. 
+- Dynamic Data Source: Enables dynamic loading of data from an external CSV file for adaptability.
+- Scale Configuration & Size Variation: Defines scales for accurate data representation and distribution and uses varying point sizes to convey additional information effectively.
 
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
+**Design achievements:**
+- Data Range and size consideration: Carefully chosen scales prevent crowding or sparse regions, optimizing distribution.
+- Consistent Aesthetics: Unified color palette, color harmony,  opacity for Clarity and visual elements contribute to a cohesive design.
 
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
+# 5. Python + Altair
+Altair is a declarative statistical visualization library for Python that enables users to create a wide range of interactive and visually appealing charts. With a concise and intuitive syntax, Altair allows users to express their data visualizations using a simple Python API, making it accessible for both beginners and experienced data scientists. It seamlessly integrates with Pandas DataFrames, providing a convenient way to transform and visualize data in a meaningful manner.
 
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
+![Alt text](img/altair.png)
 
-Readme Requirements
----
+**Advantage:**
+- Interactive Visualizations: Built-in support for interactive plots.
+- Declarative Syntax: Intuitive and concise code for creating visualizations.
+           
+**Disadvantage:**
+- Limited Chart Types: Altair may have fewer chart types compared to other visualization libraries.
 
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
+**Where do I see this in future:** 
+I think that Altair is expected to become even more popular as it maintains its simplicity and integrates seamlessly with data tools like Pandas. Future improvements may include more chart options and enhanced interactivity to keep up with evolving data visualization trends. 
 
 
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+**Technical achievements:**
+- Altair Chart Configuration: Utilizes Altair to create an interactive scatter plot with circles. Applies color mapping to species and sets a custom color range. Encodes size based on bill length, contributing an additional data dimension.
+- Tooltip Integration: Incorporates tooltips for interactive exploration, providing details on species and numerical variables when hovering over data points.
+- Mark Configuration: Configures the circle marks with a specified opacity level for better visibility.
+- Interactive Display: Uses the IPython display function to showcase the interactive chart within the Jupyter Notebook environment. In summary, the code effectively leverages Altair's capabilities to create an interactive and visually informative scatter plot, showcasing technical achievements in data visualization and exploration.
 
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+**Design achievements:**
+- Consistent Aesthetics: Maintains a consistent aesthetic with a specified color range and opacity, contributing to a unified and visually appealing design.
+- Color Mapping for Species: Implements a custom color mapping for each penguin species, enhancing visual distinction and facilitating species identification.
+- Size Encoding for Additional Insight: Utilizes point size to encode bill length, adding an extra layer of information to the plot and making it more informative.
+
+# 6. R + ggplot2 (plotly) + R Markdown
+Plotly is a versatile and interactive data visualization library that supports a wide range of chart types. Combining R with ggplot2 for versatile plotting, Plotly for interactive visualizations, and R Markdown for dynamic report generation provides a powerful and seamless workflow. This integrated stack allows for creating aesthetically pleasing and interactive data visualizations within R Markdown documents, facilitating reproducible and shareable data analyses and reports.
+
+![Alt text](img/plotly.png)
+
+Tool: RStudio
+
+Advantage: 
+- Rich Visualization Capabilities: Powerful and expressive visualizations.
+- Seamless Integration: Smooth collaboration with R Markdown.
+- Interactive Plots with Plotly: Enhanced interactivity in visualizations.
+
+Disadvantage: 
+R, ggplot2 (plotly), and R Markdown are hard to learn especially mastering these tools, especially for beginners. Additionally, the generation of complex interactive visualizations may require a deeper understanding of underlying code, potentially posing a challenge for users seeking a more straightforward graphical interface.
+
+**Hacks:** 
+I used the professor's code as a basis for extension.
+
+**Technical achievements:**
+Efficient data manipulation, meticulous aesthetic configuration, faceting, and the transformation of a static ggplot into an interactive plot using plotly were seamlessly executed to create a visually appealing representation of penguin metrics. The plot's aesthetics were fine-tuned for clarity, employing color schemes and sizing considerations. Faceting enhances insights by breaking down the data into subplots based on categorical variables. The integration of plotly introduces interactivity, such as tooltips and zooming, fostering a dynamic and engaging exploration of the penguin metrics.
+
+**Design achievements:**
+Enhances plot interpretation by customizing legends, ensuring a clear association between colors and penguin species. This contributes to improved readability and comprehension of the visualized data. Additionally, the faceting of the plot by penguin sex aids in a focused comparison between male and female penguins, highlighting potential differences in metrics. The use of ggplotly introduces interactivity, allowing users to explore specific details through tooltips, enhancing the overall user experience.
+
+# 7. Python + Matplotlib
+Matplotlib is a widely-used plotting library in the Python ecosystem, and its development has been active with regular updates and improvements. Developers often work on enhancing user experience, adding features, and addressing issues raised by the community.
+
+![Alt text](img/altair.png)
+
+**Advantage:**
+- Versatility: Supports diverse plot types.
+- Customization: Highly configurable visualizations.
+- Community Support: Active user community.
+           
+**Disadvantage:**
+- Initial Complexity for Beginners
+
+**Where do I see this in future:**
+I think that Matplotlib will become get faster at showing big and complex data, offer more types of plots, become easier to use with better design, work well with the latest Python updates, and let users interact more with their data when creating plots.
+
+**Hacks:**
+To overcome the challenge of displaying both legends simultaneously, I created two separate legend sets. The first legend set captures the color information for each species, while the second one illustrates the size classification. Both legend sets are then combined into a comprehensive legend_handles list, which is subsequently utilized to generate a unified legend with the title "Species." This legend is positioned in the upper left corner outside the plot area, offering a clear and comprehensive reference for interpreting the penguin data visualization.
+
+**Technical achievements:**
+Achieved dynamic data visualization by implementing marker size adjustments based on a conditional statement, showcasing adept data manipulation skills. Utilizing the matplotlib library for plotting, the code employs a customized color mapping strategy, enhancing visual differentiation among penguin species. The integration of external libraries, particularly numpy for conditional sizing, reflects a sophisticated approach to leveraging tools for enhanced functionality. 
+
+**Design achievements:**
+Demonstrated an integration of matplotlib in Python for creating a visually appealing and informative scatter plot of penguin data. Effective color mapping distinguishes between different penguin species, while dynamically adjusting marker size based on bill length enhances the representation of individual data points. The thoughtful inclusion of legends provides clear insights into both species and bill length categories, contributing to the overall clarity of the visualization.

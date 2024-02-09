@@ -1,0 +1,36 @@
+---
+title: "assignment2_7viz"
+author: "Gan-Erdene Benderiya"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+library(htmlwidgets)
+```
+
+
+
+```{r penguins}
+penguins <- read_csv("penglings.csv")
+penguin_plot <- penguins %>%
+  mutate(bill_area_mm = bill_length_mm * bill_depth_mm) %>% 
+ggplot(aes(x = flipper_length_mm, y = body_mass_g, text = paste("Species:", species, "<br>Bill Area (mm²):", bill_area_mm))) +
+  geom_point(aes(color=species, size= bill_length_mm, shape=species), alpha = 0.8) +
+  scale_color_manual(values = c("darkorange","darkorchid","cyan4")) +
+  scale_size_continuous(name = "Bill Length (mm)", guide = guide_legend()) +
+  scale_shape_manual(values = c(16, 19, 9)) +
+  facet_wrap(. ~ sex, labeller = label_both) +
+  labs(title = "Penguin Metrics",
+       x = "Flipper Length (mm)",
+       y = "Body Mass (g)") 
+penguin_plot_int <- ggplotly(penguin_plot, tooltip="text") %>%
+  layout(showlegend = TRUE, 
+         legend = list(orientation = "v", x = 1.05, y = 0.5))
+penguin_plot_int
+```
+
+
+
