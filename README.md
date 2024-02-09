@@ -7,8 +7,29 @@ It takes a lot of effort to create a visualization, but it is a very customizabl
 To visualize the data, I used a combination of d3's "csv" function and other tools to create shapes in svgs.
 Since every element had to be created manually, the effort involved with this visualization was great.
 
+### Point Hover / Detailed Data 
+I also added some extra interactivity to display the values
+of the point that was being hovered over, as well as giving
+the currently hovered point an outline to let the user know
+which point was selected.
+
 ![d3_no_hover](./img/d3_1.png)
 ![d3_hover](./img/d3_2.png)
+
+### Species Facts and Animations
+
+In addition to this, I added animations where when you click
+on a point of a certain species (Gentoo, Chinstrap, Adelie) on
+the visualization, on the side there will be a view that
+appears and gives a bit of information about that penguin
+species as well as an image. I thought this gave a bit of
+context to the user about the species of penguins that were
+being visualized. (you can check out the animations etc in 
+./d3/index.html in the repo)
+
+![d3_adelie](./img/adelie-vis.png)
+![d3_chinstrap](./img/chinstrap-vis.png)
+![d3_gentoo](./img/gentoo-vis.png)
 
 #### D3 Sources
 
@@ -16,6 +37,8 @@ Since every element had to be created manually, the effort involved with this vi
 [2](https://stackoverflow.com/questions/11189284/d3-axis-labeling)
 [3](https://d3-graph-gallery.com/graph/custom_legend.html)
 [4](https://medium.com/@kj_schmidt/show-data-on-mouse-over-with-d3-js-3bf598ff8fc2)
+
+*The species information was pulled from Wikipedia
 
 ## Python + Seaborn + Pandas + Matplotlib
 
@@ -116,6 +139,9 @@ view the changes over time of the diversity of each island.
 ![flourish_chart_2](./img/flourish2.png)
 ![flourish_chart_3](./img/flourish3.png)
 
+*note that there is no code etc for Flourish as it is an online
+tool, but the visualization can be found below
+
 [flourish link (interactive)](https://public.flourish.studio/visualisation/16735989/)
 
 ## Vega-Lite
@@ -195,6 +221,15 @@ selected element so the user knows which element is selected
 When the user stops hovering, this red outline goes away, and the
 information on the bottom disappears.
 
+### Species Information Animations On Click in D3
+
+I did this by using "click", transition(), duration()
+and "opacity" in d3 as well as adding an
+expanding circle with color matching the species color for
+an interesting animation. I had to manually split up the
+text so that it would fit, as in SVG, there is no option
+to wrap text without external packages.
+
 ### Display Observations Per Island in R
 
 I did this by using the facet_grid() function included in ggplot2.
@@ -228,6 +263,25 @@ I clearly allowed the user to see which element they were hovering on in the mai
 having a red circle (as can be seen in photo 2 in the D3 section).
 This, linked with the detailed numbers shown on the bottom depending on which element is hovered on provides
 a good experience for the user.
+
+### Show Facts About Penguin Species in D3
+
+I gave extra information to the user about each species of
+penguin on click of a point with the corresponding species
+as well as an image of that species of penguin. I also
+matched the background color of the information to the color
+of the species in the legend to connect these two 
+visualizations. The purpose of this was to give
+the viewer of the visualization more information about what
+they are looking at as well as giving the data a more personal
+feel due to the image.
+
+### Penguin-y font in D3
+
+This is a minor achievement, but I searched for and found what
+I believe is a very penguin-y font (Oscar) and used it for
+the penguin species. I imported this font with a link to a
+google stylesheet containing it at the top of the HTML document
 
 ### Display Observations Per Island in R
 
