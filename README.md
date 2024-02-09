@@ -22,7 +22,7 @@ However, overall I would still say this tool is still very easy to use and would
 
 ### Technical Achievements
 
-For this visualization, I decided to add an extra tooltip functionality (coded within the `alt.Chart()`function) to allow users the option to hover and inspect data points within the graph. I also renamed the tooltip display names to be more visually appealing by removing the original column names and reformatting them into proper titles with units properly parenthesized.
+- **Mouse over Feature** For this visualization, I decided to add an extra tooltip functionality (coded within the `alt.Chart()`function) to allow users the option to hover and inspect data points within the graph. I also renamed the tooltip display names to be more visually appealing by removing the original column names and reformatting them into proper titles with units properly parenthesized.
 
 ![PyVis2](img/PyVis2.png)
 
@@ -36,7 +36,7 @@ Overall, this library was very easy to use and was quite similar to Plotly in te
 
 ### Technical Achievments 
 
-For this visualization, I decided to add an extra tooltip functionality (coded within the `mplcursors.cursor()`function) to allow users the option to hover and inspect data points within the graph. `mplcursors` is a Python library that provides interactive cursor feedback for Matplotlib plots. Similar to the second graph, I also reformatted the tooltip display names to be visually appealing. 
+- **Mouse over Feature** For this visualization, I decided to add an extra tooltip functionality (coded within the `mplcursors.cursor()`function) to allow users the option to hover and inspect data points within the graph. `mplcursors` is a Python library that provides interactive cursor feedback for Matplotlib plots. Similar to the second graph, I also reformatted the tooltip display names to be visually appealing. 
 
 ![PyVis3](img/PyVis3.png)
 
@@ -50,7 +50,7 @@ Overall, I didn't feel this was quite as intuitive as the the previous graphs; h
 
 ### Technical Achievments 
 
-For this graph, I also added a hover-to-inspect functionality using Bokeh's `HoverTool()`. Thus, users can hover over points on the graph to inspect the individual values.
+- **Mouse over Feature** For this graph, I also added a hover-to-inspect functionality using Bokeh's `HoverTool()`. Thus, users can hover over points on the graph to inspect the individual values.
 
 ![PyVis4](img/PyVis4.png)
 
@@ -64,7 +64,7 @@ I felt this graph was definitely the hardest to construct due to the amount of c
 
 ### Technical Achievements
 
-For this graph, I added a color legend using additional svg variables to specify the placement, text, and colors. Users can view this legend in the top left corner of the graph.
+- **Color Legend** For this graph, I added a color legend using additional svg variables to specify the placement, text, and colors. Users can view this legend in the top left corner of the graph.
 
 ![D3Vis](img/D3Vis.png)
 
@@ -75,6 +75,8 @@ Flourish is a web platform designed for creating and sharing interactive data vi
 To visualize the penglings dataset smoothly, I started by selecting the scatterplot option on the intro page. Then, I imported the data through the Flourish data tab. Next, I easily selected the columns I wanted to visualize from the right-hand panel of the data tab. Finally, to achieve the desired dot opacity, I navigated back to the graph pane and adjusted the opacity in the `Dot Styles` tab.
 
 Overall, this tool was probably the easiest to use since it didn't require any coding. The sheer breadth of graphs available to users makes this tool a fantastic option for non-coding audiences who want to visualize data in more customizeable ways. Generally, I think anyone looking for an intuitive (non-coding intensive) way to design visuals would greatly benefit from this tool. 
+
+See the full visualization here: https://app.flourish.studio/visualisation/16709797/edit
 
 ![FlourishVis](img/FlourishVis.png)
 
@@ -88,10 +90,10 @@ Overall, these tools and library were fairly easy to use (not much different tha
 
 ### Technical Achievements
 
-By integrating Plotly's `ggplotly()` function into the graph, I was able to make a hover-to-inspect feature for users to interact with.
+- **Mouse over Feature** By integrating Plotly's `ggplotly()` function into the graph, I was able to make a hover-to-inspect feature for users to interact with.
 
 ### Creative Achievements
 
-Within the `theme()` function I added code that bolded the axes labels and also increased their margins from the x/y axes.
+- **Labeling Enhancement** Within the `theme()` function I added code that bolded the axes labels and also increased their margins from the x/y axes.
 
 ![RVis](img/RVis.png)
