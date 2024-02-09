@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A scatterplot showing the relationship between flipper length and body mass of penguins with bill length represented by the size of the points and species by color.",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/cs573-24s/a2-DataVis-7Ways/main/penglings.csv"
+  },
+  "mark": {"type": "circle", "opacity": 0.8},
+  "encoding": {
+    "x": {
+      "field": "flipper_length_mm",
+      "type": "quantitative",
+      "axis": {"title": "Flipper Length (mm)"},
+      "scale": {"zero": false}
+    },
+    "y": {
+      "field": "body_mass_g",
+      "type": "quantitative",
+      "axis": {"title": "Body Mass (g)"},
+      "scale": {"zero": false}
+    },
+    "color": {"field": "species", "type": "nominal"},
+    "size": {
+      "field": "bill_length_mm",
+      "type": "quantitative",
+      "scale": {"range": [0, 1000]}
+    }
+  },
+  "config": {}
+}
