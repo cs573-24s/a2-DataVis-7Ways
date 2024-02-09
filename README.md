@@ -22,7 +22,7 @@ Key features of Datawrapper include:
 ----------------------------------------------------------------------
 
 (2) D3+Js
-![](img/step5.png)
+![](img/d3jsoutput.png)
 
 This HTML file incorporates D3.js to create a scatter plot visualization of penguin data. Let's break down the code and understand its functions and uses:
 
