@@ -5,7 +5,7 @@
       <div>
         <svg></div>
       <svg id="legend" height="200" width="150" style="padding-bottom: 150" />
-      <div id="speciesInfoDiv" style="height: 400px; width: 500px; border-color: black; border-width: 1px; border: solid">
+      <div id="speciesInfoDiv" style="height: 400px; width: 500px; margin-left: 50px">
         <svg id="speciesInfo" width="500" height="400" style="z-index: -1; position: absolute"/>
       </div>
     </div>
@@ -180,6 +180,21 @@
         .transition()
         .duration(3000)
         .attr("opacity", 1)
+
+
+        s
+          .append("text")
+          .text("Gentoo Penguin")
+          .attr("opacity", 0)
+          .attr("x", 35)
+          .attr("y", 300)
+          .attr("font-family", "sans-serif")
+          .attr("font-size", "30px")
+          .attr("fill", "white")
+          .transition()
+          .duration(4000)
+          .attr("opacity", 1)
+
       }
 
       function addChinstrap(s){
@@ -192,17 +207,51 @@
           .transition()
           .duration(3000)
           .attr("opacity", 1)
+
+
+        s
+          .append("text")
+          .text("Chinstrap Penguin")
+          .attr("opacity", 0)
+          .attr("x",200)
+          .attr("y", 300)
+          .attr("font-family", "sans-serif")
+          .attr("font-size", "30px")
+          .attr("fill", "white")
+          .transition()
+          .duration(4000)
+          .attr("opacity", 1)
+
+
+
       }
       function addAdelie(s){
         s.append('image')
-          .attr('xlink:href', 'https://github.com/bhnord/a2-DataVis-7Ways/blob/wip/d3/chinstrap.png?raw=true')
-          .attr('y', '175')
+          .attr('xlink:href', 'https://github.com/bhnord/a2-DataVis-7Ways/blob/wip/d3/adelie.png?raw=true')
+          .attr('y', '220')
           .attr('x', '-50')
           .attr('width', "300")
           .attr("opacity", 0)
           .transition()
           .duration(3000)
           .attr("opacity", 1)
+
+        s
+          .append("text")
+          .text("Adelie Penguin")
+          .attr("opacity", 0)
+          .attr("x",200)
+          .attr("y", 300)
+          .attr("font-family", "sans-serif")
+          .attr("font-size", "30px")
+          .attr("fill", "white")
+          .transition()
+          .duration(4000)
+          .attr("opacity", 1)
+
+
+
+
       }
 
 
