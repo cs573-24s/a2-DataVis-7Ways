@@ -1,10 +1,10 @@
 # 02-DataVis-7ways
 
 Assignment 2 - Data Visualization, 7 Ways  
-==========================================================================================================================================
-# (1) DataWrapper Visualization : Live Demo [Here](https://www.datawrapper.de/_/ILbG9/) ||
-==========================================================================================
-![](img/step2.png)
+=========================================================
+(1) DataWrapper Visualization : Live Demo [Here](https://www.datawrapper.de/_/ILbG9/) 
+
+![](dw_viz_output.png)
 
 Datawrapper is an online data visualization tool that allows users to create interactive and customizable charts, maps, and tables from their data. It provides a user-friendly interface where users can easily upload their datasets or connect to external data sources such as Google Sheets, Excel files, or SQL databases.
 
@@ -19,9 +19,8 @@ Key features of Datawrapper include:
 4. **Responsive and Interactive**: The visualizations created with Datawrapper are responsive and can be embedded in websites, blogs, or online articles. They are also interactive, allowing viewers to hover over data points for more information or interact with the charts using filters or zooming functionality.
 ![](img/step5.png)
 
-==========================================================================================================================================
-# (2) D3+Js ||
-==============
+=========================================================
+(2) D3+Js
 ![](img/step5.png)
 
 This HTML file incorporates D3.js to create a scatter plot visualization of penguin data. Let's break down the code and understand its functions and uses:
@@ -68,14 +67,21 @@ This HTML file incorporates D3.js to create a scatter plot visualization of peng
 
 12. **Error Handling**:
     - Error handling is done using `.catch()` method to log any errors to the console.
-==========================================================================================================================================
-# (3,4,5) Visualization using Python||
-======================================
+=========================================================
+*Visualization using Python*
+----------------------------------------------------------------------
+*(3) Python + Altair*:
 
-*Python + Altair:
+This Python code creates scatter plots using Altair library to visualize the relationship between bill length and bill depth of penguins from a given dataset. Best part of using Altair is you zoom in and zoom out the scatterplots.
 
-This Python code creates scatter plots using Altair library to visualize the relationship between bill length and bill depth of penguins from a given dataset. Let's break down each function and its role within Altair:
+Since, this is python code we are accessing the output generated in HTML by creating python server
+![](img/alt_output0.png)
 
+Outputs:
+![](img/alt_output1.png) ![](img/alt_output2.png)
+
+
+Each function and its role within Altair:
 1. `alt.Chart`: This function initializes the creation of a new chart. It specifies the dataset to be visualized and provides a means for encoding data attributes onto visual properties such as position, color, and size.
 
 2. `mark_circle`: This function specifies the type of mark (or glyph) to be used in the chart. In this case, it indicates that circles should be used for each data point in the scatter plot.
@@ -102,12 +108,65 @@ Now, let's look at the specific charts created in the code:
 
 Finally, the code combines these charts into a grid layout using the `&` operator and saves the combined plot as an HTML file named 'scatterplots.html' using the `.save()` method.
 
+----------------------------------------------------------------------
+*(4) Matplotlib*:
+
+This Python code utilizes the `matplotlib` library to create scatter plots of bill length versus bill depth for different species of penguins. Best part of Matplotlib is  you can resize the subplot parameters even after generating the output and reset them if not
+liked it.
+![](img/mtplt0.png) 
+![](img/mtplt1.png) 
+![](img/mtplt2.png) 
+![](img/mtplt3.png) 
+![](img/mtplt4.png) 
+
+
+1. `plt.figure(figsize=(8, 6))`: This function creates a new figure for the plot with a specified figure size. The `figsize` parameter specifies the width and height of the figure in inches.
+
+2. `plt.scatter()`: This function creates a scatter plot. It takes two main arguments, which are arrays or lists representing the x and y coordinates of the points to be plotted. Additional parameters can be provided, such as `label` for the legend and `color` for the color of the points.
+
+3. `plt.title()`: This function sets the title of the plot.
+
+4. `plt.xlabel()`: This function sets the label for the x-axis.
+
+5. `plt.ylabel()`: This function sets the label for the y-axis.
+
+6. `plt.legend()`: This function adds a legend to the plot. The legend provides information about the data being plotted, such as the species of penguins in this case.
+
+7. `plt.grid(True)`: This function adds a grid to the plot, making it easier to read and interpret the data.
+
+8. `plt.show()`: This function displays the plot on the screen.
+
+Each of the four plots in the code represents a scatter plot of bill length versus bill depth for different combinations of penguin species. The color of the points in each plot is determined by the species, and a legend is added to identify the species. The title, x-axis label, y-axis label, and grid are customized for each plot to provide clear information and visualization of the data.
+
+----------------------------------------------------------------------
+*(5) Plotly*:
+
+This Python code utilizes the `plotly` library to create a scatter plot of flipper length versus body mass for different species of penguins. Best part of using plotly is,it creates the local server to display the html file to visualize.
+![](img/plotly.png) 
+
+
+1. `px.scatter()`: This function creates a scatter plot using Plotly Express. It takes a DataFrame (`df` in this case) as its main argument and additional parameters to customize the plot. In this code, the x-axis is specified by the column `'flipper_length_mm'`, the y-axis is specified by the column `'body_mass_g'`, and the color of the points is determined by the column `'species'`. Additional parameters like `color_discrete_map` allows specifying colors for each category (species) in the scatter plot.
+
+2. `fig.show()`: This function displays the plotly figure (`fig`) on the screen.
+
+The `px.scatter()` function is the main function used to create the scatter plot, while `fig.show()` is used to display the plot. The other parts of the code involve data loading, cleaning, and customization of the plot, but they are not specific to the `plotly` library.
+
+Overall, this code creates a scatter plot using Plotly Express, where each point represents a penguin, with flipper length on the x-axis, body mass on the y-axis, and different species of penguins represented by different colors.
+
+----------------------------------------------------------------------
+*Altair vs Plotly Comparision*
+
+Altair follows a declarative approach to visualization. It allows users to describe their visualizations using a concise and intuitive grammar of graphics, where visualizations are specified through high-level abstractions like marks, encodings, and transformations.Altair provides interactive visualizations out of the box, including zooming, panning, and tooltips. It supports interactions like selection and filtering, allowing users to interactively explore their data.
+
+Plotly follows an imperative approach, where users manipulate objects directly to create visualizations. While Plotly also offers high-level functions for creating common charts, it allows more fine-grained control over the visualization elements compared to Altair.
+Plotly is known for its rich interactivity features. It offers extensive support for creating interactive plots with features like hover effects, linked views, animations, and more. Plotly also provides tools for building dashboards and web applications with interactive visualizations.
+
+=========================================================
+
+
 
 - R + ggplot2 `<- definitely worth trying`
 - Excel
-
-
-- Altair `<- hugely popular python library. highly recommended `
 
 - Tableau
 - PowerBI

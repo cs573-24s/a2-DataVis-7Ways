@@ -59,4 +59,4 @@ chart4 = alt.Chart(df).mark_circle(size=60).encode(
 ).interactive()
 
 # Combine and display the charts
-(chart1 | chart2) & (chart3 | chart4).save('scatterplots.html')
+(chart1 | chart2).save('output1.html') & (chart3 | chart4).save('output2.html')
