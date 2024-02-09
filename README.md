@@ -68,7 +68,7 @@ This library was very similar to altair, and was slighlty more readable. Like th
 Another benefit of this is that R is a statistical language. Being able to go from statistics and numbers, to creating nice, highly customizable visualizations is a huge plus. These visualizations will help to convey what the data you are using, and the numbers you are calculating actually mean. 
 
 # D3
-![D3 Image](img/CS573_A2_D31.JPG)
+![D3 Image](img/CS573_A2_D31.jpg)
 
 D3 is a data vis framework in javascript.
 
@@ -110,4 +110,4 @@ Here are all of the seven graphs but in the new color scheme:
 ![DataWrapper Image 2](img/CS573_A2_DataWrapper2.JPG)
 ![Altair Image 2](img/CS573_A2_Altair2.JPG)
 ![R Image 2](img/CS573_A2_R2.JPG)
-![D3 Image 2](img/CS573_A2_D32.JPG)
+![D3 Image 2](img/CS573_A2_D32.jpg)
