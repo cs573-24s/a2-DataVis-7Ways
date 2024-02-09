@@ -1,22 +1,25 @@
-# Load necessary libraries
-
 library(ggplot2)
+library(tidyverse)
+library(servr)
+library(plotly)
+library(dplyr)
 
+# Read the penguins.csv dataset
+penguins <- read.csv("penglings.csv")
 
-# Read the dataset with specified column names and types
-penguins <- read.csv("C:/Users/commu/OneDrive/Desktop/WPI/semester 2/DATA VISUALISATION/A2/a2-DataVis-7Ways/assignment 2/submission/R code/penglings.csv")
-
-# Create the scatterplot
-p <- ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point() +
-  labs(x = "Flipper Length (mm)", y = "Body Mass (g)", color = "Species")
-
-# Save the scatterplot as a PNG file
-ggsave("scatterplot.png", plot = p)
-print(p)
-# Confirm that the file was saved
-file.exists("scatterplot.png")
-
-
-
+#plot
+p <- penguins %>%
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color=species, size= bill_length_mm, shape=species), alpha = 0.8) +
+  scale_size_continuous(name = "Penguin") +
+  labs(x = "Flipper Length (mm)",
+       y = "Body Mass (g)",
+       caption = "Data source: Palmer Station LTER") +
+  theme(legend.position = "bottom", 
+        plot.caption = element_text(hjust = 0),
+        strip.text.x = element_text(face = "bold"),
+        plot.title = element_text(size = 18))
+interactive_plot <- ggplotly(p)
+interactive_plot
+ggsave("interactive_plot.png", plot = p)
 
