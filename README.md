@@ -8,7 +8,7 @@ Assignment 2 - Data Visualization, 7 Ways
 ===
 
 # Excel
-![Excel Image](img/CS573_A2_Excel1.jpg)
+![Excel Image](img/CS573_A2_Excel1.JPG)
 
 For my first tool I used excel. Excel is nice to use as it is integrated well with csv data and you can look/manipulate the tabulated data as you are making visuals. Initially I tried to create this graph using excel's scatter plot, but later realized that the scatter plot had no option for sizign the dots and instead I needed to use a bubble chart. 
 
@@ -19,7 +19,7 @@ However, once it was working, the customization is pretty thorough. It is easy t
 Overall excel is a nice tool to use if you are going to be manipulating data, and it provides a good amount of customizability without getting into any code.
 
 # Tableau
-![Tableau Image](img/CS573_A2_Tableau1.jpg)
+![Tableau Image](img/CS573_A2_Tableau1.JPG)
 
 Tableau is another tool for visualizing data without getting into code. Using tableau is even easier than excel as you don't have to select a chart type, you can just drap and drop attributes on rows or columns to start building your graph, and you can drag and drop on detail or colors to add those featrues as well. 
 
@@ -28,7 +28,7 @@ Creating this chart was very fast and by default tableau adds legends for you fo
 Tableau like excel is a nice tool to use to avoid code, while still having a good amount of customizability. While you can directly manipulate values in excel, tableau allows for formulas and calculations to make new data, and tableau has another tool for data prep that allows you to join data from different sources before you start visualizing which is a nice thing to have.
 
 # Flourish
-![Flourish Image](img/CS573_A2_Flourish1.jpg)
+![Flourish Image](img/CS573_A2_Flourish1.JPG)
 
 Flourish is a web based tool that allows you to build visualizations all online, and without the need for any code.
 
@@ -39,7 +39,7 @@ There was limited customizability, but for a browser based tool its not bad. I w
 Overall Flourish is a nice tool for someone trying to make a quick and clean visualization that doesn't want to download any apps and doesn't need to much customization.
 
 # DataWrapper
-![DataWrapper Image](img/CS573_A2_DataWrapper1.jpg)
+![DataWrapper Image](img/CS573_A2_DataWrapper1.JPG)
 
 Data Wrapper was another web based tool for visualizations.
 
@@ -48,7 +48,7 @@ This interface was nice to use it had a good data loading phase which reminded m
 Between Flourish and DataWrapper I think it depends on which visualization you are trying to make and the customizations that are important to you, when trying to choose one browser tool vs the other.
 
 # Altair
-![Altair Image](img/CS573_A2_Altair1.jpg)
+![Altair Image](img/CS573_A2_Altair1.JPG)
 
 Altair is a python library for data visualization.
 
@@ -59,7 +59,7 @@ Altair offers lots of customization with not many lines of code required. I was 
 Overall altair is nice to use and one of my favorites as it integrates well with pandas, which I use for most of my data handling and manipulation. The balance of tons of customizablity with limited lines of code was very nice.
 
 # R + Plotly
-![R Image](img/CS573_A2_R1.jpg)
+![R Image](img/CS573_A2_R1.JPG)
 
 Plotly is another data vis library available in python and R.
 
@@ -68,7 +68,7 @@ This library was very similar to altair, and was slighlty more readable. Like th
 Another benefit of this is that R is a statistical language. Being able to go from statistics and numbers, to creating nice, highly customizable visualizations is a huge plus. These visualizations will help to convey what the data you are using, and the numbers you are calculating actually mean. 
 
 # D3
-![D3 Image](img/CS573_A2_D31.jpg)
+![D3 Image](img/CS573_A2_D31.JPG)
 
 D3 is a data vis framework in javascript.
 
@@ -104,10 +104,10 @@ While its not perfect, the orange tends to stay between yellow and pink, the blu
 
 Here are all of the seven graphs but in the new color scheme:
 
-![Excel Image 2](img/CS573_A2_Excel2.jpg)
-![Tableau Image 2](img/CS573_A2_Tableau2.jpg)
-![Flourish Image 2](img/CS573_A2_Flourish2.jpg)
-![DataWrapper Image 2](img/CS573_A2_DataWrapper2.jpg)
-![Altair Image 2](img/CS573_A2_Altair2.jpg)
-![R Image 2](img/CS573_A2_R2.jpg)
-![D3 Image 2](img/CS573_A2_D32.jpg)
+![Excel Image 2](img/CS573_A2_Excel2.JPG)
+![Tableau Image 2](img/CS573_A2_Tableau2.JPG)
+![Flourish Image 2](img/CS573_A2_Flourish2.JPG)
+![DataWrapper Image 2](img/CS573_A2_DataWrapper2.JPG)
+![Altair Image 2](img/CS573_A2_Altair2.JPG)
+![R Image 2](img/CS573_A2_R2.JPG)
+![D3 Image 2](img/CS573_A2_D32.JPG)
