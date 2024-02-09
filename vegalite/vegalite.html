@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+    <style>
+      /* Custom CSS for the visualization */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      .vis-container {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vis-container" id="vis"></div>
+    <script>
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "height": 400,
+        "width": 600,
+
+        "data": {"url": "penglings.csv"},
+        "transform": [{
+          "calculate": "datum.bill_length_mm < 45 ? 30 : 60",
+          "as": "bill_length_mm_size"
+        }],
+        "mark": "circle",
+
+        "params": [{
+          "name": "diff_species",
+          "select": {"type": "point", "fields": ["species"]}
+                }],
+
+        "encoding": {
+          "color": {
+            "field": "species",
+            "type": "nominal",
+            "scale": {
+              "range": [ "yellow", "#ff7f0e", "grey"]
+            }
+          },
+          "size": {
+            "field": "bill_length_mm_size",
+            "type": "quantitative",
+            "legend": null
+            },
+           "x": {
+            "title": "Flipper Length (mm)",
+            "field": "flipper_length_mm", 
+            "type": "quantitative",
+            "scale": {"zero": false}
+          },
+          "y": {
+            "title": "Body Mass (g)",
+            "field": "body_mass_g", 
+            "type": "quantitative",
+            "scale": {"zero": false}
+          },
+          "opacity": {
+            "condition": {"param": "diff_species", "value": 0.8},
+          }
+        }
+      };
+      vegaEmbed('.vis-container', vlSpec);
+    </script>
+  </body>
+</html>
