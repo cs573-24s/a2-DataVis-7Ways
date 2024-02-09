@@ -86,7 +86,7 @@ Resources Consulted:
 # Vega-Lite
 Similar to Altair, Vega-Lite is a JSON schema based grammar for creating statstical graphics. Instead of programming in Python, all programming is done in accordance with keys and values.
 
-Using the Vega Viewer VS Code extension to see my progress in real time, I modeled my initial grammar from the referenced Vega scatter plots. Since they were similar to the desired Penglings dataset, I made sure to make significant changes in formatting and color to be distinct. I added titles, subtitles, standardized fonts and font sizes, and mapped each color and size to the proper species and bill_length. 
+Using the Vega Viewer VS Code extension to see my progress in real time, I modeled my initial grammar from the referenced Vega scatter plots. Since they were similar to the desired Penglings dataset, I made sure to make significant changes in formatting and color to be distinct. I added titles, subtitles, standardized fonts and font sizes, and mapped each color and size to the proper species and bill_length. By prompting mark to include a tooltip, hover-over was built-in. 
 
 I found it slightly more complicated to get set up, as I had to install a plugin to run Vega-Lite in VS Code, but I felt that syntax and style was very similar to Altair, so users with Altair experience would feel right at home with Vega-Lite. I found certain fields were confusingly nested, such as having to nest titles within a separate "legend" field. I also felt that subtitles were not as extensive, with support for only one line in contrast to Altair's array approach. I would recommend Vega-Lite to users who feel confident programming, like JSON-array syntax, and have prior Altair experience.
 
@@ -141,6 +141,7 @@ I would highly recommend ggplot2 for usability for programmers familiar with R, 
 
 ## Design Achievements
 - Standardized text font to Ariel and title size to 16 point, label size to 14 point whenever possible, including plotly, Excel, d3, Vega-Altair, Vega-Lite, and ggplot2. Web-based tools such as Flourish had options to change font to their predetermined types (not Ariel), while DataWrapper did not allow changing fonts unless you emailed their design team for a customization
+- All plots contain a title/subtitle, although formatting differs for each tool
 - Color choice standardized to always include "#156082", "#E97132", "#196B24" colors for datapoints, ordered alphabetically. Backgrounds were made gray when possible or white when not
 - Colorblindness compatibility for Deuteranopia, Protanopia, and Tritanopia tested with DataWrapper and all colors found to be compatible
 - On 8th visualization, experimented with different shapes instead of pure circles to represent same data
