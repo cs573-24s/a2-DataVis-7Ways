@@ -9,13 +9,12 @@ Note: In each of the following pictures, the size of the scatters are not the sa
 
 - **ggplot2** 
 
-![caption](img/<penguin_R_ggplot2.png>)
-
+![penguin_R_ggplot2.png](<img/penguin_R_ggplot2.png>)
 
 # Python_Altair 
 
 - **Python + Altair** 
-![caption](img/<penguin_Python_Altair.png>)
+![penguin_Python_Altair.png](<img/penguin_Python_Altair.png>)
 
 
 
@@ -23,7 +22,7 @@ Note: In each of the following pictures, the size of the scatters are not the sa
 
 - **D3** 
 
-![caption](img/<penguin_JavaScript_D3.png>)
+![penguin_JavaScript_D3.png](<img/penguin_JavaScript_D3.png>)
 
 
 
@@ -31,26 +30,26 @@ Note: In each of the following pictures, the size of the scatters are not the sa
 
  - **Tableau** 
 
-![caption](img/<penguin_Tableau.png>)
+ ![penguin_Tableau.png](<img/penguin_Tableau.png>)
 
 
 # Vega-lite
 
 - **Vega-lite** 
-![caption](img/<penguin_Vega-lite.png>)
+![penguin_Vega-lite.png](<img/penguin_Vega-lite.png>)
 
 
 
 # Flourish
 
 - **Flourishr** 
-![caption](img/<penguin_Flourish.png>)
+![penguin_Flourish.png](img/<penguin_Flourish.png>)
 
 
 # Python_Matplotlib
 
 - **Python_Matplotlib** is
-![caption](img/<penguin_Python_Matplotlib.png>)
+![penguin_Python_Matplotlib.png](img/<penguin_Python_Matplotlib.png>)
 
 
 
