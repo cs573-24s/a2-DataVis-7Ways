@@ -143,3 +143,4 @@ I would highly recommend ggplot2 for usability for programmers familiar with R, 
 - Standardized text font to Ariel and title size to 16 point, label size to 14 point whenever possible, including plotly, Excel, d3, Vega-Altair, Vega-Lite, and ggplot2. Web-based tools such as Flourish had options to change font to their predetermined types (not Ariel), while DataWrapper did not allow changing fonts unless you emailed their design team for a customization
 - Color choice standardized to always include "#156082", "#E97132", "#196B24" colors for datapoints, ordered alphabetically. Backgrounds were made gray when possible or white when not
 - Colorblindness compatibility for Deuteranopia, Protanopia, and Tritanopia tested with DataWrapper and all colors found to be compatible
+- On 8th visualization, experimented with different shapes instead of pure circles to represent same data
