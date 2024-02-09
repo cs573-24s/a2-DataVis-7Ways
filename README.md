@@ -45,32 +45,32 @@ Matplotlib in Python is a foundational library for plotting in Python, offering 
 
 ## Technical Achievements
 ### R_ggplot2
-A technical achievement with ggplot2 was adding interactive tooltips using the ggplotly function from the plotly package, enhancing the user experience by displaying detailed information on hover.
+In this project, R with ggplot2 excelled in creating an accurate and visually appealing scatterplot. The technical achievement was the precise control over the aesthetics, enabling us to match the features specified, such as color mapping to species and size mapping to bill length. This level of detail is essential for scientific data visualization where clarity and accuracy are paramount. However, managing the scale to not start at zero required careful adjustment of the scale_y_continuous and scale_x_continuous functions. 
 ### Python_Altair
-A technical achievement was the implementation of interactive filters that allow users to dynamically change which species are displayed. 
+Altair's declarative nature made creating the scatterplot straightforward, as it required simply stating the desired outcome in terms of data mappings. The technical achievement in this project was leveraging Altair's ability to encode the size of the points based on the bill length and to map colors to species without extensive coding. The challenge was to customize the scale properties to ensure that the axes did not start at zero. 
 ### JS_D3
-Technical achievements involved implementing custom animations and interactivity, such as dynamic data updates. 
+D3.js offered the greatest flexibility and control over the final visualization, which was a significant technical achievement in itself. For this project, we were able to manually position data points and customize scales to match the non-zero starting point requirement. The difficulty lay in the complexity of D3's approach, requiring detailed understanding of SVG and JavaScript. 
 ### Tableau
-The difficulty was in fine-tuning the visualization to match the specific requirements, as Tableau's ease of use can sometimes come at the cost of granular control. 
+Tableau's intuitive interface allowed for rapid creation of the scatterplot, which was a technical achievement in terms of efficiency. Aligning the scale to not start at zero was effortlessly handled by adjusting the axis properties.
 ### Vega-lite
-A technical achievement was the addition of interactive legends that update the chart in real time. 
+With Vega-Lite, creating a compliant chart was a technical achievement due to its compact JSON syntax, which made encoding visual properties like color, size, and opacity straightforward. The semi-transparent effect was easily implemented by adjusting the mark properties. The challenge was to set the axes to not begin at zero, which required some adjustments to the scale domain. 
 ### Flourish
-A technical achievement was the use of Flourish's storytelling feature to walk through the data points.
+Flourish's ease of use was a technical achievement in terms of accessibility, allowing for the quick setup of the visualization without coding. It managed the non-zero axes and the mapping of colors and sizes to the respective data properties effectively. The platform's limitation was in customization, which was overcome by selecting the appropriate template to match the project's needs closely.
 ### Python_MatPlotlib
-A technical achievement with Matplotlib was creating subplots that provide additional context to the main scatter plot. 
+Using Python with Matplotlib was a technical achievement in data visualization fundamentals, providing granular control over every aspect of the plot. Customizing the axes to avoid starting at zero required manipulation of the xlim and ylim properties. Size mapping to bill length and color mapping to species were implemented with careful tuning of the scatter method parameters. 
 
 ## Design Achievements
 ### R_ggplot2
-Design-wise, achieving a consistent look with theme elements and a color palette that reflected the data's categories was straightforward.
+Design-wise, ggplot2 allowed for consistent use of theme elements, ensuring that the color choices and the transparency of the circles matched the project's requirements. The result was a clear, publication-ready chart that effectively communicated the data.
 ### Python_Altair
-Design achievements included using Altair's theming capabilities to match the visualization style to the project's overall design language.
+In terms of design, Altair's default settings provided a modern look with clean aesthetics, and the adjustment of point opacity to 0.8 achieved the semi-transparent effect needed for the visualization.
 ### JS_D3
-From a design perspective, D3.js allowed for precise control over the visual elements, enabling a consistent and tailored design schema.
+Design achievements included creating custom interactions, such as tooltips that provide more details on mouseover, enhancing the user experience. D3.js was instrumental in creating a highly interactive and customizable visualization for web deployment.
 ### Tableau
-A design achievement was the use of Tableau's formatting options to create a visually appealing and cohesive design that adheres to brand guidelines.
+While Tableau's drag-and-drop functionality made it easy to map color to species and size to bill length, the design achievement was in the tool's ability to quickly apply a polished and consistent style to the chart, making it suitable for business and analytics presentations.
 ### Vega-lite
-Design-wise, Vega-Lite's themes were utilized to maintain consistency with the project's visual standards.
+Vega-Lite's design achievements were notable in the clean and crisp presentation of the data, with a focus on minimalistic design that is well-suited for web interfaces.
 ### Flourish
-The design was enhanced by Flourish's built-in themes and style options, ensuring a polished and professional look.
+The design achievement was leveraging Flourish's built-in design templates, which provided a visually engaging and professional look suitable for storytelling and journalistic purposes.
 ### Python_MatPlotlib
-Design achievements involved customizing the plot style to create a cohesive appearance, including matching the color palette and font choices to those of the main visualization.
+The design achievements were in the creation of a chart with a consistent and clear visual language, with the use of custom color maps and the fine-tuning of opacity levels to achieve the semi-transparent effect, demonstrating Matplotlib's potential for detailed scientific visualization.
