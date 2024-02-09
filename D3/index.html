@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="options">
+
+            <input type="checkbox" id="colorCheck" onclick="switchColors()"><span style="font-family: Helvetica;">Colorblind Friendly Colors</span>
+
+        </div>
+
+        <div id="chart-container"></div>
+
+        <script>
+
+            console.log(d3); // test if d3 is loaded
+
+            // Set Margins and Dimensions
+            document.getElementById("options").style.margin = "50px";
+
+            var margin = {top: 10, right: 100, bottom: 70, left: 80},
+                width = 700 - margin.left - margin.right,
+                height = 400 - margin.top - margin.bottom;
+
+            // Set Colors
+            var colors1 = d3.scaleOrdinal()
+                .domain(["Adelie", "Chinstrap", "Gentoo"])
+                .range(["#FC7D0B", "#9D53F2", "#27AAB0"]);
+
+            var colors2 = d3.scaleOrdinal()
+                .domain(["Adelie", "Chinstrap", "Gentoo"])
+                .range(["#FC7D0B", "#1170AA", "#57606C"]);
+
+            // sizing scales
+            var setSize = d3.scaleLinear()
+                .domain([20, 60])
+                .range([2, 10]);
+
+            // make svg
+            var svg = d3.select("#chart-container")
+                .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform",
+                        "translate(" + margin.left + "," + margin.top + ")");
+
+            // Add X axis
+            var x = d3.scaleLinear()
+                .domain([168, 235])
+                .range([ 0, width ]);
+
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x).tickValues([170, 180, 190, 200, 210, 220, 230]));
+
+            svg.append("text")
+                .attr("text-anchor", "end")
+                .attr("x", width)
+                .attr("y", height + margin.top + 40)
+                .attr("font-family", "Helvetica")
+                .text("Flipper Length (mm)");
+
+            // Add Y axis
+            var y = d3.scaleLinear()
+                .domain([2500, 6500])
+                .range([ height, 0]);
+
+            svg.append("g")
+                .call(d3.axisLeft(y).tickValues([3000, 4000, 5000, 6000]));
+
+            svg.append("text")
+                .attr("text-anchor", "end")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -margin.left+20)
+                .attr("x", -margin.top)
+                .attr("font-family", "Helvetica")
+                .text("Body Mass (g)");
+
+            // Legend
+            var legendKeys = ["Adelie", "Chinstrap", "Gentoo"]
+
+            svg.selectAll("legendDots")
+                .data(legendKeys)
+                .enter()
+                .append("circle")
+                    .attr("cx", width + 20)
+                    .attr("cy", function(d,i) { return (height/2) + i*25 })
+                    .attr("r", 7)
+                    .style("fill", function(d) { return colors1(d) });
+
+            svg.selectAll("legendLabels")
+                .data(legendKeys)
+                .enter()
+                .append("text")
+                    .attr("x", width + 30)
+                    .attr("y", function(d,i){ return (height/2) + i*25 }) 
+                    .text(function(d) { return d })
+                    .attr("text-anchor", "left")
+                    .attr("font-family", "Helvetica")
+                    .style("alignment-baseline", "middle");
+
+            // popup
+            var popup = d3.select("#chart-container")
+                .append("div")
+                .style("opacity", 0)
+                .attr("class", "tooltip")
+                .attr("font-family", "Helvetica")
+                .style("background-color", "white")
+                .style("border", "solid")
+                .style("border-width", "1px")
+                .style("border-radius", "5px")
+                .style("padding", "5px")
+
+            // Data
+            d3.csv("penglings.csv").then(data => {
+                svg.append('g')
+                    .selectAll("dot")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                        .attr("cx", function (d) { return x(d.flipper_length_mm); } )
+                        .attr("cy", function (d) { return y(d.body_mass_g); } )
+                        .attr("r", function (d) { return setSize(d.bill_length_mm); } )
+                        .style("fill", function (d) { return colors1(d.species); } )
+                        .style("opacity", 0.8)
+                        .on("mouseover", function(event, d) { 
+                            popup.style("opacity", 1)
+                                .html("<style> div {font-family: Helvetica;}</style>" 
+                                + "Info<br>Island: " + d.island 
+                                + "<br>Sex: " + d.sex
+                                + "<br>Year: " + d.year
+                                + "<br>Body Mass (g): " + d.body_mass_g
+                                + "<br>Flipper Length (mm): " + d.flipper_length_mm
+                                + "<br>Bill Length (mm): " + d.bill_length_mm
+                                + "<br>Bill Depth (mm): " + d.bill_depth_mm)
+                                .attr("font-family", "Helvetica")
+                                .style("left", (event.pageX + 20) + "px")
+                                .style("right", (event.pageY) + "px"); 
+
+                            d3.select(this).transition()
+                                .duration('200')
+                                .style("opacity", 1)
+                                .style("stroke", "black")
+                                .style("stroke-width", 3); 
+                        })
+                        .on("mouseout", function(event, d) { 
+                            //popup.style("opacity", 0)
+
+                            d3.select(this).transition()
+                                .duration('200')
+                                .style("opacity", 0.8)
+                                .style("stroke", "none")
+                                .style("stroke-width", 0); 
+                        })
+            });
+
+            function switchColors() {
+                var checkB = document.getElementById("colorCheck");
+                if(checkB.checked == true) {
+                    svg.selectAll("circle").style("fill", function (d) { return colors2(d.species); } );
+
+                    var legend = svg.selectAll("legendDots").remove();
+                    svg.selectAll("legendDots")
+                        .data(legendKeys)
+                        .enter()
+                        .append("circle")
+                            .attr("cx", width + 20)
+                            .attr("cy", function(d,i) { return (height/2) + i*25 })
+                            .attr("r", 7)
+                            .style("fill", function(d) { return colors2(d) });
+
+                } else {
+                    svg.selectAll("circle").style("fill", function (d) { return colors1(d.species); } );
+
+                    var legend = svg.selectAll("legendDots").remove();
+                    svg.selectAll("legendDots")
+                        .data(legendKeys)
+                        .enter()
+                        .append("circle")
+                            .attr("cx", width + 20)
+                            .attr("cy", function(d,i) { return (height/2) + i*25 })
+                            .attr("r", 7)
+                            .style("fill", function(d) { return colors1(d) });
+                }
+            }
+
+        </script>
+    </body>
+</html>
