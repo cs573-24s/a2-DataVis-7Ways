@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .tooltip {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 5px;
+            pointer-events: none;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div style="text-align: center;">
+        <svg id="chart" width="800" height="800"></svg>
+    </div>
+
+    <script>
+        d3.csv("penglings.csv").then(function (data) {
+            data = data.filter(d => !isNaN(d.body_mass_g) && !isNaN(d.flipper_length_mm));
+            
+            var colorScale = d3.scaleOrdinal().domain(data.map(d => d.species)).range(["yellow", "grey", "orange"]);
+            var xScale = d3.scaleLinear().domain([170, 240]).range([50, 550]);
+            var yScale = d3.scaleLinear().domain([2500, 6500]).range([400, 50]);
+            var sizeScale = d3.scaleLinear().domain([40, 50]).range([10, 20]);
+            
+            var svg = d3.select("#chart");
+            var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+            
+            // circles
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", d => xScale(d.flipper_length_mm))
+                .attr("cy", d => yScale(d.body_mass_g))
+                .attr("r", d => sizeScale(+d.bill_length_mm < 45 ? 40 : 50))
+                .attr("fill", d => colorScale(d.species))
+                .attr("opacity", 0.7)
+                .on("mouseover", function(event, d) {
+                    tooltip.transition().duration(200).style("opacity", .9);
+                    tooltip.html(`Species: ${d.species}<br/>Flipper Length: ${d.flipper_length_mm} mm<br/>Body Mass: ${d.body_mass_g} g<br/>Bill Size: ${d.bill_length_mm} mm`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", function(d) {
+                    tooltip.transition().duration(500).style("opacity", 0);
+                });
+            
+            // axis
+            svg.append("g").attr("transform", "translate(0,400)").call(d3.axisBottom(xScale));
+            svg.append("text").attr("text-anchor", "middle").attr("transform", "translate(300,430)").text("Flipper Length (mm)");
+            svg.append("g").attr("transform", "translate(50,0)").call(d3.axisLeft(yScale));
+            svg.append("text").attr("text-anchor", "middle").attr("transform", "translate(10,225)rotate(-90)").text("Body Mass (g)");
+            
+            // legends
+            svg.append("text").attr("x", 570).attr("y", 10).attr("dy", "0.35em").style("text-anchor", "start").text("Species");
+
+            var legendSpecies = svg.selectAll(".legendSpecies").data(colorScale.domain()).enter().append("g").attr("class", "legendSpecies").attr("transform", (d, i) => `translate(570, ${20*i + 20})`);
+            
+            legendSpecies.append("rect").attr("x", 0).attr("width", 18).attr("height", 18).style("fill", colorScale);
+            legendSpecies.append("text").attr("x", 25).attr("y", 9).attr("dy", ".35em").style("text-anchor", "start").text(d => d);
+            
+            svg.append("text").attr("x", 570).attr("y", 100).attr("dy", "0.35em").style("text-anchor", "start").text("Bill Size (mm)");
+
+            var legendBillSize = svg.selectAll(".legendBillSize").data([40, 50]).enter().append("g").attr("class", "legendBillSize").attr("transform", (d, i) => `translate(570, ${120 + 35*i})`);
+            
+            legendBillSize.append("circle").attr("cx", 9).attr("cy", 9).attr("r", sizeScale).style("fill", "grey").style("stroke", "grey");
+            legendBillSize.append("text").attr("x", 30).attr("y", 9).attr("dy", ".35em").style("text-anchor", "start").text(d => `${d} mm`);
+        });
+    </script>
+</body>
+</html>
