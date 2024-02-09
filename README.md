@@ -68,7 +68,7 @@ This HTML file incorporates D3.js to create a scatter plot visualization of peng
     - Error handling is done using `.catch()` method to log any errors to the console.
 ----------------------------------------------------------------------
 
-*(3) Python + Altair* :
+`(3) Python + Altair` :
 
 This Python code creates scatter plots using Altair library to visualize the relationship between bill length and bill depth of penguins from a given dataset. Best part of using Altair is you zoom in and zoom out the scatterplots.
 
@@ -107,7 +107,7 @@ Now, let's look at the specific charts created in the code:
 Finally, the code combines these charts into a grid layout using the `&` operator and saves the combined plot as an HTML file named 'scatterplots.html' using the `.save()` method.
 
 ----------------------------------------------------------------------
-*(4) Matplotlib*:
+`(4) Matplotlib`:
 
 This Python code utilizes the `matplotlib` library to create scatter plots of bill length versus bill depth for different species of penguins. Best part of Matplotlib is  you can resize the subplot parameters even after generating the output and reset them if not
 liked it.
