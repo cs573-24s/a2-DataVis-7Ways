@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scatter Plot with D3.js</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<h1>Scatter Plot with D3.js</h1>
+<div id="chart"></div>
+
+<script>
+// Define dimensions and margins
+const margin = { top: 20, right: 20, bottom: 50, left: 70 };
+const width = 800 - margin.left - margin.right;
+const height = 500 - margin.top - margin.bottom;
+
+// Append SVG to the body
+const svg = d3.select("#chart").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", `translate(${margin.left},${margin.top})`);
+
+// Load data from CSV file
+d3.csv("penglings.csv").then(data => {
+  // Set scales
+  const xScale = d3.scaleLinear()
+    .domain([d3.min(data, d => +d["Flipper Length (mm)"]), d3.max(data, d => +d["Flipper Length (mm)"])])
+    .range([0, width]);
+
+  const yScale = d3.scaleLinear()
+    .domain([d3.min(data, d => +d["Body Mass (g)"]), d3.max(data, d => +d["Body Mass (g)"])])
+    .range([height, 0]);
+
+  // Set color scale
+  const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+  // Set size scale for circle radius based on Bill Length
+  const sizeScale = d3.scaleLinear()
+    .domain([d3.min(data, d => +d["Bill Length (mm)"]), d3.max(data, d => +d["Bill Length (mm)"])])
+    .range([3, 15]);
+
+  // Add circles to represent data points
+  svg.selectAll("circle")
+    .data(data)
+    .enter().append("circle")
+    .attr("cx", d => xScale(+d["Flipper Length (mm)"]))
+    .attr("cy", d => yScale(+d["Body Mass (g)"]))
+    .attr("r", d => sizeScale(+d["Bill Length (mm)"]))
+    .attr("fill", d => colorScale(d.Species))
+    .attr("opacity", 0.8);
+
+  // Add x-axis
+  svg.append("g")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(xScale));
+
+  // Add y-axis
+  svg.append("g")
+    .call(d3.axisLeft(yScale));
+
+  // Add x-axis label
+  svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", height + margin.top + 20)
+    .style("text-anchor", "middle")
+    .text("Flipper Length (mm)");
+
+  // Add y-axis label
+  svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -height / 2)
+    .attr("y", -margin.left + 20)
+    .style("text-anchor", "middle")
+    .text("Body Mass (g)");
+});
+</script>
+</body>
+</html>
