@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upward-Trending Scatterplot</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+
+  <script>
+    (async () => {
+      // Define your dimensions
+      const width = 600;
+      const height = 400;
+      const margin = { top: 20, right: 20, bottom: 50, left: 50 };
+
+      // Create SVG container
+      const svg = d3.select('body')
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      // Load data asynchronously
+      const data = await d3.csv("https://raw.githubusercontent.com/danile981199/a2-DataVis-7Ways/main/penglings.csv");
+
+      // Convert necessary columns to numbers
+      data.forEach(d => {
+        d['flipper_length_mm'] = +d['flipper_length_mm'];
+        d['body_mass_g'] = +d['body_mass_g'];
+        d['bill_length_mm'] = +d['bill_length_mm'];
+      });
+
+      // Create scales
+      const xScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d['flipper_length_mm']), d3.max(data, d => d['flipper_length_mm'])])
+        .range([0, width]);
+
+      const yScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d['body_mass_g']), d3.max(data, d => d['body_mass_g'])])
+        .range([height, 0]);
+
+      const sizeScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d['bill_length_mm']), d3.max(data, d => d['bill_length_mm'])])
+        .range([5, 15]);
+
+      // Create axes
+      const xAxis = d3.axisBottom(xScale).ticks(5);
+      const yAxis = d3.axisLeft(yScale).ticks(5);
+
+      // Append axes
+      svg.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(xAxis)
+        .append('text')
+        .attr('x', width / 2)
+        .attr('y', 40)
+        .attr('text-anchor', 'middle')
+        .text('flipper_length_mm');
+
+      svg.append('g')
+        .call(yAxis)
+        .append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', -height / 2)
+        .attr('y', -40)
+        .attr('text-anchor', 'middle')
+        .text('body_mass_g');
+
+      // Create circles
+      svg.selectAll('circle')
+      .data(data)
+      .enter()
+      .append('circle')
+      .attr('cx', d => xScale(d['flipper_length_mm']))
+      .attr('cy', d => yScale(d['body_mass_g']))
+      .attr('r', d => sizeScale(d['bill_length_mm']))
+      .attr('fill', d => {
+        // Modify color mapping based on conditions
+        if (d['species'] === 'Adelie') return 'orange';
+        else if (d['species'] === 'Chinstrap') return 'purple';
+        else return 'green';
+      })
+      .attr('opacity', 0.8);
+    })();
+  </script>
+
+</body>
+
+</html>
