@@ -156,7 +156,7 @@ The `px.scatter()` function is the main function used to create the scatter plot
 Overall, this code creates a scatter plot using Plotly Express, where each point represents a penguin, with flipper length on the x-axis, body mass on the y-axis, and different species of penguins represented by different colors.
 
 ----------------------------------------------------------------------
-*Altair vs Plotly Comparision*
+*(6)Altair vs Plotly Comparision*
 
 Altair follows a declarative approach to visualization. It allows users to describe their visualizations using a concise and intuitive grammar of graphics, where visualizations are specified through high-level abstractions like marks, encodings, and transformations.Altair provides interactive visualizations out of the box, including zooming, panning, and tooltips. It supports interactions like selection and filtering, allowing users to interactively explore their data.
 
@@ -164,8 +164,12 @@ Plotly follows an imperative approach, where users manipulate objects directly t
 Plotly is known for its rich interactivity features. It offers extensive support for creating interactive plots with features like hover effects, linked views, animations, and more. Plotly also provides tools for building dashboards and web applications with interactive visualizations.
 
 ----------------------------------------------------------------------
-*Visualizing in MS Excel*
+*(7)Visualizing in MS Excel*
 - Excel is a spreadsheet program used for organizing, formatting, and calculating data with formulas across a grid of cells. This visualization contains three plots, each providing insights of different species in 3 different years displaying bill deapth vs bill leanth. The slicers at the top of 3 years allow the user to filter the data by year which dynamically updates the three plots based on the selected criteria. The slicers make it easy to filter data for interactive insights, but ensuring accurate linkage between slicers and charts required a more detailed work.
 ![](img/excel_output.png) 
 
 ----------------------------------------------------------------------
+*(8)Visualization using Tableau*
+Tableau is a data visualization tool that enables users to create and share interactive and graphical representations of data through dashboards and reports. This dashboard shows various features such as interactive filters, parameters, dynamic charts (bar chart, scatter plot and line chart), and tooltips for detailed data display upon hover. Integrating and visualizing data in Tableau was straightforward, showing its strength in user-friendly data manipulation and visualization. Here in this visualization we have added filters for years and sex of the species which dynamically adjusts the scatter plots output.
+
+![](img/tableauoutput.jpeg)
