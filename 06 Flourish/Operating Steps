@@ -1,0 +1,33 @@
+Display website:
+https://public.flourish.studio/visualisation/16750593/
+
+Steps:
+
+Upload Data:
+
+Go to the Flourish website and start a new project.
+Choose a scatter plot template.
+Upload CSV data file (penglings.csv) into Flourish.
+
+Set Up Axes:
+
+Assign the 'Flipper Length' variable to the X-axis and 'Body Mass' to the Y-axis within the data tab.
+Adjust the axis ranges and intervals in the settings to ensure they do not start at 0 and that they have reasonable intervals.
+
+Configure Points:
+
+Map the 'Species' variable to point colors.
+Map the 'Bill Length' variable to the size of the points.
+Adjust the point opacity to 0.8 for the semi-transparent effect.
+Ensure that the size range for the bill length is noticeable but not overwhelming.
+
+Refine Aesthetics:
+
+Label both axes appropriately with their titles.
+Remove or adjust the grid and background settings as per the requirements.
+I can choose to hide or display legends based on my preference or requirements.
+
+Publish and Export:
+
+Once the visualization looks correct, I can publish it.
+Flourish provides options to export the visualization as an image or embed it into a webpage.

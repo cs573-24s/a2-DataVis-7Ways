@@ -1,0 +1,10 @@
+Open Tableau and connect to penglings.csv dataset.
+Drag and drop 'Flipper Length' to the Columns shelf and 'Body Mass' to the Rows shelf.
+Make sure that both axes are set to be continuous and that the scales do not start at 0.
+From the 'Marks' panel, select the 'Circle' mark type.
+Drag the 'Species' field to the Color mark to map the color to species.
+Drag the 'Bill Length' field to the Size mark to map the size to bill length.
+Adjust the opacity of the circles to 0.8 for a semi-transparent effect via the Color mark settings.
+Ensure that both axes are properly labeled and that tick marks are set at reasonable intervals.
+Add a title to the visualization.
+Save workbook and export the visualization as an image.

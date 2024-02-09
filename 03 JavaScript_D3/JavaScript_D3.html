@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penguins Scatterplot with D3.js</title>
+    <!-- Load D3.js from a CDN -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <div id="scatterplot"></div>
+
+    <script>
+        // Set the dimensions and margins of the graph
+        const margin = { top: 10, right: 150, bottom: 30, left: 60 },
+              width = 620 - margin.left - margin.right,
+              height = 400 - margin.top - margin.bottom;
+
+        // Append the svg object to the div called 'scatterplot'
+        const svg = d3.select("#scatterplot")
+          .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Read the data from the CSV file
+        d3.csv("penglings.csv").then(function(data) {
+
+          data = data.filter(function(d) {
+          // to avoid NA values
+          return d.bill_length_mm !== "NA" && !isNaN(+d.bill_length_mm) &&
+                d.flipper_length_mm !== "NA" && !isNaN(+d.flipper_length_mm) &&
+                d.body_mass_g !== "NA" && !isNaN(+d.body_mass_g);
+          });
+
+            // Process the data: map species to color
+            const speciesColor = d3.scaleOrdinal()
+              .domain(["Adelie", "Chinstrap", "Gentoo"])
+              .range(["orange", "purple", "teal"]);
+
+            // Add X axis
+            const x = d3.scaleLinear()
+              .domain([170, 230])
+              .range([ 0, width ]);
+            svg.append("g")
+              .attr("transform", `translate(0, ${height})`)
+              .call(d3.axisBottom(x));
+
+            // Add Y axis
+            const y = d3.scaleLinear()
+              .domain([2500, 6500])
+              .range([ height, 0]);
+            svg.append("g")
+              .call(d3.axisLeft(y));
+
+            // Add dots
+            svg.append('g')
+              .selectAll("dot")
+              .data(data)
+              .enter()
+              .append("circle")
+                .attr("cx", function (d) { return x(d.flipper_length_mm); })
+                .attr("cy", function (d) { return y(d.body_mass_g); })
+                .attr("r", function (d) { return d.bill_length_mm / 7; }) // Size mapping: assuming bill length is in mm
+                .style("fill", function (d) { return speciesColor(d.species); })
+                .style("opacity", "0.8");
+
+                const legend = svg.selectAll(".legend")
+                  .data(speciesColor.domain())
+                  .enter().append("g")
+                    .attr("class", "legend")
+                    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+                legend.append("circle")
+                  .attr("cx", width + 50)
+                  .attr("cy", function(d, i) { return i * 20; })
+                  .attr("r", 6)
+                  .style("fill", speciesColor);
+
+                legend.append("text")
+                  .attr("x", width + 70)
+                  .attr("y", function(d, i) { return i * 20 + 5; })
+                  .text(function(d) { return d; })
+                  .style("text-anchor", "start")
+                  .style("alignment-baseline", "middle");
+
+
+        });
+    </script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>
