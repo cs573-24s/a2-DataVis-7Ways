@@ -1,6 +1,4 @@
-# 02-DataVis-7ways
-
-Assignment 2 - Data Visualization, 7 Ways  
+# Assignment 2 - Data Visualization, 7 Ways  
 ----------------------------------------------------------------------
 
 (1) DataWrapper Visualization : Live Demo [Here](https://www.datawrapper.de/_/ILbG9/) 
