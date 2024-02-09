@@ -1,13 +1,14 @@
 # Assignment 2
 
-## JavaScript + D3
+## 1). JavaScript + D3
 
 This visualization tool was actually pretty difficult to use.
 It takes a lot of effort to create a visualization, but it is a very customizable tool.
 To visualize the data, I used a combination of d3's "csv" function and other tools to create shapes in svgs.
 Since every element had to be created manually, the effort involved with this visualization was great.
 
-### Point Hover / Detailed Data 
+### Point Hover / Detailed Data
+
 I also added some extra interactivity to display the values
 of the point that was being hovered over, as well as giving
 the currently hovered point an outline to let the user know
@@ -24,7 +25,7 @@ the visualization, on the side there will be a view that
 appears and gives a bit of information about that penguin
 species as well as an image. I thought this gave a bit of
 context to the user about the species of penguins that were
-being visualized. (you can check out the animations etc in 
+being visualized. (you can check out the animations etc in
 ./d3/index.html in the repo)
 
 ![d3_adelie](./img/adelie-vis.png)
@@ -38,9 +39,9 @@ being visualized. (you can check out the animations etc in
 [3](https://d3-graph-gallery.com/graph/custom_legend.html)
 [4](https://medium.com/@kj_schmidt/show-data-on-mouse-over-with-d3-js-3bf598ff8fc2)
 
-*The species information was pulled from Wikipedia
+\*The species information was pulled from Wikipedia
 
-## Python + Seaborn + Pandas + Matplotlib
+## 2). Python + Seaborn + Pandas + Matplotlib
 
 This visualization tool was extremely easy to use.
 It takes almost no effort (one line) to create a very nice looking graph and legend from the data.
@@ -59,7 +60,7 @@ To get the chart to closer mimic the example plot, I had to change a few of the 
 
 [1](https://stackoverflow.com/questions/14885895/color-a-scatter-plot-by-column-values)
 
-## Python + Altair + Pandas
+## 3). Python + Altair + Pandas
 
 This visualization tool was also extremely easy to use.
 It took almost no effort to create a very nice looking graph and legend from the data.
@@ -77,7 +78,7 @@ and the library feels a bit more Pythonic and simple.
 [1](https://altair-viz.github.io/user_guide/customization.html#customizing-colors)
 [2](https://altair-viz.github.io/gallery/scatter_tooltips.html)
 
-## R + ggplot2
+## 4). R + ggplot2
 
 This visualization tool was a bit tricky to use for me,
 as I had no prior experience with R. It took me a little
@@ -113,7 +114,7 @@ connections and comparisons between the sub-visualizations.
 
 ![r_chart](./img/r2.png)
 
-## Flourish
+## 5). Flourish
 
 This visualization tool was extremely easy to use.
 It required no coding experience, and I was easily
@@ -139,12 +140,12 @@ view the changes over time of the diversity of each island.
 ![flourish_chart_2](./img/flourish2.png)
 ![flourish_chart_3](./img/flourish3.png)
 
-*note that there is no code etc for Flourish as it is an online
+\*note that there is no code etc for Flourish as it is an online
 tool, but the visualization can be found below
 
 [flourish link (interactive)](https://public.flourish.studio/visualisation/16735989/)
 
-## Vega-Lite
+## 6). Vega-Lite
 
 This visualization tool was pretty easy to use and very simple.
 The syntax for the visualization was very clear and organized,
@@ -171,7 +172,7 @@ entire data set.
 
 [legend binding](https://vega.github.io/vega-lite/docs/bind.html#legend-binding/data/cars.json)
 
-## Datawrapper
+## 7). Datawrapper
 
 This tool was very easy to use. It was very easy to get the
 information into the chart with a simple CSV upload, and it
@@ -270,7 +271,7 @@ I gave extra information to the user about each species of
 penguin on click of a point with the corresponding species
 as well as an image of that species of penguin. I also
 matched the background color of the information to the color
-of the species in the legend to connect these two 
+of the species in the legend to connect these two
 visualizations. The purpose of this was to give
 the viewer of the visualization more information about what
 they are looking at as well as giving the data a more personal
