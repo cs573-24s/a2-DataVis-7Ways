@@ -1,145 +1,99 @@
 # 02-DataVis-7ways
 
 Assignment 2 - Data Visualization, 7 Ways  
-===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+# Python + Plotly Express (PyVis1)
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+Plotly Express is a graphing library available for use with Python. Originally developed by the company Plotly, this library provides users with access to DASH graphics with ease through the inclusion of a wide variety of functions and graph objects that negate the necessity of lengthy code segments. 
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+To visualize the penglings dataset, I first made sure to drop null values (which originally skewed the chart oddly) using the Pandas `dropna()` function and then utilized the `scatter()` function to build the baseline requirements for the graph (no hacks required). Thanks to Plotly Express' built in function features, I didn't need to write any additional code to access species filters and hover functionalities. To filter the graph by species, all that's required it tapping (to deselect from one) or double tapping (to deselect from ALL but one) the species legend on the right hand side of the graph. Similarly, to get more insight on points, all that's required is a simple hover over each point with the cursor. The primary drawback I found in the process was the lack of distinct bubble sizes for the points. Though I did assign the point sizes to be influenced by bill length, it's hard to see the differences just by looking at the graph.
 
-Your goal is to use 7 different tools to make the following chart:
+Overall, I found this tool very easy to use and I can see it being useful in scenarios that might require many simple visualizations. Because it has so many extra features built into its graphing functions, it can save users a lot of time on the coding and design end of things. 
 
-![](img/ggplot2.png)
+![PyVis1](img/PyVis1.png)
 
-These features should be preserved as much as possible in your replication:
+# Python + Altair (PyVis2)
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+Altair is a declarative statistical visualization library for Python. It's designed to streamline the coding process, enabling users to spend more time analyzing and understanding visualizations, rather than focusing on the pure coding aspect.
 
-Other features are not required. This includes:
+To visualize the penglings dataset, I first dropped the Null values using the pandas `dropna()` function and then utilized the `alt.Chart()` function to implement the visualization requirements. Unlike the Plotly graph, this one did not automatically format the design elements correctly. For example, I had to manually specify domain scales and axis ticks in order to better mimic the original (whereas in plotly it was all done automatically). Also, like with Plotly Express, I found there was a lack of distinct bubble sizes for the points. Though I did assign the point sizes to be influenced by bill length, it's hard to see the differences just by looking at the graph.
 
-- The background grid.
-- The legends.
+However, overall I would still say this tool is still very easy to use and would be beneficial when in need of quick visualizations of datasets big and small. Like plotly, the streamlined functionalities and limited coding requirements makes this tool very accessible to non-technical audiences. 
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
+### Technical Achievements
 
-Improvements are also welcome as part of Technical and Design achievements.
+- **Mouse over Feature:** For this visualization, I decided to add an extra tooltip functionality (coded within the `alt.Chart()`function) to allow users the option to hover and inspect data points within the graph. I also renamed the tooltip display names to be more visually appealing by removing the original column names and reformatting them into proper titles with units properly parenthesized.
 
-Libraries, Tools, Languages
----
+![PyVis2](img/PyVis2.png)
 
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
+# Python + Matplotlib Pyplot (PyVis3)
 
-Otherwise, you should seek tools and libraries to fill out your 7.
+Matplotlib's Pyplot is an API of Python's Matplotlib library. It consists of a collection of functions that enable users to manipulate visualizations similar to MATLAB. 
 
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
+To visualize the penglings dataset, I first dropped the Null values using the pandas `dropna()` function and then utilized the `plt.scatter()` function to build the baseline graph. Like the first two visualizations, this one was also fairly easy to accomplish; however, it did require some additional code to include the color mapping legend in the graph. Finally, like the prior 2 python graphs, this one also didn't have noticeable size variation across points, despite them being assigned to bill length properly.
 
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
+Overall, this library was very easy to use and was quite similar to Plotly in terms of how much code was required to obtain the baseline graph. As such, this would also be a great library to utilize if in need of quick data visualizations since it has relatively few coding requirements. 
 
-I have marked a few that are strongly suggested.
+### Technical Achievments 
 
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
+- **Mouse over Feature:** For this visualization, I decided to add an extra tooltip functionality (coded within the `mplcursors.cursor()`function) to allow users the option to hover and inspect data points within the graph. `mplcursors` is a Python library that provides interactive cursor feedback for Matplotlib plots. Similar to the second graph, I also reformatted the tooltip display names to be visually appealing. 
 
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
+![PyVis3](img/PyVis3.png)
 
-Tips
----
+# Python + Bokeh (PyVis4)
 
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
+Bokeh is a Python library designed for creating interactive and data-driven visualizations in web browsers. It provides a flexible and easy-to-use interface for building a wide range of interactive plots, dashboards, and applications for data exploration and analysis. 
 
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
+To visualize the penglings dataset, I first dropped all Null values using pandas' `dropna()` function and then moved on to designing the actual baseline visualization. Unlike the prior 3 libraries, Bokeh required more coding and was generally not as intuitive. I first had to use the `figure()` functionality to establish the graphing object. Then, I implemented some styling changes like axis font sizes and the axis tickers (via the `SingleIntervalTicker()` function). Finally, I went about plotting the actual points using the `p.scatter()` function to specify additional graph details.
 
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
+Overall, I didn't feel this was quite as intuitive as the the previous graphs; however, it was still easy to use after reading some documentation. Since it requires a bit more code, I wouldn't suggest it as a first choice for making quick visualizations, but I could see it being advantageous for creating interactive and web-based visualizations that require a high degree of customization and interactivity. The Bokeh library itself has lots of sub functionalities that make its capabilities quite broad. 
 
-Readme Requirements
----
+### Technical Achievments 
 
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
+- **Mouse over Feature:** For this graph, I also added a hover-to-inspect functionality using Bokeh's `HoverTool()`. Thus, users can hover over points on the graph to inspect the individual values.
 
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
+![PyVis4](img/PyVis4.png)
 
-Other Requirements
----
+# Javascript + D3 (D3Vis)
 
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
+D3 is a JavaScript library commonly utilized for crafting dynamic and interactive data visualizations in web browsers. Its data-driven approach, extensive feature set, and flexibility has made it a preferred tool for constructing sophisticated and captivating visual representations. 
 
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
+To visualize the penglings dataset, I first loaded the csv data asynchronously using the `d3.csv()` function. Attached to this is a `then()` function, which encapsulates the scatterplot design code. Within the design code, I implemented a mixture of SVGs, variables, and filters to manipulate and plot the data (along with corresponding legends/axis labels). Additionally, in order to ensure that the code didn't attempt to build an empty graph if the data failed to load, I added a the `catch()` function to specify that a console error message should be outputted. 
 
-GitHub Details
----
+I felt this graph was definitely the hardest to construct due to the amount of coding it required. Unlike the previous tools and libraries used, this needed extensive specifications for design elements like margins, axis scaling, text rotation, legend design, etc. Thus, it is definitely the least beginner-friendly option. This being said, because users can control so many minute details in the code, I see this option being most useful for constructing especially detailed and complex data visualizations. Yes, it would require more time in the long run, but users would be able to have more creative control of the elements.
 
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
+### Technical Achievements
 
-Grading
----
+- **Color Legend:** For this graph, I added a color legend using additional svg variables to specify the placement, text, and colors. Users can view this legend in the top left corner of the graph.
 
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
+![D3Vis](img/D3Vis.png)
 
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
+# Flourish (FlourishVis)
 
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
+Flourish is a web platform designed for creating and sharing interactive data visualizations and stories. It offers a user-friendly interface that allows users to create a wide range of visualizations, including charts, maps, and narratives, without requiring any coding.
 
-# R + ggplot2 + R Markdown
+To visualize the penglings dataset smoothly, I started by selecting the scatterplot option on the intro page. Then, I imported the data through the Flourish data tab. Next, I easily selected the columns I wanted to visualize from the right-hand panel of the data tab. Finally, to achieve the desired dot opacity, I navigated back to the graph pane and adjusted the opacity in the `Dot Styles` tab.
 
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
+Overall, this tool was probably the easiest to use since it didn't require any coding. The sheer breadth of graphs available to users makes this tool a fantastic option for non-coding audiences who want to visualize data in more customizeable ways. Generally, I think anyone looking for an intuitive (non-coding intensive) way to design visuals would greatly benefit from this tool. 
 
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
+See the full visualization here: https://app.flourish.studio/visualisation/16709797/edit
 
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
+![FlourishVis](img/FlourishVis.png)
 
-![ggplot2](img/ggplot2.png)
+# R + ggplot2 + plotly (RVis)
 
-# d3...
+GGplot2 and Plotly are both R packages designed for creating visualizations. The primary difference between the two is that Plotly offers more interactive functionalities, whereas ggplot2 is mainly for "flat" visuals. 
 
-(And so on...)
+To visualize the penglings dataset, I first installed the required packages/libraries and then proceeded to enter the parameters for the baseline graph using the `ggplot` function. In order to alter it from the example provided in class, I added `theme()` elements and a `guides` function for the species legend. I also converted the ggplot2 graph into plotly so that I could add interactive elements for the technical achievements. 
 
+Overall, these tools and library were fairly easy to use (not much different that matplotlib and plotly express in Python). I can see them being useful for statistics-centered visualizations and tasks that focus more on mathematical operations as opposed to user interface. 
 
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+### Technical Achievements
 
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+- **Mouse over Feature:** By integrating Plotly's `ggplotly()` function into the graph, I was able to make a hover-to-inspect feature for users to interact with.
+
+### Creative Achievements
+
+- **Labeling Enhancement:** Within the `theme()` function I added code that bolded the axes labels and also increased their margins from the x/y axes.
+
+![RVis](img/RVis.png)

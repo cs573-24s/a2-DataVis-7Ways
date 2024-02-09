@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter Plot with D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <svg id="scatterPlot" width="800" height="600"></svg>
+    <script>
+        d3.csv("penglings.csv").then(function(data) {
+            console.log("Data loaded:", data);
+    
+            // Check if data is loaded
+            if (!data || data.length === 0) {
+                console.error("Error: Failed to load data.");
+                return;
+            }
+    
+            // Drop rows with missing values
+            data = data.filter(d => !isNaN(d.flipper_length_mm) && !isNaN(d.body_mass_g) && !isNaN(d.bill_length_mm));
+            console.log("Filtered data:", data); // Debug message
+    
+            var margin = { top: 20, right: 20, bottom: 60, left: 60 },
+                width = 800 - margin.left - margin.right,
+                height = 600 - margin.top - margin.bottom;
+    
+            var svg = d3.select("#scatterPlot")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            console.log("SVG container created:", svg);
+    
+            // define colors
+            var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+            // define axis scaling
+            var xScale = d3.scaleLinear()
+                .domain([165, d3.max(data, d => +d.flipper_length_mm)])
+                .range([0, width]);
+    
+            var yScale = d3.scaleLinear()
+                .domain([2500, d3.max(data, d => +d.body_mass_g)])
+                .range([height, 0]);
+    
+            var sizeScale = d3.scaleLinear()
+                .domain([d3.min(data, d => +d.bill_length_mm), d3.max(data, d => +d.bill_length_mm)])
+                .range([5, 20]); 
+    
+            // point plotting
+            svg.selectAll("circle")
+                .data(data)
+                .enter().append("circle")
+                .attr("cx", d => xScale(+d.flipper_length_mm))
+                .attr("cy", d => yScale(+d.body_mass_g))
+                .attr("r", d => sizeScale(+d.bill_length_mm))
+                .attr("fill", d => color(d.species))
+                // opacity set below
+                .attr("opacity", 0.8); 
+            console.log("Data points plotted.");
+    
+            // axes scaling
+            var xAxis = d3.axisBottom(xScale).tickFormat(d3.format(".0f")).ticks((width / 100));
+            var yAxis = d3.axisLeft(yScale).tickFormat(d3.format(".0f"));
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+            svg.append("g")
+                .call(yAxis);
+            console.log("Axes added.");
+    
+            // axis labels
+            svg.append("text")
+                .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 20) + ")")
+                .style("text-anchor", "middle")
+                .text("Flipper Length (mm)");
+    
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 0 - margin.left)
+                .attr("x", 0 - (height / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Body Mass (g)");
+
+            // color legend
+            var legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(" + (width + margin.right - 700) + "," + margin.top + ")");
+
+            // legend colors/species
+            var legendColors = color.domain();
+            var legendSpecies = ["Adelie", "Gentoo", "Chinstrap"];
+
+            // legend labeling
+            var legendCircle = legend.selectAll("circle")
+            .data(legendColors)
+            .enter().append("circle")
+            .attr("cx", 0)
+            .attr("cy", (d, i) => i * 20)
+            .attr("r", 5)
+            .style("fill", d => color(d));
+
+            var legendLabel = legend.selectAll("text")
+            .data(legendSpecies)
+            .enter().append("text")
+            .attr("x", 10)
+            .attr("y", (d, i) => i * 20 + 5)
+            .text(d => d)
+            .attr("alignment-baseline", "middle");
+
+
+        }).catch(function(error) {
+            console.error("Error loading data:", error);
+        });
+    </script>       
+</body>
+</html>
