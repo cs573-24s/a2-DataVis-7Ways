@@ -2,7 +2,7 @@
 
 Assignment 2 - Data Visualization, 7 Ways
 
-An overall technical achievement that I wanted to achieve was to not manipulate the csv before using it in any of the programs. This additional backend achievement helped me understand how to use code to perform cleaning on the data.
+An overall technical achievement that I wanted to achieve was to not manipulate the csv before using it in any of the programs. This additional backend achievement helped me understand how to use code to perform cleaning on the data and specifically remove na values from columns.
 
 ===
 # d3
