@@ -1,7 +1,8 @@
 # 02-DataVis-7ways
 
 Assignment 2 - Data Visualization, 7 Ways  
-=========================================================
+----------------------------------------------------------------------
+
 (1) DataWrapper Visualization : Live Demo [Here](https://www.datawrapper.de/_/ILbG9/) 
 
 ![](dw_viz_output.png)
@@ -18,8 +19,8 @@ Key features of Datawrapper include:
 ![](img/step3.png) ![](img/step4.png)
 4. **Responsive and Interactive**: The visualizations created with Datawrapper are responsive and can be embedded in websites, blogs, or online articles. They are also interactive, allowing viewers to hover over data points for more information or interact with the charts using filters or zooming functionality.
 ![](img/step5.png)
+----------------------------------------------------------------------
 
-=========================================================
 (2) D3+Js
 ![](img/step5.png)
 
@@ -67,7 +68,8 @@ This HTML file incorporates D3.js to create a scatter plot visualization of peng
 
 12. **Error Handling**:
     - Error handling is done using `.catch()` method to log any errors to the console.
-=========================================================
+----------------------------------------------------------------------
+
 *Visualization using Python*
 ----------------------------------------------------------------------
 *(3) Python + Altair*:
@@ -161,9 +163,9 @@ Altair follows a declarative approach to visualization. It allows users to descr
 Plotly follows an imperative approach, where users manipulate objects directly to create visualizations. While Plotly also offers high-level functions for creating common charts, it allows more fine-grained control over the visualization elements compared to Altair.
 Plotly is known for its rich interactivity features. It offers extensive support for creating interactive plots with features like hover effects, linked views, animations, and more. Plotly also provides tools for building dashboards and web applications with interactive visualizations.
 
-=========================================================
+----------------------------------------------------------------------
 *Visualizing in MS Excel*
 - Excel is a spreadsheet program used for organizing, formatting, and calculating data with formulas across a grid of cells. This visualization contains three plots, each providing insights of different species in 3 different years displaying bill deapth vs bill leanth. The slicers at the top of 3 years allow the user to filter the data by year which dynamically updates the three plots based on the selected criteria. The slicers make it easy to filter data for interactive insights, but ensuring accurate linkage between slicers and charts required a more detailed work.
 ![](img/excel_output.png) 
 
-=========================================================
+----------------------------------------------------------------------
