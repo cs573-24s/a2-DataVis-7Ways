@@ -113,9 +113,7 @@ Finally, the code combines these charts into a grid layout using the `&` operato
 
 ---
 
-### (4) Mat
-
-plotlib
+### (4) Matplotlib
 
 This Python code utilizes the `matplotlib` library to create scatter plots of bill length versus bill depth for different species of penguins. Best part of Matplotlib is you can resize the subplot parameters even after generating the output and reset them if not liked it.  
 ![Matplotlib Visualization 1](img/mtplt0.png)  
