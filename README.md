@@ -13,6 +13,7 @@ Andrew Kerekon
 - Vega-Lite
 - Flourish
 - DataWrapper
+- (Extra) ggplot2
 
 ## Libraries
 - R
@@ -124,6 +125,13 @@ Resources Consulted:
 
 [Link to visualization](https://www.datawrapper.de/_/QboAL/)
 ![datawrapper](img/datawrapper.png)
+
+# (Extra) R + ggplot2
+As a bonus 8th visualization, I modified the given ggplot2 example to use displaying via plotly -- this allowed me to add in hover features as well as experimenting with different shapes instead of the usual circle/dot. Beyond the base example and in addition to the hover-over containing information about a specific point, I added in a title, changed the font size and type to be Ariel 14/16 consistent with other visualizations, and changed the colors to match consistency.
+
+I would highly recommend ggplot2 for usability for programmers familiar with R, as well as those looking to get started with a programming language-based visualization framework. Syntax that included using the + symbol for different parts of the visualization was intuitive, and everything was well-documented and supported. I didn't have to perform any data cleaning, as ggplot2 took care of NA points immediately without any user intervention required.
+
+![ggplot2](img/ggplot2.png)
 
 ## Technical Achievements
 - 
