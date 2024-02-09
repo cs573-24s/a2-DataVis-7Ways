@@ -1,145 +1,172 @@
-# 02-DataVis-7ways
 
 Assignment 2 - Data Visualization, 7 Ways  
 ===
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+CS573 Data Visualization, Spring 2024
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+Jingni Cai
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+In this projuect I successfully make a visualization using 7 different tools, including d3.js, seaborn, ggplot, plotly, Altair, Flourish, and Tableau.
 
-Your goal is to use 7 different tools to make the following chart:
 
-![](img/ggplot2.png)
+01 Javascript + D3
+---
+![image](01_JS_D3/d3_1.png)
 
-These features should be preserved as much as possible in your replication:
+It's really fun to create this bubble plot with D3. Compared to other tools, we can implement various interactions as desired. In this project, I utilized constant variables such as width and height to calculate the position of the plot, x-axis, y-axis, and the positions of the legends (In Assignment 1, I performed all calculations on paper and pen).
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+I read the data from the local file system using d3.csv('file_path'), which is quite simple and straightforward. I used d3.scaleSqrt() to create a scale for bubble size and d3.scaleOrdinal() to make a scale for bubble color. I created a tooltip div and three functions (showTooltip, moveTooltip, and mouseLeaver) for interaction. When drawing the scatter plot, I added several dots using svg.append().selectAll('dot').data(data).join('circle'). I applied my color scaler and size scaler for the attributes 'r' and 'fill'. When a user hovers their mouse over a specific species, I reduce the opacity of all groups to 0.05 and set the opacity of the selected one to 1. I used the size scaler to create the Bill Length legend.
 
-Other features are not required. This includes:
+Technical Achievements:
 
-- The background grid.
-- The legends.
+* Interactive tooltips display detailed information about the data point where the mouse is pointing.
+* Interactive legend: When the mouse hovers over a species, the corresponding data points in the plot will appear, while the data points belonging to the other two species will fade out.
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
 
-Improvements are also welcome as part of Technical and Design achievements.
+Design Achievements:
 
-Libraries, Tools, Languages
+* Color mapping to species.
+* Size mapping to Bill Length.
+* set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species and size mapping to Bill Length.
+
+![image](01_JS_D3/d3_2.png)
+![image](01_JS_D3/d3_3.png)
+![image](01_JS_D3/d3_4.png)
+
+
+02 Python + Plotly
+---
+Plotly is a visualization tool that allows for interactions, and Plotly graphs can be embedded in any HTML page. One disadvantage is that it takes a considerable amount of time to calculate and render when dealing with large datasets. In comparison to commonly used data visualization tools like Matplotlib, Plotly provides easy customization options for colors, fonts, markers, and labels.
+
+With Plotly, you can create a bubble plot with just one line of code. However, for this project, I aimed to incorporate additional technical and design features, resulting in a more intricate bubble plot than what is typically seen. I calculated the optimal sizeref value for the bubble plot using the maximum value of bill_length_mm. Initially, we create a figure, setting the title, properties for the axis, and the background color. Then, we add scatters for each species using go.Scatter(). This enables users to interact with the plot by clicking on the color legends, showing only the group of species they are interested in. Additionally, I added a 'text' column to the original dataset to display a comprehensive tooltip message.
+
+At the moment, the bubble size legend is not supported, as per the official replies: [1](https://github.com/plotly/plotly.py/issues/3505), [2](https://github.com/plotly/plotly.js/issues/5099)
+
+![image](02_python_plotly/python_plotly_1.png)
+
+
+Technical Achievements:
+
+* Interactive tooltips display detailed information about the data point where the mouse is pointing.
+* Interactive legend: When the mouse hovers over a species, the corresponding data points in the plot will appear, while the data points belonging to the other two species will fade out.
+
+
+Design Achievements:
+
+* Color mapping to species.
+* The background grid.
+* set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species and size mapping to Bill Length.
+* Allow use to zoom in and zoom out
+
+![image](02_python_plotly/python_plotly_2.png)
+![image](02_python_plotly/python_plotly_3.png)
+![image](02_python_plotly/python_plotly_4.png)
+![image](02_python_plotly/python_plotly_5.png)
+![image](02_python_plotly/python_plotly_6.png)
+
+03 Python + Seaborn
+---
+Seaborn is a popular visualization package in the Python ecosystem. We can easily generate a bubble plot using the seaborn.relplot() method. By passing parameters such as "x='flipper_length_mm'", "y='body_mass_g'", "hue='species'", and "size='bill_length_mm'", we can create a basic bubble chart with color mapping to species and size mapping to bill length. It's a straightforward tool that users can utilize to create a static data visualization plot.
+
+
+![image](03_python_seaborn/python_seaborn.png)
+
+Technical Achievements:
+
+* implemented the plot using a single line of code
+
+Design Achievements:
+
+* Color mapping to species.
+* The background grid.
+* set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species and size mapping to Bill Length.
+
+04 Python + plotnine (ggplot)
 ---
 
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
+plotnine is like "the python version" of ggplot. It is an implementation of a grammar of graphics in Python based on ggplot2. It uses quite similar grammar with ggplot. The implement is also very simple and straightforward. It can be a good choice for people who want to generate static plots. 
 
-Otherwise, you should seek tools and libraries to fill out your 7.
 
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
+![image](04_python_ggplot/python_ggplot_1.png)
 
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
+Technical Achievements:
 
-I have marked a few that are strongly suggested.
+* make a comparison bubble plot using facet_wrap('island') (the implementation is much easier than using matplotlib/seaborn, since we don't need to create subplots and add plots to each individual subplot.)
 
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
+Design Achievements:
 
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
+* Color mapping to species.
+* Size mapping to bill length
+* The background grid.
+* set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species and size mapping to Bill Length.
 
-Tips
+![image](04_python_ggplot/python_ggplot_2.png)
+
+05 Python + Altair
+---
+I've never heard or used Altair before, and I find it enjoyable to use. We can implement various kinds of interactions as desired. I used alt.Chart().mark_circle().encode() to create a basic bubble chart. By passing parameters such as alt.X, alt.Y, alt.Size, and color, we can generate a bubble chart with color mapping and size mapping. Additionally, I created a stacked bar plot beneath the bubble chart. The combination of multiple plots turns it into an interactive dashboard. When people filter out data using any plot in the dashboard, the data in the other plot will change correspondingly.
+
+![image](05_python_Altair/python_altair_1.png)
+
+Technical Achievements:
+
+* User can select a range of values in x-axis to filter out the unselected data
+* I made a interactive dashboard. When people filter out data using any plot, the data in the other plot will change correspondingly.
+* 
+
+
+Design Achievements:
+
+* Color mapping to species.
+* Size mapping to bill length
+* The background grid.
+* set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species and size mapping to Bill Length.
+
+![image](05_python_Altair/python_altair_6.png)
+![image](05_python_Altair/python_altair_3.png)
+![image](05_python_Altair/python_altair_4.png)
+![image](05_python_Altair/python_altair_5.png)
+
+06 Flourish
+---
+Flourish is simple to use, but its functions are also limited compared to other tools. For example, you are only allowed to place the legend in some specific position. I believe it's a cool tool for illustrating historical changes in data with automatic animation. While it's straightforward, it meets most requirements and offers interactions such as displaying tooltips when hovering the mouse and filtering out species group data.
+
+Two legend is not supported.
+Bubble size legend is not supported.
+
+
+![image](06_Flourish/Flourish_1.png)
+
+![image](06_Flourish/Flourish_2.png)
+
+Technical Achievements:
+
+Design Achievements:
+
+* Color mapping to species.
+* Size mapping to bill length
+* The background grid
+* set the capacity of circles to 0.7 for a semi-transparent effect.
+* Legends for color mapping to species
+
+
+07 Tableau
 ---
 
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
+![image](07_Tableau/Tableau_1.png)
 
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
+![image](07_Tableau/Tableau_2.png)
+![image](07_Tableau/Tableau_3.png)
 
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
+Technical Achievements:
 
-Readme Requirements
+Design Achievements:
+
+reference:
 ---
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
-
-
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
-
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+1. https://stackoverflow.com/questions/57417164/is-there-a-way-to-calculate-optimal-sizeref-value-for-plotly-scatter3d 
