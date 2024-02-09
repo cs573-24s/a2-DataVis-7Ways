@@ -38,7 +38,7 @@ For this visualization, I used the D3.js library to create an interactive scatte
 - **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
 
 # Matplotlib
-![caption](img/matplotlib)
+![caption](img/matplotlib.png)
 
 # Seaborn
 ![caption](img/seabornViz)
