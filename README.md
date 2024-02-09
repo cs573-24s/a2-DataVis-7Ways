@@ -1,12 +1,3 @@
-# 02-DataVis-7ways
-
-Excel (or nah)
-R + ggplot (done)
-Python + altair (done)
-d3.js
-Tableau (done)
-Flourish (done)
-7?
 
 Assignment 2 - Data Visualization, 7 Ways  
 ===
