@@ -1,4 +1,5 @@
 #a2-DataVis-7Ways
+
 #DataWrapper
 Datawrapper is a web-based data visualization platform that allows the user create a visualization with data sets without a code. I used this one to develop a vizualization for the given dtatset. I created a scatterplot with it but it has all the types of plots like piechatrs histograms and everything. I find it good for quick visualizations and one can create beautiful visualizations with less effort. It is good for people without experience with code
 the link is where my visualisation is https://datawrapper.dwcdn.net/Fy9UK/1/
