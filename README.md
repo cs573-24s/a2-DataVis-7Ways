@@ -111,6 +111,7 @@ Resources Consulted:
 - https://helpcenter.flourish.studio/hc/en-us/articles/8761569271567-How-to-color-the-dots-in-your-scatter-visualization
 
 [Link to visualization](https://public.flourish.studio/visualisation/16738738/)
+
 ![flourish](img/flourish.png)
 
 # DataWrapper
@@ -124,6 +125,7 @@ Resources Consulted:
 - https://www.datawrapper.de/charts/scatter-plot
 
 [Link to visualization](https://www.datawrapper.de/_/QboAL/)
+
 ![datawrapper](img/datawrapper.png)
 
 # (Extra) R + ggplot2
