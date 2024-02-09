@@ -107,7 +107,7 @@ on the species in the legend and they will be filtered.
 I added more functionality to the plot by adding facets
 depending on which island the penguin was found on, as well as
 a time slider to show the data according to which year
-it was found. I also added a different shapes for male and 
+it was found. I also added a different shapes for male and
 female observations of penguins to better represent the
 underlying data. This way, an observer of the chart can easily
 view the changes over time of the diversity of each island.
@@ -140,9 +140,45 @@ entire data set.
 ![Vega-Lite Chart](./img/vega-lite.png)
 
 ### Vega-Lite Sources
+
 [basic tutorial](https://vega.github.io/vega-lite/tutorials/explore.html)
 
 [legend binding](https://vega.github.io/vega-lite/docs/bind.html#legend-binding/data/cars.json)
+
+## Datawrapper
+
+This tool was very easy to use. It was very easy to get the
+information into the chart with a simple CSV upload, and it
+was very simple to create the chart as well with a
+step-by-step process. The program parsed the CSV file very
+well, converting each column into a respective datatype and
+allowing different visualization options depending on the
+data type. There was also a good amount of
+customizability available in every step. I especially liked
+that at the end of the chart creation / customization there
+was a preview mode where you were able to view the visualization
+with filters according to different kinds of color blindness.
+I think it is very important to make visualizations accessible,
+and including this as a step in their pipeline and making it
+easily accessible in their flow is a good thing.
+There was also some built-in interactivity in the final chart
+which I thought was useful: when you hover over a species,
+it removes the other species from the plot and leaves only
+the selected species. This works on hovering over both
+the actual points on the chart and on the species names
+in the legend.
+I think that while there was a good amount of customizability
+available, the program still lacks the complete customizability
+available from a more complex language-based visualization tool.
+I think that this tool can be used by people who want to make
+rather simple visualizations but have no background in coding
+or data science, or for those who want to quickly make a
+visualization, as the step-by-step process has a very low
+learning barrier, and is a very fast process.
+
+![datawrapper_chart](./img/datawrapper.png)
+
+[datawrapper link (interactive)](https://datawrapper.dwcdn.net/SkRVk/2/)
 
 ## Technical Achievements
 
@@ -173,7 +209,7 @@ scheme specified for the species for the point graph, I needed to use
 two different libraries: colorspace, and ggnewscale. Colorspace allowed me
 to darken the existing color scheme to use again for the lines of best fit,
 and ggnewscale allowed me to create a separate color scheme for the
-geom_smooth() function. 
+geom_smooth() function.
 
 ## Design Achievements
 
