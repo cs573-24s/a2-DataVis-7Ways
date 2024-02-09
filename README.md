@@ -15,18 +15,18 @@ Since I recently used d3 for assignment 1, it was easier to make this graph with
 ## Technical Achievements
 - **Interactive tooltip**: When you hover over a bubble, it shows you more information regarding that specific datapoint.
 ### Design Achievements
-- **Colors**: I used a colorscheme that I thought matched a penguin's colors as I thought it would bring the design together.
+- **Colors**: I used a colorscheme that matched a penguin's colors as I thought it would bring the design together.
 - **Sizing of Bubbles**: For the variable sizing based on 'bill size', I made sure the sizes were different enough to be noticable on first glance as this was not something apparent in the 'goal' graph.
 
 
 # Excel
-Excel was surprisingly one of the harder visualizations to create because I coudn't figure out the 'series' idea for the longest time. This visualization felt a little hacky to create. I do think Excel has a lot of potential for visualizations, but the ways to create them are very convoluted. I was able to achieve all the features in the 'goal' graph that were required. I was not able to put the 'bill sizes' legend in to the chart.
+Excel was surprisingly one of the harder visualizations to create because I coudn't figure out the 'series' data idea needed to create the graph for a long time. This visualization felt a little hacky on the backend. I do think Excel has a lot of potential for visualizations, but the ways to create them are very convoluted. I was able to achieve all the features in the 'goal' graph that were required. I was not able to put the 'bill sizes' legend in to the chart.
 
 ![caption](img/ExcelViz.png)
 
 ### Design Achievements
 - **A Penguin Image**: I added a little penguin to the background because I thought it brought the visualization together and made it look less bare.
-- **Colors**: I used a colorscheme that I thought matched a penguin's colors as I thought it would bring the design together.
+- **Colors**: I used a colorscheme that matched a penguin's colors as I thought it would bring the design together.
 - **Sizing of Bubbles**: For the variable sizing based on 'bill size', I made sure the sizes were different enough to be noticable on first glance as this was not something apparent in the 'goal' graph.
 
 # Flourish
@@ -49,11 +49,11 @@ Tableau is my most favorite data visualization tool, so I felt compelled to use 
 - **Interactivity**: Addtionally, I added an 'action' on the dashbaord, when clicking on a bubble on the scatterplot, it shows the gender, bill length and the island that the penguin comes from. The second image highlights this interactivity.
 
 ### Design Achievements
-- **Colors**: I used a colorscheme that I thought matched a penguin's colors as I thought it would bring the design together.
+- **Colors**: I used a colorscheme that matched a penguin's colors as I thought it would bring the design together.
 - **Sizing of Bubbles**: For the variable sizing based on 'bill size', I made sure the sizes were different enough to be noticable on first glance as this was not something apparent in the 'goal' graph.
 
 # Matplotlib
-Matplotlib is my go to when creating graphs in python. It was fairly easy to use. The only thing that felt hacky and was hard to do was create the legend for the bill sizes. I used an LLM to help me with that. I was not able to separate the legend by species and bill length. Simply creating the base visualization however was straight forward.
+Matplotlib is my go-to when creating graphs in python. It was fairly easy to use. The only thing that felt hacky and was hard to do was create the legend for the bill sizes. I used an LLM to help me with that. I was not able to separate the legend by species and bill length. Simply creating the base visualization however was straight forward.
 
 ![caption](img/matplotlib.png)
 
@@ -61,15 +61,25 @@ Matplotlib is my go to when creating graphs in python. It was fairly easy to use
 This library needed the least amount of effort. It was easy to use. The only hacky thing in it's code was that I had to create a new column called 'Body Mass (g)' which had the same data as body_mass_g so I could get the neat title for the y-axis. I could not find a way to rename the y-axis title without using matplotlib.
 ![caption](img/seabornViz.png)
 
+- **Sizing of Bubbles**: For the variable sizing based on 'bill size', I made sure the sizes were different enough to be noticable on first glance as this was not something apparent in the 'goal' graph.
+
 # Vegalite
 Vegalite seemed really hard at first, but their documentation specifically for creating bubble charts made it fairly straightforward to use. I achieved all the base feature requirements. I was unable to figure out how to put an accurate legend in for the bill sizes, so I ended up removing it entirely. Overall, vega-lite seems like fairly easy-to-use tool.
 
 ![caption](img/vegaViz.png)
 
 ### Design Achievements
-- **Colors**: I used a colorscheme that I thought matched a penguin's colors as I thought it would bring the design together.
+- **Colors**: I used a colorscheme that matched a penguin's colors as I thought it would bring the design together.
 - **Sizing of Bubbles**: For the variable sizing based on 'bill size', I made sure the sizes were different enough to be noticable on first glance as this was not something apparent in the 'goal' graph.
 
 # References
-https://www.educative.io/answers/how-to-create-a-bubble-chart-using-d3
-https://stackoverflow.com/questions/11189284/d3-axis-labeling
+- https://www.educative.io/answers/how-to-create-a-bubble-chart-using-d3
+- https://stackoverflow.com/questions/11189284/d3-axis-labeling
+- https://vega.github.io/vega-lite/docs/point.html
+- https://vega.github.io/vega-lite/usage/embed.html
+- https://www.d3indepth.com/selections/
+- https://d3-graph-gallery.com/graph/bubble_template.html
+- https://www.mit.edu/~mbarker/formula1/f1help/11-ch-c3.htm#:~:text=Sizing%20All%20the%20Bubbles&text=To%20change%20the%20relative%20sizes,of%20the%20default%20bubble%20size.
+- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
+- https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+- And lastly, ChatGPT for help on a few things.
