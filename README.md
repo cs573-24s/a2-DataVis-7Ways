@@ -1,145 +1,103 @@
 # 02-DataVis-7ways
 
-Assignment 2 - Data Visualization, 7 Ways  
-===
+# Assignment 2 - Data Visualization, 7 Ways  
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
-
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
-
-Your goal is to use 7 different tools to make the following chart:
-
-![](img/ggplot2.png)
-
-These features should be preserved as much as possible in your replication:
-
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
-
-Other features are not required. This includes:
-
-- The background grid.
-- The legends.
-
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
-
-Improvements are also welcome as part of Technical and Design achievements.
-
-Libraries, Tools, Languages
----
-
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
-
-Otherwise, you should seek tools and libraries to fill out your 7.
-
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
-
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
-
-I have marked a few that are strongly suggested.
-
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
-
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
-
-Tips
----
-
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
-
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
-
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
-
-Readme Requirements
----
-
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
-
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
-
-Other Requirements
----
-
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
-
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
-
-GitHub Details
----
-
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
-
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
+# R + ggplot2 
 
 R is a language primarily focused on statistical computing.
 ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
 
 To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
 
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
+Installing language dependencies and learning the syntax will take some time, but it is very helpful for learning.
 
-![ggplot2](img/ggplot2.png)
+![ggplot2](R_ggplot2/R.jpeg)
+## Technical Achievements
+Successfully imported a CSV file containing penguin data using the read.csv function, enabling subsequent data analysis and visualization.
 
-# d3...
+Utilized the ggplot2 library in R to create a customized scatter plot (geom_point()) with aesthetics such as color and size mapped to different variables in the dataset.
+## Design Achievements
+Provided  clear and informative labels for the x and y axes (Flipper Length (mm) and Body Mass (g) respectively), improving the interpretability of the plot for viewers.
 
-(And so on...)
+Incorporated an interactive tooltip (text aesthetic) that displays additional information about each data point upon hovering, enhancing the interactivity and explanatory power of the visualization.
 
+# D3.js
+D3.js is a powerful JavaScript library for creating complex and interactive data visualizations for web browsers. This data visualization explores the relationship between flipper length and body mass in different species.Because browser is attempting to protect us from downloading a file from a suspicious link. To resolve this, we need to run our own server. From your terminal, navigate to the directory containing the HTML page you want to run. Then, execute the command 'python3 -m http.server' to load the CSV data.
+
+
+![d3](D3/d3.png)
 
 ## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
+Used D3.js to create a scatter plot
+Implemented linear scales for both x and y axes to accurately represent the data.
 
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+Used a color scale to differentiate between the three species.
+
+
+## Design Achievements
+The chart is visually appealing and easy to understand.
+
+The use of color effectively highlights the differences between species.
+
+The appropriate size of the circles helps to convey the relationship between flipper length and body mass.
+
+
+# Datawrapper
+Datawrapper is an online data visualization tool that allows users to easily create various types of charts and maps, including line graphs, bar charts, scatter plots, pie charts, etc.
+I made a scatter plot on Datawrapper and posted it to this link https://datawrapper.dwcdn.net/0q8lD/1/
+
+![dw](datawrapper/datawrapper_vis.png)
+
+# Flourish
+Flourish is also an online data visualization tool. Comparing Datawrapper with Flourish, many settings are on the data page, which took me quite some time to find. I prefer Datawrapper because it guides the settings step by step.
+I made a scatter plot on Flourish and posted it to this link https://public.flourish.studio/visualisation/16798309/
+
+![Flourish](flourish/flourish.png)
+
+
+# Altair + Python
+Python, known for its versatility, serves as a foundational language for various computational tasks, including statistical analysis. Altair is a declarative statistical visualization library in Python, allowing users to create concise and expressive visualizations with minimal code. Leveraging Altair, users can easily generate a variety of statistical plots, facilitating insightful data exploration and presentation.
+
+
+
+![python_altair](python_altair/altair.png)
+
+## Technical Achievements
+Customized the axes titles (x_axis_title and y_axis_title) and scales (scale=alt.Scale(domain=...)) to ensure appropriate visualization of the data range and improve interpretability.
+
+Incorporated interactive tooltips (tooltip=[color_column, 'flipper_length_mm', 'body_mass_g', size_column]) that display relevant information upon hovering over data points, allowing for detailed exploration of individual data instances.
+
+## Design Achievements
+Provided clear and informative labels for the x and y axes (x_axis_title and y_axis_title), improving the readability and understanding of the plot for viewers.
+
+Saved the generated plot as an HTML file (chart.html) with embedded options for SVG rendering (embed_options={'renderer':'svg'}), facilitating easy sharing and integration into web-based platforms.
+
+# Matplotlib + Python
+Python, renowned for its versatility, serves as a go-to language for statistical computing and data visualization tasks. Matplotlib, a widely-used library in Python, provides extensive functionality for creating static, interactive, and publication-quality plots. With Matplotlib, users have fine-grained control over every aspect of their plots, enabling them to effectively convey their data-driven insights.
+
+
+![Matplotlib](python_matplotlib/matplotlib.png)
+
+## Technical Achievements
+Created a scatter plot using Matplotlib to visualize the relationship between flipper length and body mass for penguins, providing a clear representation of the data points.
+
+ Added padding to the plot (ax.margins(0.05)) to prevent data points from being cut off at the edges, ensuring the entire plot is visible.
+
+## Design Achievements
+Incorporated transparency (alpha) into the data points, allowing for better visualization of overlapping points and emphasizing areas of higher data density.
+
+Presented the scatter plot in a clear and concise manner, with well-defined data points and axes, ensuring ease of interpretation for viewers.
+
+# Ploty + Python
+Python, a versatile programming language, is widely used for various tasks, including statistical computing. Plotly is a powerful library for creating interactive and publication-quality visualizations in Python. With Plotly, users can generate a wide range of charts and graphs, enhancing their ability to explore and communicate data effectively.
+
+
+
+![python_plotly](python_plotly/python_plotly.png)
+
+## Technical Achievements
+Utilized a dummy column (dummy_column_for_size) to control the size of data points in the scatter plot, ensuring consistency and adjustability of point sizes.
+
+## Design Achievements
+Adjusted the maximum size of data points (size_max) to optimize visualization aesthetics while avoiding visual clutter.
