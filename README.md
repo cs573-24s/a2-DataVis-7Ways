@@ -28,8 +28,8 @@ I kept the colors consistent to the ones shown in the example graph. I added leg
 ![seaborn](./img/seaborn.png)
 
 Here are the sources I used:
-[1]https://seaborn.pydata.org/generated/seaborn.scatterplot.html
-[2]https://stackoverflow.com/questions/53733755/how-to-move-legend-to-outside-of-a-seaborn-scatterplot
+[1](https://seaborn.pydata.org/generated/seaborn.scatterplot.html)
+[2](https://stackoverflow.com/questions/53733755/how-to-move-legend-to-outside-of-a-seaborn-scatterplot)
 
 ## 3. R + ggplot
 
@@ -46,8 +46,8 @@ I kept the colors consistent to the ones shown in the example graph. I added leg
 ![rextendedlines](/img/rextendedlines.png)
 
 Here are the sources I used:
-[1]https://sparkbyexamples.com/r-programming/read-csv-from-url-in-r/
-[2]http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
+[1](https://sparkbyexamples.com/r-programming/read-csv-from-url-in-r/)
+[2](http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization)
 
 ## 4. Python + Pandas + Altair
 Altair was similar to Seaborn that it was incredibly easy to create a graph with. Even though I had less (zero) experience with Altair, I would say that the customization was even easier than Seaborn in terms of colors, scales, titles, etc. Altair also automatically generated the legend for me and included a good range of points, especially when compared with some of the other tools. 
@@ -58,7 +58,7 @@ I kept the colors consistent to the ones shown in the example graph. I added leg
 ![altair](./img/altair.png)
 
 Here is the source I used:
-[1]https://www.geeksforgeeks.org/python-altair-scatter-plot/
+[1](https://www.geeksforgeeks.org/python-altair-scatter-plot/)
 
 ## 5. Python + Pandas + Bokeh
 In my opinion, Bokeh feels a bit worse than both Seaborn and Altair to use. It has less customization than Altair does visually, and while the figure is built similarly to seaborn, the image output feels janky. The documentation also seems less extensive than Seaborn or Altair. All in all, I would not choose this tool over the other two if I was looking for a python graphing tool.
@@ -82,7 +82,7 @@ I kept the colors consistent to the ones shown in the example graph. I added leg
 Flourish was extremely easy to work with and customize. It also seems to support interactivity and dynamic visualizations very well, so I can definitely see myself coming here for a quick and easy visualization. I didn't need to use any external sources because the website was extremely easy to figure out. 
 
 Since there is no code for this tool, here is the link to the website. 
-[1]https://public.flourish.studio/visualisation/16857800/
+[1](https://public.flourish.studio/visualisation/16857800/)
 
 ### Technical Achievements
 Once again, I was able to add regression lines to the three different species on the scatterplot. I also changed the opacity and size of both the dots and the lines a bit so you could see the graph more clearly. 
