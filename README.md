@@ -1,145 +1,94 @@
-# 02-DataVis-7ways
+# Assignment 2
 
-Assignment 2 - Data Visualization, 7 Ways  
-===
+## 1. Javascript + d3
 
-Now that you have successfully made a "visualization" of shapes and lines using d3, your next assignment is to successfully make a *actual visualization*... several times across different tools. 
+This visualization was a lot of fun to make. I found some really nice examples with code online and was able to implement them with only a little difficulty. The legend part took a bit longer and was more convoluted because the process was so manual. However, it clearly gives a lot of customizability which makes sense for a visualization module. 
 
-The goal of this project is to gain experience with as many data visualization libraries, languages, and tools as possible.
+### Technical achievements 
+I added some interactivity in the visualization. If you hover over a data point, then all same species of that data point would be grouped and colored, while the rest will fade to grey. 
 
-I have provided a small dataset about penguins, `penglings.csv`.
-Each row contains a penguin observation and several variables about it, including bill length, flipper length, and more.
+### Design achievements 
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph. Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. Finally, I made sure the axis titles were labeled "Body Mass (g)" and "Flipper Length (mm)"
 
-Your goal is to use 7 different tools to make the following chart:
+![d3_no_hover](./img/d3hover.png)
+![d3_hover](./img/d3nohover.png)
 
-![](img/ggplot2.png)
+Here are the sources I used:
+[1](https://d3-graph-gallery.com/graph/custom_theme.html)
+[2](https://d3-graph-gallery.com/graph/scatter_grouped_highlight.html)
+[3](https://d3-graph-gallery.com/graph/custom_legend.html)
 
-These features should be preserved as much as possible in your replication:
+## 2. Python + Pandas + Seaborn
 
-- Data positioning: it should be a upward-trending scatterplot as shown.  Flipper Length should be on the x-axis and Body Mass on the y-axis.
-- Scales: Note the scales do not start at 0.
-- Axis ticks and labels: both axes are labeled and there are tick marks at a reasonable interval, e.g 10, 20, 30, etc.
-- Color mapping to species.
-- Size mapping to Bill Length.
-- Opacity of circles set to 0.8 or similar for a semi-transparent effect.
+This visualization was extremely easy to make in seaborn. Seaborn can easily change the color and size of the datapoints based on different features/column. Additionally, it was pretty easy to change the axes titles with a tiny bit of help from matplotlib. I can see it being difficult more difficult to make something interactive on seaborn through actions like mouse hovers. 
 
-Other features are not required. This includes:
+### Design achievements 
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph. Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. Finally, I made sure the axis titles were labeled "Body Mass (g)" and "Flipper Length (mm)"
 
-- The background grid.
-- The legends.
+![seaborn](./img/seaborn.png)
 
-Note that some software packages will make it **impossible** to perfectly preserve the above requirements. 
-Be sure to note where these deviate as you reflect on what a tool is good for.
+Here are the sources I used:
+[1](https://seaborn.pydata.org/generated/seaborn.scatterplot.html)
+[2](https://stackoverflow.com/questions/53733755/how-to-move-legend-to-outside-of-a-seaborn-scatterplot)
 
-Improvements are also welcome as part of Technical and Design achievements.
+## 3. R + ggplot
 
-Libraries, Tools, Languages
----
+This visualization was also extremely easy to make in R using ggplot. Installing R, RStudio, and ggplot was a pretty straightforward process. It was quite easy to customize the color theme and ggplot automatically generated a legend for both the species and for the bill length. 
 
-You are required to use 7 different tools or libraries.
-Of the 7 tools, you must use at least 3 libraries (libraries require code of some kind).
-This could be `Python, R, Javascript`, or `Java, Javascript, Matlab` or any other combination.
-Dedicated tools (i.e. Excel) do not count towards the language requirement.
+### Technical Achievements
+I also added linear regression lines to the scatterplot for each species. Due to the nature of the dot sizes, it was difficult to see the lines very clearly, especially with the confidence interval included. I tried to extend the lines and removed the confidence interval to see if it would look any better, but I think I liked the shorter lines better.
 
-Otherwise, you should seek tools and libraries to fill out your 7.
+### Design achievements 
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph. Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. Finally, I made sure the axis titles were labeled "Body Mass (g)" and "Flipper Length (mm)"
 
-Below are a few ideas. Do not limit yourself to this list!
-There are new tools coming out every year and we may not have an exhaustive list of the latest and greatest.
+![r](/img/r.png)
+![rlines](/img/rlines.png)
+![rextendedlines](/img/rextendedlines.png)
 
-Some may be difficult choices, like Matlab or SPSS, which require large installations, licenses, and occasionally difficult UIs.
+Here are the sources I used:
+[1](https://sparkbyexamples.com/r-programming/read-csv-from-url-in-r/)
+[2](http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization)
 
-I have marked a few that are strongly suggested.
+## 4. Python + Pandas + Altair
+Altair was similar to Seaborn that it was incredibly easy to create a graph with. Even though I had less (zero) experience with Altair, I would say that the customization was even easier than Seaborn in terms of colors, scales, titles, etc. Altair also automatically generated the legend for me and included a good range of points, especially when compared with some of the other tools. 
 
-- R + ggplot2 `<- definitely worth trying`
-- Excel
-- d3 `<- since the rest of the class uses this, we're requiring it`
-- Altair `<- hugely popular python library. highly recommended `
-- three.js `<- well, it's a 3d library. not really recommended, but could be interesting and fun`
-- p5js `<- good for playing around. not really a chart lib`
-- Tableau
-- PowerBI
-- Vega-lite <- `<- very interesting formal visualization model; might be the future of the field`
-- Flourish <- `<- popular in recent years`
-- DataWrapper <- `<- popular in recent years`
-- GNUplot `<- the former CS department head uses this all the time :)`
-- SAS/SPSS/Matlab
+### Design achievements 
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. Finally, I made sure the axis titles were labeled "Body Mass (g)" and "Flipper Length (mm)"
 
-You may write everything from scratch, or start with demo programs from books or the web. 
-If you do start with code that you found, please identify the source of the code in your README and, most importantly, make non-trivial changes to the code to make it your own so you really learn what you're doing. 
+![altair](./img/altair.png)
 
-Tips
----
+Here is the source I used:
+[1](https://www.geeksforgeeks.org/python-altair-scatter-plot/)
 
-- If you're using d3, key to this assignment is knowing how to load data.
-You will likely use the [`d3.json` or `d3.csv` functions](https://d3js.org/d3-dsv) to load the data you found.
+## 5. Python + Pandas + Bokeh
+In my opinion, Bokeh feels a bit worse than both Seaborn and Altair to use. It has less customization than Altair does visually, and while the figure is built similarly to seaborn, the image output feels janky. The documentation also seems less extensive than Seaborn or Altair. All in all, I would not choose this tool over the other two if I was looking for a python graphing tool.
 
-**Beware that these functions are *asynchronous*, meaning it's possible to "build" an empty visualization before the data actually loads. Figuring out how to do this properly can be a major hiccup if you haven't used async functions before. If this means you, start part of this project early so you don't end up in a rush!**
+### Design achievements 
 
-- *For web languages like d3* Don't forget to run a local webserver when you're debugging.
-See my a1 video or online tutorials for how to do this.
-Being able to host a local webserver is an essential web development skill and very common in visualization design as well.
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. Finally, I made sure the axis titles were labeled "Body Mass (g)" and "Flipper Length (mm)"
 
-Readme Requirements
----
+![bokeh](./img/bokeh.png)
 
-A good readme with screenshots and structured documentation is required for this project. 
-It should be possible to scroll through your readme to get an overview of all the tools and visualizations you produced.
+## 6. Python + Pandas + Plotnine
+Plotnine has essentially the exact same features as ggplot but implemented in Python instead of R. In any situation where it might be suitable to use ggplot, I would definitely try plotnine and python first just because it's my preferred language. Additionally, with Pandas, the data was incredibly easy to import. 
 
-- Each visualization should start with a top-level heading (e.g. `# d3`)
-- Each visualization should include a screenshot. Put these in an `img` folder and link through the readme (markdown command: `![caption](img/<imgname>)`.
-- Write a paragraph for each visualization tool you use. What was easy? Difficult? Where could you see the tool being useful in the future? Did you have to use any hacks or data manipulation to get the right chart?
+### Technical Achievements
+Similarly to what I did for ggplot and R, I also added linear regression lines to the scatterplot for each species. I only did the shorter regression lines because I liked the look of it better than the longer ones. 
 
-Other Requirements
----
+### Design achievements 
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph. Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. Finally, I made sure the axis titles were labeled "Body Mass (g)" and "Flipper Length (mm)"
 
-0. Your code should be forked from the GitHub repo.
-1. Place all code, Excel sheets, etcetera in a named folder. For example, `r-ggplot, matlab, mathematica, excel` and so on.
-2. Your writeup (readme.md in the repo) should also contain the following:
+## 7. Flourish
+Flourish was extremely easy to work with and customize. It also seems to support interactivity and dynamic visualizations very well, so I can definitely see myself coming here for a quick and easy visualization. I didn't need to use any external sources because the website was extremely easy to figure out. 
 
-- Description of the Technical achievements you attempted with this visualization.
-  - Some ideas include interaction, such as mousing over to see more detail about the point selected.
-- Description of the Design achievements you attempted with this visualization.
-  - Some ideas include consistent color choice, font choice, element size (e.g. the size of the circles).
+Since there is no code for this tool, here is the link to the website. 
+[1](https://public.flourish.studio/visualisation/16857800/)
 
-GitHub Details
----
+### Technical Achievements
+Once again, I was able to add regression lines to the three different species on the scatterplot. I also changed the opacity and size of both the dots and the lines a bit so you could see the graph more clearly. 
 
-- Fork the GitHub Repository. You now have a copy associated with your username.
-- Make changes to fulfill the project requirements. 
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
+### Design achievements 
+I kept the colors consistent to the ones shown in the example graph. I added legends that were similar to the example graph. Additionally, I lowered the opacity of the points to emphasize common points and make the graph less cluttered. 
 
-Grading
----
-
-Grades on a 120 point scale. 
-24 points will be based on your Technical and Design achievements, as explained in your readme. 
-
-Make sure you include the files necessary to reproduce your plots.
-You should structure these in folders if helpful.
-We will choose some at random to run and test.
-
-**NOTE: THE BELOW IS A SAMPLE ENTRY TO GET YOU STARTED ON YOUR README. YOU MAY DELETE THE ABOVE.**
-
-# R + ggplot2 + R Markdown
-
-R is a language primarily focused on statistical computing.
-ggplot2 is a popular library for charting in R.
-R Markdown is a document format that compiles to HTML or PDF and allows you to include the output of R code directly in the document.
-
-To visualized the cars dataset, I made use of ggplot2's `geom_point()` layer, with aesthetics functions for the color and size.
-
-While it takes time to find the correct documentation, these functions made the effort creating this chart minimal.
-
-![ggplot2](img/ggplot2.png)
-
-# d3...
-
-(And so on...)
-
-
-## Technical Achievements
-- **Proved P=NP**: Using a combination of...
-- **Solved AI Forever**: ...
-
-### Design Achievements
-- **Re-vamped Apple's Design Philosophy**: As demonstrated in my colorscheme...
+![flourish](./img/flourish.png)
+![flourishhover](./img/flourishhover.png)

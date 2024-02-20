@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+<div id="legend"/>
+
+<script>
+// code modified from https://d3-graph-gallery.com/graph/custom_theme.html
+// highlight from https://d3-graph-gallery.com/graph/scatter_grouped_highlight.html
+// set the dimensions and margins of the graph
+var margin = {top: 10, right: 30, bottom: 40, left: 60},
+    width = 660 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")")
+
+//Read the data
+d3.csv("https://raw.githubusercontent.com/aria-yan/a2-DataVis-7Ways/main/penglings.csv", function(data) {
+
+    data = data.filter(d => !isNaN(d.body_mass_g) && !isNaN(d.flipper_length_mm));
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([170*0.99, 235*1.01])
+    .range([ 0, width ])
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).tickSize(-height*1.3).ticks(10))
+    .select(".domain").remove()
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([2500, 6200*1.01])
+    .range([ height, 0])
+    .nice()
+  svg.append("g")
+    .call(d3.axisLeft(y).tickSize(-width*1.3).ticks(7))
+    .select(".domain").remove()
+
+  // Customization
+  svg.selectAll(".tick line").attr("stroke", "grey")
+
+  // Add X axis label:
+  svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("x", width/2 + margin.left)
+      .attr("y", height + margin.top + 20)
+      .text("Flipper Length (mm)");
+
+  // Y axis label:
+  svg.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 20)
+      .attr("x", -margin.top - height/2 + 20)
+      .text("Body Mass (g)")
+
+  // Color scale: give me a specie name, I return a color
+  var color = d3.scaleOrdinal()
+    .domain(["Adelie", "Gentoo", "Chinstrap" ])
+    .range([ "#fba044", "#479f9f", "#9933cb"])
+
+
+var highlight = function(d){
+    selected_specie = d.species
+
+    console.log(selected_specie)
+    
+    d3.selectAll(".dot")
+    .transition()
+    .duration(200)
+    .style("fill", "lightgrey")
+    .attr("r", function (d) {return (d.bill_length_mm / 10) ** 1.25;})
+
+    d3.selectAll("." + selected_specie)
+    .transition()
+    .duration(200)
+    .style("fill", color(selected_specie))
+    .attr("r", function (d) {return (d.bill_length_mm / 10) ** 1.25;})
+}
+
+  // Add dots
+  svg.append('g')
+    .selectAll("dot")
+    .data(data)
+    .enter()
+    .append("circle")
+        .attr("cx", function (d) {return x(d.flipper_length_mm);})
+        .attr("cy", function (d) {return y(d.body_mass_g);})
+        .attr("r", function (d) {return (d.bill_length_mm / 10) ** 1.25;})
+        .attr("class", function (d) { return "dot " + d.species } )
+        .attr("opacity", "0.7")
+        .style("fill", function (d) { return color(d.species) } )
+    .on("mouseover", highlight)
+
+let legend = d3.select("#legend").append("svg");
+
+legend.append("text").attr("x", 40).attr("y", 30).text("species");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", 6)
+    .style("fill", "#479f9f");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 70)
+    .attr("r", 6)
+    .style("fill", "#9933cb");
+  legend
+    .append("circle")
+    .attr("cx", 50)
+    .attr("cy", 90)
+    .attr("r", 6)
+    .style("fill", "#fba044");
+  legend
+    .append("text")
+    .attr("x", 60)
+    .attr("y", 50)
+    .text("Gentoo")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+  legend
+    .append("text")
+    .attr("x", 60)
+    .attr("y", 70)
+    .text("Chinstrap")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+  legend
+    .append("text")
+    .attr("x", 60)
+    .attr("y", 90)
+    .text("Adelie")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+    
+legend.append("text").attr("x", 200).attr("y", 30).text("bill_length_mm");
+
+legend
+    .append("circle")
+    .attr("cx", 210)
+    .attr("cy", 50)
+    .attr("r", (40 / 10) ** 1.25)
+    .style("fill", "grey");
+  legend
+    .append("circle")
+    .attr("cx", 210)
+    .attr("cy", 70)
+    .attr("r", (50 / 10) ** 1.25)
+    .style("fill", "grey");
+  legend
+    .append("text")
+    .attr("x", 220)
+    .attr("y", 50)
+    .text("40")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+  legend
+    .append("text")
+    .attr("x", 220)
+    .attr("y", 70)
+    .text("50")
+    .style("font-size", "15px")
+    .attr("alignment-baseline", "middle");
+
+})
+
+</script>
