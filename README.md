@@ -1,7 +1,5 @@
 # Penguin Data Visualization Project
 
-Welcome to the Penguin Data Visualization Project! This project aims to visually explore penguin dataset characteristics through various visualization libraries and tools. Each tool offered unique insights and challenges, enriching the learning experience.
-
 ## Visualization Tools Used
 
 - **Excel**
