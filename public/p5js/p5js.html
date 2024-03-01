@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Penguin Data Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            padding-top: 20px;
+        }
+
+        #visualization-container {
+            display: flex;
+        }
+
+        #legend {
+            margin-left: 20px;
+            padding: 10px;
+            position: fixed;
+            left: 1040px;
+            top: 200px;
+        }
+
+        #legend h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="visualization-container">
+        <div id="p5-canvas"></div>
+        <div id="legend"></div>
+    </div>
+    <script>
+        let csvData = [];
+        const speciesColors = {
+            Adelie: 'rgba(255, 144, 19, 0.5)',
+            Chinstrap: 'rgba(153, 50, 204, 0.5)',
+            Gentoo: 'rgba(0, 138, 139, 0.5)'
+        };
+
+        async function preload() {
+            Papa.parse("../penglings.csv", {
+                download: true,
+                header: true,
+                dynamicTyping: true,
+                complete: function (results) {
+                    csvData = results.data;
+                }
+            });
+        }
+
+        async function setup() {
+            await preload();
+            createCanvas(600, 400);
+            noLoop();
+            drawLegendHTML();
+        }
+
+        function draw() {
+            background(255);
+            drawAxes();
+            drawDataPoints();
+        }
+
+        function drawAxes() {
+            const margin = 50;
+            const numXTicks = 10;
+            const numYTicks = 8;
+            const xTickSpacing = (width - margin * 2) / numXTicks;
+            const yTickSpacing = (height - margin * 2) / numYTicks;
+            const tickSize = 5;
+
+            stroke(0);
+            fill(0);
+
+            line(margin, height - margin, width - margin, height - margin);
+            line(margin, height - margin, margin, margin);
+
+            for (let i = 0; i <= numXTicks; i++) {
+                const x = margin + i * xTickSpacing;
+                line(x, height - margin, x, height - margin + tickSize);
+                textAlign(CENTER, TOP);
+                const label = map(i, 0, numXTicks, 169, 234);
+                noStroke();
+                text(label.toFixed(0), x, height - margin + tickSize);
+            }
+
+            for (let i = 0; i <= numYTicks; i++) {
+                const y = height - margin - i * yTickSpacing;
+                line(margin - tickSize, y, margin, y);
+                textAlign(RIGHT, CENTER);
+                const label = map(i, 0, numYTicks, 2500, 6000);
+                noStroke();
+                text(label.toFixed(0), margin - tickSize * 2, y);
+            }
+
+            push();
+            translate(margin / 10, height / 2);
+            rotate(-HALF_PI);
+            textAlign(CENTER, CENTER);
+            text("Body Mass (g)", 0, 0);
+            pop();
+
+            textAlign(CENTER, CENTER);
+            text("Flipper Length (mm)", width / 2, height - margin / 4);
+        }
+
+        function drawDataPoints() {
+            const margin = 50;
+            const xMin = 169, xMax = 234;
+            const yMin = 2500, yMax = 6000;
+
+            csvData.forEach(item => {
+                const x = map(item.flipper_length_mm, xMin, xMax, margin, width - margin);
+                const y = map(item.body_mass_g, yMin, yMax, height - margin, margin);
+                fill(speciesColors[item.species]);
+                noStroke();
+                ellipse(x, y, 10, 10);
+            });
+        }
+
+        function drawLegendHTML() {
+            const legendDiv = document.getElementById('legend');
+            legendDiv.innerHTML = '<h4>species</h4>';
+            Object.keys(speciesColors).forEach(species => {
+                const color = speciesColors[species];
+                const item = `<div style="margin-bottom: 5px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background-color: ${color};"></span>
+                    <span style="margin-left: 5px;">${species}</span>
+                </div>`;
+                legendDiv.innerHTML += item;
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Penguin Data Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        .circle {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .legend circle {
+            fill: black;
+            stroke: none;
+        }
+
+        .legend text {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; align-items: start; padding: 20px;">
+        <div style="width: 600px; height: 400px;">
+            <svg id="myChart"></svg>
+        </div>
+        <div style="margin-left: 20px; width: 200px;">
+            <h4>bill_length_mm</h4>
+            <svg id="billLengthLegend"></svg>
+            <h4>species</h4>
+            <div id="speciesLegend" style="display: flex; flex-direction: column;">
+                <div><span class="circle" style="background-color: rgba(255, 144, 19, 0.7);"></span> Adelie</div>
+                <div><span class="circle" style="background-color: rgba(153, 50, 204, 0.7);"></span> Chinstrap</div>
+                <div><span class="circle" style="background-color: rgba(0, 138, 139, 0.7);"></span> Gentoo</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const csvData = "../penglings.csv";
+    const speciesColors = {
+        Adelie: 'rgba(255, 144, 19, 0.7)',
+        Chinstrap: 'rgba(153, 50, 204, 0.7)',
+        Gentoo: 'rgba(0, 138, 139, 0.7)'
+    };
+
+    function transformData(data) {
+        return data.map(item => ({
+            flipper_length_mm: item.flipper_length_mm,
+            body_mass_g: item.body_mass_g,
+            bill_length_mm: item.bill_length_mm,
+            species: item.species
+        }));
+    }
+
+    function createChart(data) {
+        const margin = { top: 20, right: 20, bottom: 60, left: 60 },
+            width = 600 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+        const x = d3.scaleLinear()
+            .domain([169, 234])
+            .range([0, width]);
+
+        const y = d3.scaleLinear()
+            .domain([2500, 6500])
+            .range([height, 0]);
+
+        const svg = d3.select("#myChart")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        // X-axis
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+        // X-axis title
+        svg.append("text")
+            .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .text("Flipper Length (mm)");
+
+        // Y-axis
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        // Y-axis title
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x", 0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Body Mass (g)");
+
+        // Data points
+        svg.selectAll(".dot")
+            .data(transformData(data))
+            .enter().append("circle")
+            .attr("r", d => d.bill_length_mm / 5)
+            .attr("cx", d => x(d.flipper_length_mm))
+            .attr("cy", d => y(d.body_mass_g))
+            .style("fill", d => speciesColors[d.species]);
+
+        createLegend();
+    }
+
+    function createLegend() {
+        const svg = d3.select("#billLengthLegend")
+            .attr("width", 200)
+            .attr("height", 100);
+
+        const sizes = [40, 50]; // Example sizes for legend
+        const legend = svg.selectAll(".legend")
+            .data(sizes)
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", (d, i) => "translate(0," + i * 25 + ")");
+
+        legend.append("circle")
+            .attr("cx", 10)
+            .attr("cy", 10)
+            .attr("r", d => d / 5);
+
+        legend.append("text")
+            .attr("x", 30)
+            .attr("y", 15)
+            .text(d => d);
+    }
+
+    fetch(csvData)
+        .then(response => response.text())
+        .then(csvText => {
+            Papa.parse(csvText, {
+                header: true,
+                dynamicTyping: true,
+                complete: function (results) {
+                    createChart(results.data);
+                }
+            });
+        });
+</script>
+
+</html>
