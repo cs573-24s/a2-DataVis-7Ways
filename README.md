@@ -17,7 +17,7 @@ Welcome to the Penguin Data Visualization Project! This project aims to visually
 ### Excel
 The journey began with Excel, where initial struggles were faced, particularly with formatting the CSV to suit Excel's requirements. Inspiration and guidance were found by reviewing classmates' pull requests, leading to key adjustments that facilitated the visualization process. Unfortunately, displaying a bubble size legend proved elusive in Excel.
 
-- **Visualization Link**: ![Excel Visualization Placeholder](link-to-excel-visualization)
+- **Visualization Link**: ![Excel Visualization Placeholder](public/chartjs/chartjs_screenshot.png)
 
 ### Chart.js
 Next, the focus shifted to Chart.js, a familiar territory. The visualization was crafted within an HTML file, utilizing PapaParse for CSV parsing, resulting in a seamless experience.
