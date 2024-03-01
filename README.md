@@ -50,5 +50,3 @@ Finally, Matplotlib provided a rewarding conclusion to the visualization journey
 ## Reflections and Learnings
 
 Each tool and library presented unique challenges and learning opportunities, from data preprocessing in Excel to async/await issues in p5.js, and from familiar ease in Chart.js to new insights in Matplotlib. This project not only enhanced my data visualization skills across a spectrum of tools but also underscored the importance of flexibility and persistence in data science.
-
-Thank you for exploring the Penguin Data Visualization Project.
