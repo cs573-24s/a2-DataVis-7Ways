@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Penguin Data Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        .circle {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; align-items: start; padding: 20px;">
+        <div style="width: 600px; height: 400px;">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div style="margin-left: 20px; width: 200px;">
+            <h4>bill_length_mm</h4>
+            <canvas id="billLengthLegend" width="100" height="30"></canvas>
+            <h4>species</h4>
+            <div id="speciesLegend" style="display: flex; flex-direction: column;">
+                <div><span class="circle" style="background-color: rgba(255, 144, 19, 0.7);"></span> Adelie</div>
+                <div><span class="circle" style="background-color: rgba(153, 50, 204, 0.7);"></span> Chinstrap</div>
+                <div><span class="circle" style="background-color: rgba(0, 138, 139, 0.7);"></span> Gentoo</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const csvData = "../penglings.csv";
+    const speciesColors = {
+        Adelie: 'rgba(255, 144, 19, 0.5)',
+        Chinstrap: 'rgba(153, 50, 204, 0.5)',
+        Gentoo: 'rgba(0, 138, 139, 0.5)'
+    };
+
+    function transformData(data) {
+        return data.map(item => ({
+            x: item.flipper_length_mm,
+            y: item.body_mass_g,
+            r: item.bill_length_mm / 5,
+            backgroundColor: speciesColors[item.species]
+        }));
+    }
+
+    function createChart(data) {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Penguins',
+                    data: transformData(data),
+                    backgroundColor: function (context) {
+                        return context.dataset.data[context.dataIndex].backgroundColor;
+                    }
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Flipper Length (mm)'
+                        },
+                        min: 169,
+                        max: 234
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Body Mass (g)'
+                        },
+                        min: 2500,
+                        max: 6500
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+
+    function createLegendChart() {
+        const ctx = document.getElementById('billLengthLegend').getContext('2d');
+        new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Bill Length',
+                    data: [{ x: 0, y: 20, r: 40 / 5 }, { x: 0, y: 10, r: 50 / 5 }],
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)'
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { display: false },
+                    title: { display: false },
+                },
+                scales: {
+                    x: { display: false },
+                    y: {
+                        display: true,
+                        grid: {
+                            color: 'white'
+                        },
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return value === 20 ? '40' : value === 10 ? '50' : '';
+                            },
+                            color: 'black',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: true,
+            }
+        });
+    }
+
+    fetch('../penglings.csv')
+        .then(response => response.text())
+        .then(csvText => {
+            Papa.parse(csvText, {
+                header: true,
+                dynamicTyping: true,
+                complete: function (results) {
+                    createChart(results.data);
+                    createLegendChart();
+                }
+            });
+        });
+</script>
+
+</html>
